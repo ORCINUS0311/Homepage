@@ -499,8 +499,10 @@ export default function OrcinusLanding() {
             <div className="flex items-center gap-2">
               {showLogo ? (
                 <>
-                  <img src="/favicon.ico" alt="Orcinus" className="w-8 h-8 object-contain" />
-                  <span className="font-bold text-slate-800 text-lg">Orcinus</span>
+                  <div className="w-6 h-8">
+                    <OrcaFinIllustration className="w-full h-full" />
+                  </div>
+                  <span className="font-bold text-slate-800 text-lg" style={{fontFamily: "'Space Grotesk', sans-serif"}}>Orcinus</span>
                 </>
               ) : (
                 <>
@@ -1196,7 +1198,7 @@ export default function OrcinusLanding() {
                   </div>
                   
                   <div className="flex flex-wrap justify-center md:justify-start gap-2">
-                    <span className="px-3 py-1.5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-full text-sm font-medium shadow-sm">전체 통합 시 할인</span>
+                    <span className="px-3 py-1.5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-full text-sm font-medium shadow-sm">전체 통합 시 시너지 극대화</span>
                     <span className="px-3 py-1.5 bg-slate-100 text-slate-600 rounded-full text-sm font-medium">단계별 확장 가능</span>
                   </div>
                 </div>
@@ -1803,7 +1805,7 @@ export default function OrcinusLanding() {
           <div className="text-center mb-14">
             <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-sm font-semibold mb-4">ABOUT ORCINUS</span>
             <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              자산운용의 정점
+              자산운용의 새로운 기준
             </h2>
             <p className="text-slate-600 text-base max-w-2xl mx-auto">
               Orcinus는 국내 최고 수준의 자산운용 인프라를 제공합니다.<br/>
@@ -1931,8 +1933,7 @@ export default function OrcinusLanding() {
               
               <div className="space-y-8">
                 {[
-                  { year: "2024", title: "Orca 정식 런칭", desc: "자산운용사 대상 통합 트레이딩 시스템 출시" },
-                  { year: "2023", title: "Orcinus 설립", desc: "금융 IT 전문가들이 모여 회사 설립" },
+                  { year: "2026.4", title: "Orcinus 설립 & Orca 런칭", desc: "금융 IT 전문가들이 모여 회사 설립, 통합 트레이딩 시스템 출시" },
                 ].map((item, i) => (
                   <div key={i} className={`flex items-center gap-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                     <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
@@ -1956,15 +1957,16 @@ export default function OrcinusLanding() {
             </p>
             <div className="flex justify-center gap-6 flex-wrap">
               {[
-                { role: "CEO", expertise: "자산운용 20년" },
-                { role: "CTO", expertise: "금융IT 15년" },
-                { role: "CPO", expertise: "트레이딩 시스템 전문" },
+                { role: "CEO", name: "김태훈", expertise: "자산운용 20년" },
+                { role: "CTO", name: "", expertise: "금융IT 15년" },
+                { role: "CPO", name: "", expertise: "트레이딩 시스템 전문" },
               ].map((member, i) => (
                 <div key={i} className="bg-white/5 rounded-2xl p-6 border border-white/10 min-w-[150px]">
                   <div className="w-16 h-16 bg-gradient-to-br from-slate-600 to-slate-700 rounded-full mx-auto mb-4 flex items-center justify-center">
                     <span className="text-2xl">👤</span>
                   </div>
                   <h4 className="text-white font-bold">{member.role}</h4>
+                  {member.name && <p className="text-cyan-400 text-sm">{member.name}</p>}
                   <p className="text-slate-400 text-sm mt-1">{member.expertise}</p>
                 </div>
               ))}
@@ -1975,8 +1977,8 @@ export default function OrcinusLanding() {
 
       {/* 고객사 섹션 */}
       <section className="relative py-16 px-6 bg-white border-t border-slate-100">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10 scroll-fade-in">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12 scroll-fade-in">
             <span className="inline-block px-4 py-1.5 rounded-full bg-slate-100 text-slate-600 text-sm font-semibold mb-4">OUR CLIENTS</span>
             <h2 className="text-2xl md:text-3xl font-black text-[#0F172A] mb-3" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
               함께하는 <span className="text-cyan-600">고객사</span>
@@ -1986,48 +1988,87 @@ export default function OrcinusLanding() {
             </p>
           </div>
           
-          {/* 고객사 로고 */}
+          {/* 고객사 로고 그리드 */}
           <div className="scroll-fade-in">
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-              {[
-                { name: "타임폴리오자산운용", highlight: true },
-                { name: "타이거자산운용", highlight: true },
-                { name: "파인밸류자산운용", highlight: false },
-                { name: "에셋원자산운용", highlight: false },
-                { name: "쿼드자산운용", highlight: false },
-              ].map((client, i) => (
-                <div 
-                  key={i}
-                  className={`group px-6 py-4 rounded-xl transition-all duration-300 ${
-                    client.highlight 
-                      ? 'bg-gradient-to-br from-cyan-50 to-blue-50 border-2 border-cyan-200 hover:border-cyan-400 hover:shadow-lg' 
-                      : 'bg-slate-50 border border-slate-200 hover:border-slate-300 hover:shadow-md'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                      client.highlight 
-                        ? 'bg-gradient-to-br from-cyan-500 to-blue-600' 
-                        : 'bg-slate-300'
-                    }`}>
-                      <span className="text-white font-bold text-sm">{client.name.charAt(0)}</span>
-                    </div>
-                    <span className={`font-semibold ${client.highlight ? 'text-slate-800' : 'text-slate-600'}`}>
-                      {client.name}
-                    </span>
-                  </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+              {/* 타임폴리오자산운용 */}
+              <div className="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-cyan-300 hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center min-h-[140px]">
+                <div className="w-full h-16 flex items-center justify-center mb-3">
+                  <svg viewBox="0 0 200 50" className="h-10 w-auto">
+                    <rect x="0" y="10" width="30" height="30" rx="4" fill="#1E3A8A"/>
+                    <text x="40" y="32" fontFamily="'Noto Sans KR', sans-serif" fontSize="14" fontWeight="700" fill="#1E3A8A">타임폴리오</text>
+                    <text x="40" y="46" fontFamily="'Noto Sans KR', sans-serif" fontSize="10" fill="#64748B">자산운용</text>
+                  </svg>
                 </div>
-              ))}
+                <span className="text-xs text-slate-400 group-hover:text-cyan-600 transition-colors">Timefolio Asset Management</span>
+              </div>
+              
+              {/* 타이거자산운용 */}
+              <div className="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-orange-300 hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center min-h-[140px]">
+                <div className="w-full h-16 flex items-center justify-center mb-3">
+                  <svg viewBox="0 0 200 50" className="h-10 w-auto">
+                    <circle cx="20" cy="25" r="15" fill="#F97316"/>
+                    <text x="8" y="30" fontFamily="Arial" fontSize="14" fontWeight="bold" fill="white">T</text>
+                    <text x="45" y="32" fontFamily="'Noto Sans KR', sans-serif" fontSize="14" fontWeight="700" fill="#F97316">타이거</text>
+                    <text x="45" y="46" fontFamily="'Noto Sans KR', sans-serif" fontSize="10" fill="#64748B">자산운용</text>
+                  </svg>
+                </div>
+                <span className="text-xs text-slate-400 group-hover:text-orange-600 transition-colors">Tiger Asset Management</span>
+              </div>
+              
+              {/* 파인밸류자산운용 */}
+              <div className="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-green-300 hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center min-h-[140px]">
+                <div className="w-full h-16 flex items-center justify-center mb-3">
+                  <svg viewBox="0 0 200 50" className="h-10 w-auto">
+                    <path d="M5 40 L20 10 L35 40 Z" fill="#059669"/>
+                    <text x="45" y="32" fontFamily="'Noto Sans KR', sans-serif" fontSize="14" fontWeight="700" fill="#059669">파인밸류</text>
+                    <text x="45" y="46" fontFamily="'Noto Sans KR', sans-serif" fontSize="10" fill="#64748B">자산운용</text>
+                  </svg>
+                </div>
+                <span className="text-xs text-slate-400 group-hover:text-green-600 transition-colors">Fine Value Asset Management</span>
+              </div>
+              
+              {/* 에셋원자산운용 */}
+              <div className="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center min-h-[140px]">
+                <div className="w-full h-16 flex items-center justify-center mb-3">
+                  <svg viewBox="0 0 200 50" className="h-10 w-auto">
+                    <rect x="5" y="15" width="25" height="25" rx="12" fill="#3B82F6"/>
+                    <text x="12" y="33" fontFamily="Arial" fontSize="14" fontWeight="bold" fill="white">1</text>
+                    <text x="40" y="32" fontFamily="'Noto Sans KR', sans-serif" fontSize="14" fontWeight="700" fill="#3B82F6">에셋원</text>
+                    <text x="40" y="46" fontFamily="'Noto Sans KR', sans-serif" fontSize="10" fill="#64748B">자산운용</text>
+                  </svg>
+                </div>
+                <span className="text-xs text-slate-400 group-hover:text-blue-600 transition-colors">AssetOne Asset Management</span>
+              </div>
+              
+              {/* 쿼드자산운용 */}
+              <div className="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-purple-300 hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center min-h-[140px]">
+                <div className="w-full h-16 flex items-center justify-center mb-3">
+                  <svg viewBox="0 0 200 50" className="h-10 w-auto">
+                    <rect x="5" y="10" width="12" height="12" fill="#8B5CF6"/>
+                    <rect x="19" y="10" width="12" height="12" fill="#A78BFA"/>
+                    <rect x="5" y="24" width="12" height="12" fill="#A78BFA"/>
+                    <rect x="19" y="24" width="12" height="12" fill="#8B5CF6"/>
+                    <text x="40" y="32" fontFamily="'Noto Sans KR', sans-serif" fontSize="14" fontWeight="700" fill="#8B5CF6">쿼드</text>
+                    <text x="40" y="46" fontFamily="'Noto Sans KR', sans-serif" fontSize="10" fill="#64748B">자산운용</text>
+                  </svg>
+                </div>
+                <span className="text-xs text-slate-400 group-hover:text-purple-600 transition-colors">Quad Asset Management</span>
+              </div>
+              
+              {/* 더 많은 고객사 */}
+              <div className="group bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-6 border border-dashed border-slate-300 hover:border-cyan-400 transition-all duration-300 flex flex-col items-center justify-center min-h-[140px]">
+                <div className="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center mb-3 group-hover:bg-cyan-100 transition-colors">
+                  <span className="text-slate-400 text-2xl group-hover:text-cyan-600">+</span>
+                </div>
+                <span className="text-sm text-slate-500 font-medium">더 많은 고객사</span>
+                <span className="text-xs text-slate-400 mt-1">준비 중</span>
+              </div>
             </div>
             
             {/* 추가 안내 */}
             <div className="mt-10 text-center">
               <p className="text-slate-400 text-sm mb-4">그 외 다수의 자산운용사, 투자자문사가 Orca를 사용하고 있습니다</p>
-              <div className="inline-flex items-center gap-2 text-cyan-600 text-sm font-medium">
-                <span>●</span>
-                <span>도입 문의는 하단 양식을 이용해주세요</span>
-                <span>●</span>
-              </div>
             </div>
           </div>
         </div>
