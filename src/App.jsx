@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // Orcinus Logo Component
 const OrcinusLogo = ({ dark = false, size = "default" }) => {
