@@ -5,13 +5,6 @@
       <stop offset="100%" stop-color="#2E4A6F"/>
     </linearGradient>
   </defs>
-  <!-- 밝은 테두리 -->
-  <path d="M25 95 Q30 45 50 10 Q55 5 60 10 Q80 45 85 95 Z" 
-        fill="none" 
-        stroke="rgba(255,255,255,0.85)" 
-        stroke-width="6"
-        stroke-linejoin="round"/>
-  <!-- 기존 지느러미 -->
   <path d="M25 95 Q30 45 50 10 Q55 5 60 10 Q80 45 85 95 Z" fill="url(#finGrad)"/>
   <path d="M30 85 Q50 75 65 85 Q75 90 85 85" stroke="#4FC3F7" stroke-width="4" fill="none" stroke-linecap="round"/>
 </svg>
