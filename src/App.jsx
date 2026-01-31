@@ -207,7 +207,7 @@ export default function OrcinusLanding() {
         btn2: '서비스 소개서'
       },
       footer: {
-        company: '(주) 오르시너스',
+        company: '(주) Orcinus',
         address: '서울특별시 영등포구',
         copy: '© 2025 Orcinus. All rights reserved.'
       },
@@ -499,10 +499,8 @@ export default function OrcinusLanding() {
             <div className="flex items-center gap-2">
               {showLogo ? (
                 <>
-                  <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-black text-sm">O</span>
-                  </div>
-                  <span className="font-bold text-slate-800 text-lg" style={{fontFamily: "'Space Grotesk', sans-serif"}}>Orcinus</span>
+                  <img src="/favicon.ico" alt="Orcinus" className="w-8 h-8 object-contain" />
+                  <span className="font-bold text-slate-800 text-lg">Orcinus</span>
                 </>
               ) : (
                 <>
@@ -659,7 +657,7 @@ export default function OrcinusLanding() {
             <p className="text-lg text-slate-600 mb-4 lg:mb-6 leading-relaxed max-w-md">
               {showLogo ? (
                 <>
-                  <span className="font-semibold text-slate-800">Orcinus (오르시누스)</span><br/>
+                  <span className="font-semibold text-slate-800">Orcinus</span><br/>
                   금융 IT 전문가들이 만든 자산운용 솔루션 기업입니다.
                 </>
               ) : (
@@ -1317,7 +1315,7 @@ export default function OrcinusLanding() {
         </div>
       </section>
 
-      {/* ETF 운용 지원 섹션 */}
+      {/* ETF 운용 시스템 섹션 */}
       <section className="relative py-20 px-6 bg-white overflow-hidden">
         {/* 배경 장식 */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-100 to-transparent rounded-full blur-3xl opacity-50"></div>
@@ -1325,9 +1323,9 @@ export default function OrcinusLanding() {
         
         <div className="relative max-w-6xl mx-auto">
           <div className="text-center mb-14 scroll-fade-in">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-purple-50 text-purple-700 text-sm font-semibold mb-4">ETF SOLUTION</span>
+            <span className="inline-block px-4 py-1.5 rounded-full bg-purple-50 text-purple-700 text-sm font-semibold mb-4">ETF SYSTEM</span>
             <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              Active & Passive <span className="gradient-text">ETF</span> 운용 지원
+              Active & Passive <span className="gradient-text">ETF</span> 운용 시스템
             </h2>
             <p className="text-slate-600 text-base max-w-lg mx-auto">
               복잡한 ETF 운용 업무를 자동화하고, 실시간으로 관리하세요
