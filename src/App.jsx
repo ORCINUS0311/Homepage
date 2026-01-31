@@ -1441,7 +1441,7 @@ export default function OrcinusLanding() {
                     이제 <span className="text-amber-600">중소형 운용사</span>도 ETF 운용이 가능합니다
                   </h3>
                   <p className="text-slate-600 mb-4">
-                    복잡한 PDF 관리, 실시간 NAV 계산, AP 연동... <br className="hidden md:block"/>
+                    복잡한 PDF 관리, 실시간 NAV 계산, AP 연동까지 <br className="hidden md:block"/>
                     ETF 운용의 높은 진입장벽을 Orca가 낮춰드립니다.
                   </p>
                   <div className="flex flex-wrap justify-center md:justify-start gap-2">
