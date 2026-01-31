@@ -122,6 +122,26 @@ export default function OrcinusLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [activeTab, setActiveTab] = useState('domestic');
+  const [countUp, setCountUp] = useState({ realtime: false, multi: false, check: false });
+
+  // 카운트업 애니메이션을 위한 ref
+  const statsRef = React.useRef(null);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+      
+      // Stats 섹션 카운트업 트리거
+      if (statsRef.current) {
+        const rect = statsRef.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.8) {
+          setCountUp({ realtime: true, multi: true, check: true });
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -200,6 +220,19 @@ export default function OrcinusLanding() {
         .btn-shine:hover::after {
           transform: rotate(30deg) translateX(100%);
         }
+        
+        @keyframes scroll-left {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        
+        .rolling-banner {
+          animation: scroll-left 25s linear infinite;
+        }
+        
+        .rolling-banner:hover {
+          animation-play-state: paused;
+        }
       `}</style>
 
       {/* Navigation */}
@@ -232,14 +265,14 @@ export default function OrcinusLanding() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      {/* Hero Section - 풀스크린 */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-cyan-50/40 to-blue-50/30"/>
         
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-80 h-80 bg-cyan-200/40 rounded-full blur-3xl"/>
-          <div className="absolute top-40 right-10 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl"/>
-          <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-indigo-200/20 rounded-full blur-3xl"/>
+          <div className="absolute top-20 left-10 w-80 h-80 bg-cyan-200/40 rounded-full blur-3xl animate-pulse"/>
+          <div className="absolute top-40 right-10 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}/>
+          <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-indigo-200/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}/>
         </div>
         
         <FloatingParticles />
@@ -277,38 +310,92 @@ export default function OrcinusLanding() {
             </div>
           </div>
           
-          <div className="relative hidden lg:flex items-center justify-center">
+          {/* 히어로 이미지 - 스크롤 시 지느러미 → 범고래 전환 */}
+          <div className="relative hidden lg:flex items-center justify-center min-h-[400px]">
             <div className="absolute w-[400px] h-[400px] bg-gradient-to-br from-cyan-300/20 to-blue-400/20 rounded-full blur-3xl"/>
-            <OrcaFinIllustration className="w-full max-w-sm relative z-10" />
+            
+            {/* 지느러미 SVG (스크롤 전) */}
+            <div 
+              className="absolute inset-0 flex justify-center items-center transition-all duration-700 ease-out"
+              style={{ 
+                opacity: scrollY < 150 ? 1 : 0,
+                transform: scrollY < 150 ? 'scale(1) rotate(0deg)' : 'scale(0.5) rotate(-20deg)',
+              }}
+            >
+              <OrcaFinIllustration className="w-full max-w-sm relative z-10" />
+            </div>
+            
+            {/* 범고래 이미지 (스크롤 후) */}
+            <div 
+              className="absolute inset-0 flex justify-center items-center transition-all duration-700 ease-out"
+              style={{ 
+                opacity: scrollY >= 150 ? 1 : 0,
+                transform: scrollY >= 150 ? 'scale(1) rotate(0deg)' : 'scale(0.5) rotate(20deg)',
+              }}
+            >
+              <img 
+                src="/orca-hero.png" 
+                alt="Orca - 자산운용의 모든 것" 
+                className="w-full max-w-md drop-shadow-2xl hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          </div>
+        </div>
+        
+        {/* 스크롤 힌트 */}
+        <div 
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 transition-opacity duration-500"
+          style={{ opacity: scrollY < 50 ? 1 : 0 }}
+        >
+          <span className="text-slate-400 text-xs font-medium">스크롤하여 Orca를 만나보세요</span>
+          <div className="w-6 h-10 rounded-full border-2 border-slate-300 flex justify-center pt-2">
+            <div className="w-1.5 h-3 bg-cyan-400 rounded-full animate-bounce"></div>
           </div>
         </div>
       </section>
 
+      {/* 무한 롤링 배너 */}
+      <section className="relative py-6 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+        <div className="flex rolling-banner whitespace-nowrap">
+          {[...Array(2)].map((_, idx) => (
+            <div key={idx} className="flex items-center gap-8 px-4">
+              {['실시간 기준가', 'PMS', 'OMS', 'EMS', '멀티매니저', '대차관리', 'Active ETF', '공매도 체크', 'Smart Order Routing', 'TWAP/VWAP', '실시간 손익', '해외 실시간 체결'].map((text, i) => (
+                <span key={i} className="flex items-center gap-3 text-white/80 text-sm font-medium">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
+                  {text}
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Client + Stats Section */}
-      <section className="relative py-12 px-6 bg-white border-y border-slate-100">
+      <section ref={statsRef} className="relative py-16 px-6 bg-white border-y border-slate-100">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
             {clients.map((client, i) => (
-              <div key={i} className="bg-slate-50 rounded-2xl px-5 py-3 flex items-center gap-3 shadow-sm hover:shadow-lg hover:scale-105 hover:-translate-y-1 transition-all duration-200 border border-slate-100 hover:border-cyan-200 cursor-pointer">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+              <div key={i} className="group bg-slate-50 rounded-2xl px-5 py-3 flex items-center gap-3 shadow-sm hover:shadow-xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 border border-slate-100 hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50 cursor-pointer">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
                   <Icon name={client.icon} className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-slate-800 font-semibold">{client.title}</span>
+                <span className="text-slate-800 font-semibold group-hover:text-cyan-700 transition-colors">{client.title}</span>
               </div>
             ))}
           </div>
           
           <div className="grid grid-cols-3 gap-6">
             {[
-              { value: "실시간", label: "기준가 산출" },
-              { value: "멀티", label: "매니저 운용" },
-              { value: "100%", label: "공매도 체크" },
+              { value: "실시간", label: "기준가 산출", icon: "⚡" },
+              { value: "멀티", label: "매니저 운용", icon: "👥" },
+              { value: "100%", label: "공매도 체크", icon: "✓" },
             ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-3xl md:text-4xl font-black text-[#0F172A] mb-1" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
+              <div key={i} className={`text-center p-6 rounded-2xl transition-all duration-700 ${countUp.realtime ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: `${i * 150}ms`}}>
+                <div className="text-4xl mb-2">{stat.icon}</div>
+                <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600 mb-2" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
                   {stat.value}
                 </div>
-                <div className="text-slate-500 text-sm font-medium">{stat.label}</div>
+                <div className="text-slate-600 font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -330,7 +417,8 @@ export default function OrcinusLanding() {
           
           <div className="grid md:grid-cols-2 gap-5">
             {features.map((feature, i) => (
-              <div key={i} className="hover-lift bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-cyan-200 hover:shadow-xl group cursor-pointer">
+              <div key={i} className="hover-lift bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 group cursor-pointer relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-4 shadow-md group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-200">
                   <Icon name={feature.icon} className="w-6 h-6 text-white" />
                 </div>
@@ -389,7 +477,7 @@ export default function OrcinusLanding() {
                 items: ["Active ETF 운용", "실시간 PDF 전송", "설정환매/리콜 관리"]
               },
             ].map((module, i) => (
-              <div key={i} className="hover-lift bg-white rounded-2xl p-5 shadow-sm border border-slate-100 hover:shadow-xl hover:border-cyan-200 relative overflow-hidden text-center cursor-pointer group">
+              <div key={i} className="hover-lift bg-white rounded-2xl p-5 shadow-sm border border-slate-100 hover:shadow-2xl hover:border-cyan-400 relative overflow-hidden text-center cursor-pointer group hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 transition-all duration-300">
                 <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${module.color}`}/>
                 
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${module.color} flex items-center justify-center mx-auto mb-3 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-200`}>
@@ -481,7 +569,7 @@ export default function OrcinusLanding() {
                   <div className="text-cyan-500 mt-1">→</div>
                 </div>
                 
-                <div className="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl px-10 py-6 shadow-xl text-center hover:scale-105 transition-all duration-200 hover:shadow-2xl hover:shadow-cyan-500/30">
+                <div className="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl px-10 py-6 shadow-xl text-center hover:scale-110 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/50 hover:-translate-y-2 cursor-pointer">
                   <div className="text-white font-black text-2xl">Orca</div>
                   <div className="text-cyan-100 text-sm">Trading System</div>
                 </div>
@@ -549,7 +637,7 @@ export default function OrcinusLanding() {
                   <div className="text-indigo-500 mt-1">→</div>
                 </div>
                 
-                <div className="bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl px-10 py-6 shadow-xl text-center hover:scale-105 transition-all duration-200 hover:shadow-2xl hover:shadow-indigo-500/30">
+                <div className="bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl px-10 py-6 shadow-xl text-center hover:scale-110 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/50 hover:-translate-y-2 cursor-pointer">
                   <div className="text-white font-black text-2xl">Orca</div>
                   <div className="text-indigo-100 text-sm">Trading System</div>
                 </div>
@@ -646,7 +734,8 @@ export default function OrcinusLanding() {
                 features: ["완전한 데이터 통제", "내부망 운영 가능", "자체 보안 정책 적용"]
               },
             ].map((option, i) => (
-              <div key={i} className="hover-lift bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-cyan-200 hover:shadow-xl text-center cursor-pointer group">
+              <div key={i} className="hover-lift bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl text-center cursor-pointer group hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 relative overflow-hidden transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${option.color} flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-200`}>
                   <Icon name={option.icon} className="w-8 h-8 text-white" />
                 </div>
@@ -695,7 +784,8 @@ export default function OrcinusLanding() {
               { value: "100%", label: "공매도 체크", desc: "차입/대여/대용 반영 실시간 잔고관리" },
               { value: "Web", label: "어디서든 접속", desc: "모바일/PC 설치 불필요" },
             ].map((stat, i) => (
-              <div key={i} className="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:border-cyan-200 hover:shadow-lg hover:scale-105 hover:-translate-y-1 transition-all duration-200 cursor-pointer">
+              <div key={i} className="group bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:scale-110 hover:-translate-y-3 transition-all duration-300 cursor-pointer hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
                 <div className="text-3xl font-black text-[#0F172A] mb-1" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
                   {stat.value}
                 </div>
