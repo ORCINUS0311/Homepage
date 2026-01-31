@@ -457,7 +457,7 @@ export default function OrcinusLanding() {
         {/* 인트로 동영상 */}
         {showIntro && (
           <div 
-            className={`absolute inset-0 z-20 bg-black flex items-center justify-center -mt-60 sm:mt-0 transition-opacity duration-500 ${introFading ? 'opacity-0' : 'opacity-100'}`}
+            className={`absolute inset-0 z-20 bg-black flex items-center justify-center transition-opacity duration-500 ${introFading ? 'opacity-0' : 'opacity-100'}`}
           >
             <video 
               autoPlay 
@@ -491,7 +491,7 @@ export default function OrcinusLanding() {
         
         <FloatingParticles />
 
-        <div className="relative max-w-6xl mx-auto px-6 pt-16 lg:pt-28 pb-4 lg:pb-16 flex flex-col-reverse lg:grid lg:grid-cols-2 gap-4 lg:gap-12 items-center">
+        <div className="relative max-w-6xl mx-auto px-6 pt-16 lg:pt-28 pb-4 lg:pb-16 lg:grid lg:grid-cols-2 gap-4 lg:gap-12 items-center">
           <div className="z-10">
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full text-sm font-medium mb-4 lg:mb-6 shadow-sm border border-slate-200">
               <span className="relative flex h-2 w-2">
@@ -511,6 +511,15 @@ export default function OrcinusLanding() {
               {txt.hero.desc}
             </p>
             
+            {/* 모바일: 돌고래 이미지 (설명과 버튼 사이) */}
+            <div className="lg:hidden flex justify-center items-center my-4">
+              <img 
+                src="/orca-hero.png" 
+                alt="Orca" 
+                className="drop-shadow-2xl w-48 sm:w-56"
+              />
+            </div>
+            
             <div className="flex flex-col sm:flex-row gap-3">
               <button className="group relative bg-gradient-to-r from-cyan-400 to-cyan-500 text-black px-7 py-3.5 rounded-xl text-base font-bold hover:from-cyan-300 hover:to-cyan-400 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/40 hover:-translate-y-1 active:scale-100 transition-all duration-200 shadow-md flex items-center justify-center gap-2">
                 <span className="relative">{txt.hero.cta1}</span>
@@ -522,18 +531,9 @@ export default function OrcinusLanding() {
             </div>
           </div>
           
-          {/* 히어로 이미지 - 스크롤 시 지느러미 → 범고래 전환 */}
-          <div className="relative flex items-center justify-center min-h-[150px] lg:min-h-[400px] mt-0 lg:mt-0">
+          {/* 히어로 이미지 - 데스크탑만 */}
+          <div className="relative hidden lg:flex items-center justify-center min-h-[400px]">
             <div className="absolute w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] bg-gradient-to-br from-cyan-300/20 to-blue-400/20 rounded-full blur-3xl"/>
-            
-            {/* 모바일: 고래만 보이기 */}
-            <div className="lg:hidden flex justify-center items-center">
-              <img 
-                src="/orca-hero.png" 
-                alt="Orca" 
-                className="drop-shadow-2xl w-48 sm:w-64"
-              />
-            </div>
             
             {/* 데스크탑: 지느러미 SVG만 보이기 (스크롤 전환 비활성화) */}
             <div className="absolute inset-0 hidden lg:flex justify-center items-center">
