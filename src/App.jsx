@@ -814,21 +814,51 @@ export default function OrcinusLanding() {
             ))}
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
-              { value: "실시간", label: "기준가 산출", icon: "⚡" },
-              { value: "멀티", label: "매니저 운용", icon: "👥" },
-              { value: "100%", label: "공매도 체크", icon: "✓" },
+              { value: "실시간", label: "기준가 산출", icon: "⚡", color: "from-cyan-400 to-cyan-600" },
+              { value: "멀티", label: "매니저 운용", icon: "👥", color: "from-blue-400 to-blue-600" },
+              { value: "100%", label: "공매도 체크", icon: "✓", color: "from-indigo-400 to-indigo-600" },
+              { value: "통합", label: "올인원 플랫폼", icon: "🔗", color: "from-violet-400 to-violet-600" },
             ].map((stat, i) => (
-              <div key={i} className={`text-center p-4 sm:p-6 rounded-2xl transition-all duration-700 ${countUp.realtime ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: `${i * 150}ms`}}>
-                <div className="text-3xl sm:text-4xl mb-2">{stat.icon}</div>
-                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600 mb-2" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
+              <div 
+                key={i} 
+                className={`group relative text-center p-6 rounded-2xl bg-white border border-slate-100 hover:border-transparent hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden ${countUp.realtime ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} 
+                style={{transitionDelay: `${i * 100}ms`}}
+              >
+                {/* 호버 시 배경 그라데이션 */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+                
+                {/* 원형 아이콘 */}
+                <div className={`relative w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br ${stat.color} flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300`}>
+                  <span className="text-2xl text-white">{stat.icon}</span>
+                  {/* 회전 링 */}
+                  <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-white/30 group-hover:animate-spin-slow transition-all duration-300"></div>
+                </div>
+                
+                {/* 값 */}
+                <div className={`text-2xl sm:text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r ${stat.color} mb-1 group-hover:scale-105 transition-transform duration-300`} style={{fontFamily: "'Space Grotesk', sans-serif"}}>
                   {stat.value}
                 </div>
-                <div className="text-slate-600 font-medium text-sm sm:text-base">{stat.label}</div>
+                
+                {/* 라벨 */}
+                <div className="text-slate-600 font-medium text-sm group-hover:text-slate-800 transition-colors">{stat.label}</div>
+                
+                {/* 하단 라인 애니메이션 */}
+                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${stat.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
               </div>
             ))}
           </div>
+          
+          <style>{`
+            @keyframes spin-slow {
+              from { transform: rotate(0deg); }
+              to { transform: rotate(360deg); }
+            }
+            .group-hover\\:animate-spin-slow:hover {
+              animation: spin-slow 3s linear infinite;
+            }
+          `}</style>
         </div>
       </section>
 
