@@ -1975,6 +1975,66 @@ export default function OrcinusLanding() {
         </div>
       </section>
 
+      {/* 고객사 섹션 */}
+      <section className="relative py-16 px-6 bg-white border-t border-slate-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10 scroll-fade-in">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-slate-100 text-slate-600 text-sm font-semibold mb-4">OUR CLIENTS</span>
+            <h2 className="text-2xl md:text-3xl font-black text-[#0F172A] mb-3" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
+              함께하는 <span className="text-cyan-600">고객사</span>
+            </h2>
+            <p className="text-slate-500 text-sm">
+              국내 선도 자산운용사들이 Orca와 함께합니다
+            </p>
+          </div>
+          
+          {/* 고객사 로고 */}
+          <div className="scroll-fade-in">
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+              {[
+                { name: "타임폴리오자산운용", highlight: true },
+                { name: "타이거자산운용", highlight: true },
+                { name: "파인밸류자산운용", highlight: false },
+                { name: "에셋원자산운용", highlight: false },
+                { name: "쿼드자산운용", highlight: false },
+              ].map((client, i) => (
+                <div 
+                  key={i}
+                  className={`group px-6 py-4 rounded-xl transition-all duration-300 ${
+                    client.highlight 
+                      ? 'bg-gradient-to-br from-cyan-50 to-blue-50 border-2 border-cyan-200 hover:border-cyan-400 hover:shadow-lg' 
+                      : 'bg-slate-50 border border-slate-200 hover:border-slate-300 hover:shadow-md'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                      client.highlight 
+                        ? 'bg-gradient-to-br from-cyan-500 to-blue-600' 
+                        : 'bg-slate-300'
+                    }`}>
+                      <span className="text-white font-bold text-sm">{client.name.charAt(0)}</span>
+                    </div>
+                    <span className={`font-semibold ${client.highlight ? 'text-slate-800' : 'text-slate-600'}`}>
+                      {client.name}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* 추가 안내 */}
+            <div className="mt-10 text-center">
+              <p className="text-slate-400 text-sm mb-4">그 외 다수의 자산운용사, 투자자문사가 Orca를 사용하고 있습니다</p>
+              <div className="inline-flex items-center gap-2 text-cyan-600 text-sm font-medium">
+                <span>●</span>
+                <span>도입 문의는 하단 양식을 이용해주세요</span>
+                <span>●</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section id="contact" className="relative py-20 px-6 bg-slate-50">
         <div className="max-w-3xl mx-auto">
