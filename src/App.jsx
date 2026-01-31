@@ -472,8 +472,8 @@ export default function OrcinusLanding() {
           </div>
           
           {/* 히어로 이미지 - 스크롤 시 지느러미 → 범고래 전환 */}
-          <div className="relative hidden lg:flex items-center justify-center min-h-[400px]">
-            <div className="absolute w-[400px] h-[400px] bg-gradient-to-br from-cyan-300/20 to-blue-400/20 rounded-full blur-3xl"/>
+          <div className="relative flex items-center justify-center min-h-[300px] lg:min-h-[400px] mt-8 lg:mt-0">
+            <div className="absolute w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] bg-gradient-to-br from-cyan-300/20 to-blue-400/20 rounded-full blur-3xl"/>
             
             {/* 지느러미 SVG (스크롤 전) */}
             <div 
@@ -483,7 +483,7 @@ export default function OrcinusLanding() {
                 transform: scrollY < 150 ? 'scale(1) rotate(0deg)' : 'scale(0.5) rotate(-20deg)',
               }}
             >
-              <OrcaFinIllustration className="w-full max-w-sm relative z-10" />
+              <OrcaFinIllustration className="w-48 sm:w-64 lg:w-full lg:max-w-sm relative z-10" />
             </div>
             
             {/* 범고래 이미지 (스크롤 후) */}
@@ -498,11 +498,10 @@ export default function OrcinusLanding() {
                 <img 
                   src="/orca-hero.png" 
                   alt="Orca - 자산운용의 모든 것" 
-                  className="drop-shadow-2xl"
-                  style={{width: '500px', maxWidth: 'none'}}
+                  className="drop-shadow-2xl w-72 sm:w-80 lg:w-[500px]"
                 />
                 {/* 바다 효과 */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 sm:w-80 lg:w-96">
                   <svg viewBox="0 0 400 80" className="w-full">
                     <defs>
                       <linearGradient id="seaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -598,18 +597,18 @@ export default function OrcinusLanding() {
             ))}
           </div>
           
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               { value: "실시간", label: "기준가 산출", icon: "⚡" },
               { value: "멀티", label: "매니저 운용", icon: "👥" },
               { value: "100%", label: "공매도 체크", icon: "✓" },
             ].map((stat, i) => (
-              <div key={i} className={`text-center p-6 rounded-2xl transition-all duration-700 ${countUp.realtime ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: `${i * 150}ms`}}>
-                <div className="text-4xl mb-2">{stat.icon}</div>
-                <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600 mb-2" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
+              <div key={i} className={`text-center p-4 sm:p-6 rounded-2xl transition-all duration-700 ${countUp.realtime ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: `${i * 150}ms`}}>
+                <div className="text-3xl sm:text-4xl mb-2">{stat.icon}</div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600 mb-2" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
                   {stat.value}
                 </div>
-                <div className="text-slate-600 font-medium">{stat.label}</div>
+                <div className="text-slate-600 font-medium text-sm sm:text-base">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -769,67 +768,67 @@ export default function OrcinusLanding() {
 
           {/* 국내 주문 다이어그램 */}
           {activeTab === 'domestic' && (
-            <div className="bg-gradient-to-br from-slate-50 via-white to-cyan-50 rounded-3xl p-10 border border-slate-200 shadow-sm">
+            <div className="bg-gradient-to-br from-slate-50 via-white to-cyan-50 rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
               {/* Row 1: 자산운용사 → Orca */}
-              <div className="flex justify-center items-center gap-6 mb-8">
-                <div className="bg-white rounded-2xl px-8 py-5 shadow-lg border border-slate-200 text-center hover:scale-105 transition-all duration-200">
-                  <div className="text-3xl mb-2">🏢</div>
-                  <div className="font-bold text-slate-800">자산운용사</div>
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mb-8">
+                <div className="bg-white rounded-2xl px-6 sm:px-8 py-4 sm:py-5 shadow-lg border border-slate-200 text-center">
+                  <div className="text-2xl sm:text-3xl mb-2">🏢</div>
+                  <div className="font-bold text-slate-800 text-sm sm:text-base whitespace-nowrap">자산운용사</div>
                 </div>
                 
                 <div className="flex flex-col items-center">
                   <span className="text-xs text-slate-400 mb-1">주문</span>
-                  <div className="w-20 h-1 bg-gradient-to-r from-slate-300 via-cyan-400 to-cyan-500 rounded-full"></div>
-                  <div className="text-cyan-500 mt-1">→</div>
+                  <div className="w-12 sm:w-20 h-1 bg-gradient-to-r from-slate-300 via-cyan-400 to-cyan-500 rounded-full"></div>
+                  <div className="text-cyan-500 mt-1 rotate-90 sm:rotate-0">→</div>
                 </div>
                 
-                <div className="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl px-10 py-6 shadow-xl text-center hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/50 hover:-translate-y-2 cursor-pointer">
-                  <div className="text-white font-black text-2xl">Orca</div>
-                  <div className="text-cyan-100 text-sm">Trading System</div>
+                <div className="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl px-8 sm:px-10 py-5 sm:py-6 shadow-xl text-center">
+                  <div className="text-white font-black text-xl sm:text-2xl">Orca</div>
+                  <div className="text-cyan-100 text-xs sm:text-sm whitespace-nowrap">Trading System</div>
                 </div>
               </div>
 
               {/* Row 2: 분기점 */}
               <div className="flex justify-center mb-8">
-                <div className="w-1 h-12 bg-gradient-to-b from-cyan-400 to-cyan-500 rounded-full"></div>
+                <div className="w-1 h-8 sm:h-12 bg-gradient-to-b from-cyan-400 to-cyan-500 rounded-full"></div>
               </div>
 
-              {/* Row 3: STP Hub 중심으로 분기 */}
+              {/* Row 3: STP Hub */}
               <div className="flex justify-center items-center gap-8 mb-8">
-                <div className="bg-cyan-100 rounded-2xl px-6 py-4 border-2 border-cyan-300 text-center shadow-md hover:scale-105 transition-all duration-200">
-                  <div className="font-bold text-cyan-700">STP Hub</div>
+                <div className="bg-cyan-100 rounded-2xl px-5 sm:px-6 py-3 sm:py-4 border-2 border-cyan-300 text-center shadow-md">
+                  <div className="font-bold text-cyan-700 text-sm sm:text-base whitespace-nowrap">STP Hub</div>
                 </div>
               </div>
 
-              {/* Row 4: 세 갈래 - 증권사, 거래소, 사무수탁사 */}
-              <div className="flex justify-center gap-4 mb-6">
+              {/* Row 4: 세 갈래 라인 */}
+              <div className="hidden sm:flex justify-center gap-4 mb-6">
                 <div className="w-1/3 h-0.5 bg-gradient-to-r from-transparent via-cyan-300 to-cyan-400 rounded-full"></div>
                 <div className="w-1/3 h-0.5 bg-gradient-to-l from-transparent via-cyan-300 to-cyan-400 rounded-full"></div>
               </div>
 
-              <div className="grid grid-cols-3 gap-6">
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 text-center hover:scale-105 hover:shadow-xl transition-all duration-200">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                    <span className="text-white text-xl">🏛️</span>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+                <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-slate-200 text-center">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
+                    <span className="text-white text-lg sm:text-xl">🏛️</span>
                   </div>
-                  <div className="font-bold text-slate-800">증권사</div>
-                  <div className="text-slate-400 text-xs mt-1">주문 처리</div>
+                  <div className="font-bold text-slate-800 text-sm sm:text-base whitespace-nowrap">증권사</div>
+                  <div className="text-slate-400 text-xs mt-1 whitespace-nowrap">주문 처리</div>
                 </div>
 
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 text-center hover:scale-105 hover:shadow-xl transition-all duration-200">
-                  <div className="w-14 h-14 bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                    <span className="text-white text-xl">📊</span>
+                <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-slate-200 text-center">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
+                    <span className="text-white text-lg sm:text-xl">📊</span>
                   </div>
-                  <div className="font-bold text-slate-800">거래소</div>
+                  <div className="font-bold text-slate-800 text-sm sm:text-base whitespace-nowrap">거래소</div>
                   <div className="text-slate-400 text-xs mt-1">체결</div>
                 </div>
 
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 text-center hover:scale-105 hover:shadow-xl transition-all duration-200">
-                  <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                    <span className="text-white text-xl">📋</span>
+                <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-slate-200 text-center">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
+                    <span className="text-white text-lg sm:text-xl">📋</span>
                   </div>
-                  <div className="font-bold text-slate-800">사무수탁사</div>
-                  <div className="text-slate-400 text-xs mt-1">체결/잔고 데이터</div>
+                  <div className="font-bold text-slate-800 text-sm sm:text-base whitespace-nowrap">사무수탁사</div>
+                  <div className="text-slate-400 text-xs mt-1 whitespace-nowrap">체결/잔고</div>
                 </div>
               </div>
             </div>
@@ -837,72 +836,72 @@ export default function OrcinusLanding() {
 
           {/* 해외 주문 다이어그램 */}
           {activeTab === 'overseas' && (
-            <div className="bg-gradient-to-br from-slate-50 via-white to-indigo-50 rounded-3xl p-10 border border-slate-200 shadow-sm">
+            <div className="bg-gradient-to-br from-slate-50 via-white to-indigo-50 rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
               {/* Row 1: 자산운용사 → Orca */}
-              <div className="flex justify-center items-center gap-6 mb-8">
-                <div className="bg-white rounded-2xl px-8 py-5 shadow-lg border border-slate-200 text-center hover:scale-105 transition-all duration-200">
-                  <div className="text-3xl mb-2">🏢</div>
-                  <div className="font-bold text-slate-800">자산운용사</div>
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mb-8">
+                <div className="bg-white rounded-2xl px-6 sm:px-8 py-4 sm:py-5 shadow-lg border border-slate-200 text-center">
+                  <div className="text-2xl sm:text-3xl mb-2">🏢</div>
+                  <div className="font-bold text-slate-800 text-sm sm:text-base whitespace-nowrap">자산운용사</div>
                 </div>
                 
                 <div className="flex flex-col items-center">
                   <span className="text-xs text-slate-400 mb-1">주문</span>
-                  <div className="w-20 h-1 bg-gradient-to-r from-slate-300 via-indigo-400 to-indigo-500 rounded-full"></div>
-                  <div className="text-indigo-500 mt-1">→</div>
+                  <div className="w-12 sm:w-20 h-1 bg-gradient-to-r from-slate-300 via-indigo-400 to-indigo-500 rounded-full"></div>
+                  <div className="text-indigo-500 mt-1 rotate-90 sm:rotate-0">→</div>
                 </div>
                 
-                <div className="bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl px-10 py-6 shadow-xl text-center hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/50 hover:-translate-y-2 cursor-pointer">
-                  <div className="text-white font-black text-2xl">Orca</div>
-                  <div className="text-indigo-100 text-sm">Trading System</div>
+                <div className="bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl px-8 sm:px-10 py-5 sm:py-6 shadow-xl text-center">
+                  <div className="text-white font-black text-xl sm:text-2xl">Orca</div>
+                  <div className="text-indigo-100 text-xs sm:text-sm">Trading System</div>
                 </div>
               </div>
 
               {/* Row 2: 두 갈래 분기 */}
-              <div className="flex justify-center gap-32 mb-6">
+              <div className="flex justify-center gap-16 sm:gap-32 mb-6">
                 <div className="flex flex-col items-center">
-                  <div className="w-1 h-10 bg-gradient-to-b from-indigo-400 to-indigo-500 rounded-full"></div>
+                  <div className="w-1 h-8 sm:h-10 bg-gradient-to-b from-indigo-400 to-indigo-500 rounded-full"></div>
                   <span className="text-xs text-indigo-500 bg-indigo-50 px-2 py-1 rounded mt-1 font-medium">FIX</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="w-1 h-10 bg-gradient-to-b from-violet-400 to-violet-500 rounded-full"></div>
+                  <div className="w-1 h-8 sm:h-10 bg-gradient-to-b from-violet-400 to-violet-500 rounded-full"></div>
                   <span className="text-xs text-violet-500 bg-violet-50 px-2 py-1 rounded mt-1 font-medium">EMSX</span>
                 </div>
               </div>
 
               {/* Row 3: FixNet / EMSX */}
-              <div className="flex justify-center gap-20 mb-8">
-                <div className="bg-indigo-100 rounded-2xl px-6 py-4 border-2 border-indigo-300 text-center shadow-md hover:scale-105 transition-all duration-200">
-                  <div className="font-bold text-indigo-700">FixNet</div>
+              <div className="flex justify-center gap-8 sm:gap-20 mb-8">
+                <div className="bg-indigo-100 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 border-2 border-indigo-300 text-center shadow-md">
+                  <div className="font-bold text-indigo-700 text-sm sm:text-base">FixNet</div>
                 </div>
-                <div className="bg-violet-100 rounded-2xl px-6 py-4 border-2 border-violet-300 text-center shadow-md hover:scale-105 transition-all duration-200">
-                  <div className="font-bold text-violet-700">EMSX</div>
+                <div className="bg-violet-100 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 border-2 border-violet-300 text-center shadow-md">
+                  <div className="font-bold text-violet-700 text-sm sm:text-base">EMSX</div>
                   <div className="text-violet-400 text-xs">Bloomberg</div>
                 </div>
               </div>
 
               {/* Row 4: 합류 */}
-              <div className="flex justify-center gap-4 mb-6">
+              <div className="hidden sm:flex justify-center gap-4 mb-6">
                 <div className="w-1/3 h-0.5 bg-gradient-to-r from-transparent via-indigo-300 to-indigo-400 rounded-full"></div>
                 <div className="w-1/3 h-0.5 bg-gradient-to-l from-transparent via-violet-300 to-violet-400 rounded-full"></div>
               </div>
 
               {/* Row 5: 증권사 → 거래소 */}
-              <div className="flex justify-center items-center gap-8">
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 text-center hover:scale-105 hover:shadow-xl transition-all duration-200">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                    <span className="text-white text-xl">🏛️</span>
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
+                <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-slate-200 text-center">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
+                    <span className="text-white text-lg sm:text-xl">🏛️</span>
                   </div>
-                  <div className="font-bold text-slate-800">증권사</div>
+                  <div className="font-bold text-slate-800 text-sm sm:text-base whitespace-nowrap">증권사</div>
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <div className="w-16 h-1 bg-gradient-to-r from-indigo-400 to-violet-500 rounded-full"></div>
-                  <div className="text-indigo-500 mt-1">→</div>
+                  <div className="w-12 sm:w-16 h-1 bg-gradient-to-r from-indigo-400 to-violet-500 rounded-full"></div>
+                  <div className="text-indigo-500 mt-1 rotate-90 sm:rotate-0">→</div>
                 </div>
 
-                <div className="bg-gradient-to-br from-slate-700 to-slate-900 rounded-2xl p-6 shadow-xl text-center hover:scale-105 hover:shadow-2xl transition-all duration-200">
-                  <div className="text-3xl mb-2">🌍</div>
-                  <div className="font-bold text-white">해외 거래소</div>
+                <div className="bg-gradient-to-br from-slate-700 to-slate-900 rounded-2xl p-4 sm:p-6 shadow-xl text-center">
+                  <div className="text-2xl sm:text-3xl mb-2">🌍</div>
+                  <div className="font-bold text-white text-sm sm:text-base whitespace-nowrap">해외 거래소</div>
                   <div className="text-slate-300 text-xs mt-1">NYSE · NASDAQ · LSE</div>
                 </div>
               </div>
