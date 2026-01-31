@@ -622,13 +622,17 @@ export default function OrcinusLanding() {
               {txt.hero.desc}
             </p>
             
-            {/* 모바일: 돌고래 이미지 (설명과 버튼 사이) */}
+            {/* 모바일: 토글에 따라 로고/돌고래 전환 */}
             <div className="lg:hidden flex justify-center items-center my-4">
-              <img 
-                src="/orca-hero.png" 
-                alt="Orca" 
-                className="drop-shadow-2xl w-48 sm:w-56"
-              />
+              {showLogo ? (
+                <OrcaFinIllustration className="w-40 sm:w-48 drop-shadow-2xl" />
+              ) : (
+                <img 
+                  src="/orca-hero.png" 
+                  alt="Orca" 
+                  className="drop-shadow-2xl w-48 sm:w-56"
+                />
+              )}
             </div>
             
             <div className="flex flex-col sm:flex-row gap-3">
@@ -646,9 +650,17 @@ export default function OrcinusLanding() {
           <div className="relative hidden lg:flex items-center justify-center min-h-[400px]">
             <div className="absolute w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] bg-gradient-to-br from-cyan-300/20 to-blue-400/20 rounded-full blur-3xl"/>
             
-            {/* 데스크탑: 지느러미 SVG만 보이기 (스크롤 전환 비활성화) */}
+            {/* 데스크탑: 토글에 따라 로고/돌고래 전환 */}
             <div className="absolute inset-0 hidden lg:flex justify-center items-center">
-              <OrcaFinIllustration className="w-full max-w-sm relative z-10" />
+              {showLogo ? (
+                <OrcaFinIllustration className="w-full max-w-sm relative z-10" />
+              ) : (
+                <img 
+                  src="/orca-hero.png" 
+                  alt="Orca" 
+                  className="drop-shadow-2xl w-64 relative z-10 transition-transform duration-300 hover:scale-105"
+                />
+              )}
             </div>
             
             {/* === 스크롤 전환 효과 (주석 처리됨) ===
@@ -812,97 +824,6 @@ export default function OrcinusLanding() {
               </div>
             ))}
           </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {[
-              { value: "실시간", label: "기준가 산출", icon: "⚡", color: "from-cyan-400 to-cyan-600" },
-              { value: "멀티", label: "매니저 운용", icon: "👥", color: "from-blue-400 to-blue-600" },
-              { value: "100%", label: "공매도 체크", icon: "✓", color: "from-indigo-400 to-indigo-600" },
-              { value: "통합", label: "올인원 플랫폼", icon: "🔗", color: "from-violet-400 to-violet-600" },
-            ].map((stat, i) => (
-              <div 
-                key={i} 
-                className="flex flex-col items-center"
-              >
-                {/* 원형 카드 - 튀어오르는 애니메이션 */}
-                <div 
-                  className={`stat-circle relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full bg-gradient-to-br ${stat.color} flex flex-col items-center justify-center shadow-xl cursor-pointer hover:scale-110 transition-transform duration-300 ${countUp.realtime ? 'animate-bounce-in' : 'opacity-0 scale-50'}`}
-                  style={{animationDelay: `${i * 150}ms`}}
-                >
-                  {/* 아이콘 */}
-                  <span className="text-3xl sm:text-4xl mb-1">{stat.icon}</span>
-                  {/* 값 */}
-                  <span className="text-white text-xl sm:text-2xl font-black" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
-                    {stat.value}
-                  </span>
-                  
-                  {/* 링 효과 */}
-                  <div className="absolute inset-0 rounded-full border-4 border-white/20 animate-ping-slow"></div>
-                </div>
-                
-                {/* 라벨 */}
-                <p 
-                  className={`mt-4 text-slate-700 font-semibold text-sm sm:text-base ${countUp.realtime ? 'animate-fade-up' : 'opacity-0'}`}
-                  style={{animationDelay: `${i * 150 + 300}ms`}}
-                >
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-          
-          <style>{`
-            @keyframes bounceIn {
-              0% {
-                opacity: 0;
-                transform: scale(0.3) translateY(50px);
-              }
-              50% {
-                opacity: 1;
-                transform: scale(1.1) translateY(-10px);
-              }
-              70% {
-                transform: scale(0.9) translateY(5px);
-              }
-              100% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-              }
-            }
-            @keyframes fadeUp {
-              0% {
-                opacity: 0;
-                transform: translateY(10px);
-              }
-              100% {
-                opacity: 1;
-                transform: translateY(0);
-              }
-            }
-            @keyframes pingSlow {
-              0% {
-                transform: scale(1);
-                opacity: 0.3;
-              }
-              50% {
-                transform: scale(1.1);
-                opacity: 0.1;
-              }
-              100% {
-                transform: scale(1);
-                opacity: 0.3;
-              }
-            }
-            .animate-bounce-in {
-              animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-            }
-            .animate-fade-up {
-              animation: fadeUp 0.4s ease-out forwards;
-            }
-            .animate-ping-slow {
-              animation: pingSlow 2s ease-in-out infinite;
-            }
-          `}</style>
         </div>
       </section>
 
@@ -970,9 +891,7 @@ export default function OrcinusLanding() {
               <span className="text-cyan-500">Orcinus</span>
             </h2>
             <div className="flex items-center justify-center gap-4 slogan-line-3">
-              <div className="h-px w-16 bg-gradient-to-r from-transparent to-cyan-400"></div>
-              <span className="text-slate-400 text-lg">×</span>
-              <div className="h-px w-16 bg-gradient-to-l from-transparent to-cyan-400"></div>
+              <div className="h-px w-24 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
             </div>
             <h2 className="text-4xl md:text-6xl font-black slogan-line-4" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
               <span className="gradient-text">Orca</span>
@@ -1112,14 +1031,6 @@ export default function OrcinusLanding() {
                 color: "from-slate-600 to-slate-700",
                 details: ["실시간 잔고관리", "공매도 체크", "거래 내역 기록", "T+2 결제 관리", "잔고 불일치 알림"]
               },
-              { 
-                id: "mds",
-                tag: "MDS", 
-                title: "시장 데이터", 
-                desc: "국내/해외 실시간 시세 제공",
-                color: "from-emerald-500 to-emerald-600",
-                details: ["국내/해외 실시간 시세", "기준가 실시간 반영", "해외 자산 당일 반영", "환율 정보", "지수 데이터"]
-              },
             ].map((module, i) => (
               <div 
                 key={i} 
@@ -1148,6 +1059,68 @@ export default function OrcinusLanding() {
                 </div>
               </div>
             ))}
+          </div>
+          
+          {/* 선택적 모듈 강조 */}
+          <div className="mt-12 scroll-fade-in">
+            <div className="relative bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-3xl p-8 border border-cyan-200/50 overflow-hidden">
+              {/* 배경 장식 */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-400/20 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-400/20 rounded-full blur-2xl"></div>
+              
+              <div className="relative flex flex-col md:flex-row items-center gap-8">
+                {/* 아이콘 애니메이션 */}
+                <div className="flex-shrink-0">
+                  <div className="relative w-24 h-24">
+                    {/* 퍼즐 조각 애니메이션 */}
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                      <defs>
+                        <linearGradient id="puzzleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#22d3ee"/>
+                          <stop offset="100%" stopColor="#6366f1"/>
+                        </linearGradient>
+                      </defs>
+                      {/* 퍼즐 조각 1 - 좌상 */}
+                      <rect x="10" y="10" width="35" height="35" rx="4" fill="url(#puzzleGrad)" opacity="0.9">
+                        <animate attributeName="opacity" values="0.9;0.5;0.9" dur="3s" repeatCount="indefinite"/>
+                      </rect>
+                      {/* 퍼즐 조각 2 - 우상 */}
+                      <rect x="55" y="10" width="35" height="35" rx="4" fill="url(#puzzleGrad)" opacity="0.7">
+                        <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+                      </rect>
+                      {/* 퍼즐 조각 3 - 좌하 */}
+                      <rect x="10" y="55" width="35" height="35" rx="4" fill="url(#puzzleGrad)" opacity="0.6">
+                        <animate attributeName="opacity" values="0.6;0.9;0.6" dur="3s" repeatCount="indefinite" begin="1s"/>
+                      </rect>
+                      {/* 퍼즐 조각 4 - 우하 (점선) */}
+                      <rect x="55" y="55" width="35" height="35" rx="4" fill="none" stroke="url(#puzzleGrad)" strokeWidth="2" strokeDasharray="5,5">
+                        <animate attributeName="stroke-dashoffset" values="0;10" dur="1s" repeatCount="indefinite"/>
+                      </rect>
+                      {/* 체크 마크 */}
+                      <path d="M62 70 L70 78 L85 63" stroke="#22d3ee" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                        <animate attributeName="stroke-dasharray" values="0,50;50,0" dur="0.5s" fill="freeze" begin="0.5s"/>
+                      </path>
+                    </svg>
+                  </div>
+                </div>
+                
+                {/* 텍스트 */}
+                <div className="flex-1 text-center md:text-left">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-3">
+                    필요한 모듈만 <span className="text-cyan-600">선택적 적용</span>
+                  </h3>
+                  <p className="text-slate-600 mb-4">
+                    모든 모듈을 한꺼번에 도입할 필요 없습니다.<br className="hidden md:block"/>
+                    비즈니스 필요에 따라 원하는 모듈만 선택하여 시작하고, 단계적으로 확장하세요.
+                  </p>
+                  <div className="flex flex-wrap justify-center md:justify-start gap-2">
+                    <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium">PMS만 도입</span>
+                    <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">OMS + EMS</span>
+                    <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">전체 통합</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
