@@ -676,101 +676,115 @@ export default function OrcinusLanding() {
         </svg>
       </section>
 
-      {/* 슬로건 섹션 - 파도 타이핑 애니메이션 */}
-      <section className="relative py-20 px-6 bg-gradient-to-b from-[#0c1929] to-[#1a3a5c] overflow-hidden">
-        {/* 배경 파도 애니메이션 */}
+      {/* 슬로건 섹션 - 선 위주 파도 애니메이션 */}
+      <section className="relative py-16 px-6 bg-white overflow-hidden">
+        {/* 배경 파도 라인 애니메이션 */}
         <div className="absolute inset-0 overflow-hidden">
-          <svg className="absolute bottom-0 w-full h-40 opacity-20" viewBox="0 0 1440 200" preserveAspectRatio="none">
-            <path fill="#22d3ee">
+          <svg className="absolute top-1/2 -translate-y-1/2 w-full h-48" viewBox="0 0 1440 200" preserveAspectRatio="none">
+            {/* 파도 라인 1 */}
+            <path 
+              fill="none" 
+              stroke="#22d3ee" 
+              strokeWidth="2" 
+              strokeOpacity="0.4"
+            >
+              <animate 
+                attributeName="d" 
+                dur="6s" 
+                repeatCount="indefinite"
+                values="M-100,100 C200,150 400,50 700,100 C1000,150 1200,50 1540,100;
+                        M-100,100 C200,50 400,150 700,100 C1000,50 1200,150 1540,100;
+                        M-100,100 C200,150 400,50 700,100 C1000,150 1200,50 1540,100"
+              />
+            </path>
+            {/* 파도 라인 2 */}
+            <path 
+              fill="none" 
+              stroke="#06b6d4" 
+              strokeWidth="1.5" 
+              strokeOpacity="0.3"
+            >
+              <animate 
+                attributeName="d" 
+                dur="8s" 
+                repeatCount="indefinite"
+                values="M-100,110 C300,60 500,140 800,90 C1100,40 1300,130 1540,80;
+                        M-100,90 C300,140 500,60 800,110 C1100,160 1300,70 1540,120;
+                        M-100,110 C300,60 500,140 800,90 C1100,40 1300,130 1540,80"
+              />
+            </path>
+            {/* 파도 라인 3 */}
+            <path 
+              fill="none" 
+              stroke="#0891b2" 
+              strokeWidth="1" 
+              strokeOpacity="0.2"
+            >
               <animate 
                 attributeName="d" 
                 dur="10s" 
                 repeatCount="indefinite"
-                values="M0,100 C320,150 640,50 960,100 C1280,150 1440,80 1440,100 L1440,200 L0,200 Z;
-                        M0,120 C320,70 640,150 960,80 C1280,50 1440,120 1440,100 L1440,200 L0,200 Z;
-                        M0,100 C320,150 640,50 960,100 C1280,150 1440,80 1440,100 L1440,200 L0,200 Z"
+                values="M-100,120 C250,170 450,70 750,120 C1050,170 1250,70 1540,110;
+                        M-100,80 C250,30 450,130 750,80 C1050,30 1250,130 1540,90;
+                        M-100,120 C250,170 450,70 750,120 C1050,170 1250,70 1540,110"
               />
             </path>
           </svg>
-          <svg className="absolute bottom-0 w-full h-32 opacity-30" viewBox="0 0 1440 150" preserveAspectRatio="none">
-            <path fill="#06b6d4">
-              <animate 
-                attributeName="d" 
-                dur="7s" 
-                repeatCount="indefinite"
-                values="M0,80 C360,120 720,40 1080,80 C1260,100 1380,60 1440,80 L1440,150 L0,150 Z;
-                        M0,60 C360,40 720,100 1080,60 C1260,40 1380,90 1440,70 L1440,150 L0,150 Z;
-                        M0,80 C360,120 720,40 1080,80 C1260,100 1380,60 1440,80 L1440,150 L0,150 Z"
-              />
-            </path>
-          </svg>
-          {/* 떠다니는 거품 */}
-          <div className="absolute w-3 h-3 bg-cyan-400/20 rounded-full bottom-20 left-[10%] animate-float-slow"></div>
-          <div className="absolute w-2 h-2 bg-cyan-300/30 rounded-full bottom-32 left-[25%] animate-float-medium"></div>
-          <div className="absolute w-4 h-4 bg-cyan-400/15 rounded-full bottom-16 left-[60%] animate-float-slow"></div>
-          <div className="absolute w-2 h-2 bg-cyan-300/25 rounded-full bottom-28 left-[80%] animate-float-medium"></div>
         </div>
         
         <div className="relative max-w-4xl mx-auto text-center">
-          {/* 메인 슬로건 - 타이핑 효과 */}
-          <div className="space-y-4 mb-8">
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-tight slogan-line-1" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              시장의 <span className="text-cyan-400">흐름</span>을 읽고
+          {/* 메인 슬로건 */}
+          <div className="space-y-2 mb-6">
+            <p className="text-slate-400 text-sm tracking-widest slogan-line-1">CRAFTED BY</p>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-800 slogan-line-2" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
+              <span className="text-cyan-500">Orcinus</span>
             </h2>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-tight slogan-line-2" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              자산의 <span className="text-cyan-400">가치</span>를 지킨다
+            <div className="flex items-center justify-center gap-4 slogan-line-3">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-cyan-400"></div>
+              <span className="text-slate-400 text-lg">×</span>
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-cyan-400"></div>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black slogan-line-4" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
+              <span className="gradient-text">Orca</span>
             </h2>
           </div>
           
           {/* 서브 텍스트 */}
-          <p className="text-cyan-100/70 text-base md:text-lg max-w-2xl mx-auto slogan-sub">
-            깊은 바다의 지혜처럼, 범고래의 정확함으로<br/>
-            자산운용의 새로운 기준을 만들어갑니다
+          <p className="text-slate-500 text-sm md:text-base slogan-sub">
+            자산운용의 흐름을 읽는 힘
           </p>
-          
-          {/* 브랜드 강조 */}
-          <div className="mt-10 flex items-center justify-center gap-3 slogan-brand">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-cyan-400"></div>
-            <span className="text-cyan-400 font-bold text-xl tracking-widest">ORCA</span>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-cyan-400"></div>
-          </div>
         </div>
         
         <style>{`
           .slogan-line-1 {
             opacity: 0;
-            transform: translateY(20px);
-            animation: sloganFadeIn 0.8s ease-out 0.3s forwards;
+            animation: sloganSlideIn 0.6s ease-out 0.2s forwards;
           }
           .slogan-line-2 {
             opacity: 0;
-            transform: translateY(20px);
-            animation: sloganFadeIn 0.8s ease-out 0.6s forwards;
+            animation: sloganSlideIn 0.6s ease-out 0.4s forwards;
+          }
+          .slogan-line-3 {
+            opacity: 0;
+            animation: sloganSlideIn 0.6s ease-out 0.6s forwards;
+          }
+          .slogan-line-4 {
+            opacity: 0;
+            animation: sloganSlideIn 0.6s ease-out 0.8s forwards;
           }
           .slogan-sub {
             opacity: 0;
-            transform: translateY(20px);
-            animation: sloganFadeIn 0.8s ease-out 0.9s forwards;
+            animation: sloganSlideIn 0.6s ease-out 1s forwards;
           }
-          .slogan-brand {
-            opacity: 0;
-            animation: sloganFadeIn 0.8s ease-out 1.2s forwards;
-          }
-          @keyframes sloganFadeIn {
+          @keyframes sloganSlideIn {
+            from {
+              opacity: 0;
+              transform: translateY(15px);
+            }
             to {
               opacity: 1;
               transform: translateY(0);
             }
-          }
-          .animate-float-slow {
-            animation: floatUp 8s ease-in-out infinite;
-          }
-          .animate-float-medium {
-            animation: floatUp 6s ease-in-out infinite;
-          }
-          @keyframes floatUp {
-            0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
-            50% { transform: translateY(-40px) scale(1.2); opacity: 0.6; }
           }
         `}</style>
       </section>
