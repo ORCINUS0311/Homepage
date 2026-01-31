@@ -123,6 +123,8 @@ export default function OrcinusLanding() {
   const [scrollY, setScrollY] = useState(0);
   const [activeTab, setActiveTab] = useState('domestic');
   const [lang, setLang] = useState('ko');
+  const [showIntro, setShowIntro] = useState(true);
+  const [introFading, setIntroFading] = useState(false);
 
   // 다국어 텍스트
   const t = {
@@ -183,6 +185,9 @@ export default function OrcinusLanding() {
         copy: '© 2025 Orcinus. All rights reserved.'
       },
       clients: {
+        badge: 'ORCINUS SERVICE',
+        title: 'Orca, 자산운용 전문가만을 위한 단 하나의 플랫폼',
+        subtitle: 'Orcinus가 만든 올인원 트레이딩 시스템 — PMS · OMS · EMS를 하나로',
         asset: '자산운용사',
         invest: '투자자문사'
       }
@@ -244,6 +249,9 @@ export default function OrcinusLanding() {
         copy: '© 2025 Orcinus. All rights reserved.'
       },
       clients: {
+        badge: 'ORCINUS SERVICE',
+        title: 'Orca — The Only Platform for Asset Management Professionals',
+        subtitle: 'All-in-one trading system by Orcinus — PMS · OMS · EMS unified',
         asset: 'Asset Managers',
         invest: 'Investment Advisors'
       }
@@ -253,6 +261,22 @@ export default function OrcinusLanding() {
   const txt = t[lang];
   
   const [countUp, setCountUp] = useState({ realtime: false, multi: false, check: false });
+
+  // 인트로 타이머 (3~4초 후 자동 전환)
+  useEffect(() => {
+    const fadeTimer = setTimeout(() => {
+      setIntroFading(true);
+    }, 3500);
+    
+    const hideTimer = setTimeout(() => {
+      setShowIntro(false);
+    }, 4000);
+    
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(hideTimer);
+    };
+  }, []);
 
   // 카운트업 애니메이션을 위한 ref
   const statsRef = React.useRef(null);
@@ -295,7 +319,7 @@ export default function OrcinusLanding() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 overflow-x-hidden">
+    <div className={`min-h-screen bg-slate-50 overflow-x-hidden`}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
         
@@ -430,6 +454,33 @@ export default function OrcinusLanding() {
 
       {/* Hero Section - 풀스크린 */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* 인트로 동영상 */}
+        {showIntro && (
+          <div 
+            className={`absolute inset-0 z-20 bg-black flex items-center justify-center transition-opacity duration-500 ${introFading ? 'opacity-0' : 'opacity-100'}`}
+          >
+            <video 
+              autoPlay 
+              muted 
+              playsInline
+              className="w-[45%] h-auto object-contain"
+            >
+              <source src="/OrcaSwim.mp4" type="video/mp4" />
+            </video>
+            
+            {/* 스킵 버튼 */}
+            <button 
+              onClick={() => {
+                setIntroFading(true);
+                setTimeout(() => setShowIntro(false), 300);
+              }}
+              className="absolute bottom-8 right-8 text-white/70 hover:text-white text-sm px-4 py-2 border border-white/30 rounded-full hover:bg-white/10 transition-all z-30"
+            >
+              Skip
+            </button>
+          </div>
+        )}
+
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-cyan-50/40 to-blue-50/30"/>
         
         <div className="absolute inset-0 overflow-hidden">
@@ -475,20 +526,39 @@ export default function OrcinusLanding() {
           <div className="relative flex items-center justify-center min-h-[300px] lg:min-h-[400px] mt-8 lg:mt-0">
             <div className="absolute w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] bg-gradient-to-br from-cyan-300/20 to-blue-400/20 rounded-full blur-3xl"/>
             
-            {/* 지느러미 SVG (스크롤 전) */}
+            {/* 모바일: 고래만 보이기 */}
+            <div className="lg:hidden flex justify-center items-center">
+              <img 
+                src="/orca-hero.png" 
+                alt="Orca" 
+                className="drop-shadow-2xl w-64 sm:w-72"
+              />
+            </div>
+            
+            {/* 데스크탑: 지느러미 SVG만 보이기 (스크롤 전환 비활성화) */}
+            <div className="absolute inset-0 hidden lg:flex justify-center items-center">
+              <OrcaFinIllustration className="w-full max-w-sm relative z-10" />
+            </div>
+            
+            {/* === 스크롤 전환 효과 (주석 처리됨) ===
+            
+            {/* 데스크탑: 지느러미 SVG (스크롤 전) */}
+            {/*
             <div 
-              className="absolute inset-0 flex justify-center items-center transition-all duration-700 ease-out"
+              className="absolute inset-0 hidden lg:flex justify-center items-center transition-all duration-700 ease-out"
               style={{ 
                 opacity: scrollY < 150 ? 1 : 0,
                 transform: scrollY < 150 ? 'scale(1) rotate(0deg)' : 'scale(0.5) rotate(-20deg)',
               }}
             >
-              <OrcaFinIllustration className="w-48 sm:w-64 lg:w-full lg:max-w-sm relative z-10" />
+              <OrcaFinIllustration className="w-full max-w-sm relative z-10" />
             </div>
+            */}
             
-            {/* 범고래 이미지 (스크롤 후) */}
+            {/* 데스크탑: 범고래 이미지 (스크롤 후) */}
+            {/*
             <div 
-              className="absolute inset-0 flex justify-center items-center transition-all duration-700 ease-out"
+              className="absolute inset-0 hidden lg:flex justify-center items-center transition-all duration-700 ease-out"
               style={{ 
                 opacity: scrollY >= 150 ? 1 : 0,
                 transform: scrollY >= 150 ? 'scale(1) rotate(0deg) translateY(45px)' : 'scale(0.5) rotate(20deg)',
@@ -498,9 +568,10 @@ export default function OrcinusLanding() {
                 <img 
                   src="/orca-hero.png" 
                   alt="Orca - 자산운용의 모든 것" 
-                  className="drop-shadow-2xl w-72 sm:w-80 lg:w-[500px]"
+                  className="drop-shadow-2xl w-[500px]"
                 />
                 {/* 바다 효과 */}
+                {/*
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 sm:w-80 lg:w-96">
                   <svg viewBox="0 0 400 80" className="w-full">
                     <defs>
@@ -513,12 +584,10 @@ export default function OrcinusLanding() {
                         <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
                       </filter>
                     </defs>
-                    {/* 바다 타원 */}
                     <ellipse cx="200" cy="50" rx="180" ry="25" fill="url(#seaGradient)" filter="url(#seaGlow)">
                       <animate attributeName="rx" values="180;190;180" dur="3s" repeatCount="indefinite"/>
                       <animate attributeName="opacity" values="0.6;0.8;0.6" dur="2s" repeatCount="indefinite"/>
                     </ellipse>
-                    {/* 물결 라인 */}
                     <path 
                       d="M20 40 Q60 25 100 40 Q140 55 180 40 Q220 25 260 40 Q300 55 340 40 Q380 25 400 40" 
                       stroke="#22d3ee" 
@@ -552,6 +621,8 @@ export default function OrcinusLanding() {
                 </div>
               </div>
             </div>
+            */}
+            {/* === 스크롤 전환 효과 끝 === */}
           </div>
         </div>
         
@@ -567,25 +638,58 @@ export default function OrcinusLanding() {
         </div>
       </section>
 
-      {/* 무한 롤링 배너 */}
-      <section className="relative py-6 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
-        <div className="flex rolling-banner whitespace-nowrap">
-          {[...Array(2)].map((_, idx) => (
-            <div key={idx} className="flex items-center gap-8 px-4">
-              {['실시간 기준가', 'PMS', 'OMS', 'EMS', '멀티매니저', '대차관리', 'Active ETF', '공매도 체크', 'Smart Order Routing', 'TWAP/VWAP', '실시간 손익', '해외 실시간 체결'].map((text, i) => (
-                <span key={i} className="flex items-center gap-3 text-white/80 text-sm font-medium">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
-                  {text}
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
+      {/* 파도 구분선 */}
+      <section className="relative h-24 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+        <svg className="absolute bottom-0 w-full h-24" viewBox="0 0 1440 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.3"/>
+              <stop offset="100%" stopColor="#0891b2" stopOpacity="0.1"/>
+            </linearGradient>
+            <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.2"/>
+              <stop offset="100%" stopColor="#0e7490" stopOpacity="0.05"/>
+            </linearGradient>
+          </defs>
+          {/* 뒤쪽 파도 */}
+          <path fill="url(#waveGrad2)">
+            <animate 
+              attributeName="d" 
+              dur="8s" 
+              repeatCount="indefinite"
+              values="M0,60 C360,100 720,20 1080,60 C1260,80 1380,40 1440,50 L1440,100 L0,100 Z;
+                      M0,50 C360,20 720,80 1080,40 C1260,20 1380,60 1440,50 L1440,100 L0,100 Z;
+                      M0,60 C360,100 720,20 1080,60 C1260,80 1380,40 1440,50 L1440,100 L0,100 Z"
+            />
+          </path>
+          {/* 앞쪽 파도 */}
+          <path fill="url(#waveGrad1)">
+            <animate 
+              attributeName="d" 
+              dur="6s" 
+              repeatCount="indefinite"
+              values="M0,70 C240,40 480,90 720,60 C960,30 1200,80 1440,60 L1440,100 L0,100 Z;
+                      M0,60 C240,90 480,40 720,70 C960,100 1200,50 1440,70 L1440,100 L0,100 Z;
+                      M0,70 C240,40 480,90 720,60 C960,30 1200,80 1440,60 L1440,100 L0,100 Z"
+            />
+          </path>
+        </svg>
       </section>
 
       {/* Client + Stats Section */}
       <section ref={statsRef} className="relative py-16 px-6 bg-white border-y border-slate-100">
         <div className="max-w-6xl mx-auto">
+          {/* 고객 대상 타이틀 */}
+          <div className="text-center mb-10">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 text-sm font-semibold mb-4">{txt.clients.badge}</span>
+            <h2 className="text-2xl md:text-3xl font-black text-[#0F172A] mb-3" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
+              {txt.clients.title}
+            </h2>
+            <p className="text-slate-500 text-sm max-w-md mx-auto">
+              {txt.clients.subtitle}
+            </p>
+          </div>
+          
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             {clients.map((client, i) => (
               <div key={i} className="group bg-slate-50 rounded-2xl px-5 py-3 flex items-center gap-3 shadow-sm hover:shadow-xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 border border-slate-100 hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50 cursor-pointer">
