@@ -760,52 +760,63 @@ export default function OrcinusLanding() {
             </p>
           </div>
           
-          {/* 5개 모듈 카드 */}
-          <div className="grid md:grid-cols-5 gap-4">
+          {/* 5개 모듈 카드 - 개선된 디자인 */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
             {[
               { 
                 tag: "PMS", 
                 title: "포트폴리오", 
                 color: "from-cyan-500 to-cyan-600",
+                bgColor: "bg-cyan-50",
                 items: ["실시간 기준가 관리", "멀티 매니저 지원", "펀드 마감/성과 분석"]
               },
               { 
                 tag: "OMS", 
                 title: "주문관리", 
                 color: "from-blue-500 to-blue-600",
+                bgColor: "bg-blue-50",
                 items: ["주문 상계 처리", "리스크 관리", "주문 제약 위반 방지"]
               },
               { 
                 tag: "EMS", 
                 title: "주문집행", 
                 color: "from-indigo-500 to-indigo-600",
+                bgColor: "bg-indigo-50",
                 items: ["TWAP/VWAP 알고리즘", "Smart Order Routing", "거래 비용 최적화"]
               },
               { 
                 tag: "SLBS", 
                 title: "대차관리", 
                 color: "from-violet-500 to-violet-600",
+                bgColor: "bg-violet-50",
                 items: ["차입/대여/대용 관리", "대차 허브 연동", "대차 프로세스 자동화"]
               },
               { 
                 tag: "ETFS", 
                 title: "ETF관리", 
                 color: "from-purple-500 to-purple-600",
+                bgColor: "bg-purple-50",
                 items: ["Active ETF 운용", "실시간 PDF 전송", "설정환매/리콜 관리"]
               },
             ].map((module, i) => (
-              <div key={i} className="hover-lift bg-white rounded-2xl p-5 shadow-sm border border-slate-100 hover:shadow-2xl hover:border-cyan-400 relative overflow-hidden text-center cursor-pointer group hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 transition-all duration-300">
-                <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${module.color}`}/>
+              <div key={i} className="group bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-xl hover:border-transparent hover:-translate-y-2 relative overflow-hidden transition-all duration-300">
+                {/* 상단 컬러 바 */}
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${module.color} group-hover:h-2 transition-all duration-300`}/>
                 
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${module.color} flex items-center justify-center mx-auto mb-3 shadow-md group-hover:scale-105 group-hover:shadow-lg transition-all duration-200`}>
-                  <span className="text-white font-bold text-xs">{module.tag}</span>
+                {/* 태그 배지 */}
+                <div className={`inline-flex items-center justify-center px-3 py-1 rounded-full ${module.bgColor} mb-4`}>
+                  <span className={`text-xs font-bold bg-gradient-to-r ${module.color} bg-clip-text text-transparent`}>{module.tag}</span>
                 </div>
                 
-                <h3 className="text-base font-bold text-[#0F172A] mb-3">{module.title}</h3>
-                <ul className="space-y-1.5">
+                {/* 타이틀 */}
+                <h3 className="text-lg font-bold text-[#0F172A] mb-4">{module.title}</h3>
+                
+                {/* 기능 리스트 */}
+                <ul className="space-y-2">
                   {module.items.map((item, j) => (
-                    <li key={j} className="text-slate-600 text-xs">
-                      {item}
+                    <li key={j} className="flex items-start gap-2 text-slate-600 text-sm">
+                      <span className={`mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r ${module.color} flex-shrink-0`}></span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -814,26 +825,54 @@ export default function OrcinusLanding() {
           </div>
           
           {/* 하단 추가 시스템 */}
-          <div className="mt-8 grid md:grid-cols-2 gap-4">
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-lg hover:border-cyan-200 transition-all duration-200 cursor-pointer">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center shadow-md">
-                  <span className="text-white font-bold text-xs">IPMS</span>
+          <div className="mt-8 grid md:grid-cols-2 gap-5">
+            <div className="group bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-xl hover:border-transparent hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-600 to-slate-700 group-hover:h-2 transition-all duration-300"/>
+              <div className="flex items-start gap-4">
+                <div className="inline-flex items-center justify-center px-3 py-2 rounded-xl bg-slate-100 flex-shrink-0">
+                  <span className="text-sm font-bold text-slate-700">IPMS</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#0F172A]">내부 잔고 관리 시스템</h4>
-                  <p className="text-slate-600 text-sm">차입/대여/대용 반영 실시간 잔고관리 · 공매도 체크 · 모든 거래 내역 기록</p>
+                  <h4 className="font-bold text-[#0F172A] text-lg mb-2">내부 잔고 관리 시스템</h4>
+                  <ul className="space-y-1">
+                    <li className="flex items-center gap-2 text-slate-600 text-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                      차입/대여/대용 반영 실시간 잔고관리
+                    </li>
+                    <li className="flex items-center gap-2 text-slate-600 text-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                      공매도 체크
+                    </li>
+                    <li className="flex items-center gap-2 text-slate-600 text-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                      모든 거래 내역 기록
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-lg hover:border-cyan-200 transition-all duration-200 cursor-pointer">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center shadow-md">
-                  <span className="text-white font-bold text-xs">MDS</span>
+            <div className="group bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-xl hover:border-transparent hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-600 to-slate-700 group-hover:h-2 transition-all duration-300"/>
+              <div className="flex items-start gap-4">
+                <div className="inline-flex items-center justify-center px-3 py-2 rounded-xl bg-slate-100 flex-shrink-0">
+                  <span className="text-sm font-bold text-slate-700">MDS</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#0F172A]">실시간 시장 데이터</h4>
-                  <p className="text-slate-600 text-sm">국내/해외 실시간 시세 · 기준가 실시간 반영 · 해외 자산 당일 반영</p>
+                  <h4 className="font-bold text-[#0F172A] text-lg mb-2">실시간 시장 데이터</h4>
+                  <ul className="space-y-1">
+                    <li className="flex items-center gap-2 text-slate-600 text-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                      국내/해외 실시간 시세
+                    </li>
+                    <li className="flex items-center gap-2 text-slate-600 text-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                      기준가 실시간 반영
+                    </li>
+                    <li className="flex items-center gap-2 text-slate-600 text-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                      해외 자산 당일 반영
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
