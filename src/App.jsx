@@ -453,7 +453,7 @@ export default function OrcinusLanding() {
       </nav>
 
       {/* Hero Section - 풀스크린 */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-0 lg:min-h-screen flex items-center overflow-hidden pb-8 lg:pb-0">
         {/* 인트로 동영상 */}
         {showIntro && (
           <div 
@@ -491,7 +491,7 @@ export default function OrcinusLanding() {
         
         <FloatingParticles />
 
-        <div className="relative max-w-6xl mx-auto px-6 pt-28 pb-16 grid lg:grid-cols-2 gap-12 items-center">
+        <div className="relative max-w-6xl mx-auto px-6 pt-20 lg:pt-28 pb-8 lg:pb-16 grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
           <div className="z-10">
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-sm border border-slate-200">
               <span className="relative flex h-2 w-2">
@@ -523,7 +523,7 @@ export default function OrcinusLanding() {
           </div>
           
           {/* 히어로 이미지 - 스크롤 시 지느러미 → 범고래 전환 */}
-          <div className="relative flex items-center justify-center min-h-[300px] lg:min-h-[400px] mt-8 lg:mt-0">
+          <div className="relative flex items-center justify-center min-h-[200px] lg:min-h-[400px] mt-4 lg:mt-0">
             <div className="absolute w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] bg-gradient-to-br from-cyan-300/20 to-blue-400/20 rounded-full blur-3xl"/>
             
             {/* 모바일: 고래만 보이기 */}
@@ -531,7 +531,7 @@ export default function OrcinusLanding() {
               <img 
                 src="/orca-hero.png" 
                 alt="Orca" 
-                className="drop-shadow-2xl w-64 sm:w-72"
+                className="drop-shadow-2xl w-48 sm:w-64"
               />
             </div>
             
@@ -626,9 +626,9 @@ export default function OrcinusLanding() {
           </div>
         </div>
         
-        {/* 스크롤 힌트 */}
+        {/* 스크롤 힌트 - 데스크탑만 */}
         <div 
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 transition-opacity duration-500"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 transition-opacity duration-500"
           style={{ opacity: scrollY < 50 ? 1 : 0 }}
         >
           <span className="text-slate-400 text-xs font-medium">{txt.hero.scroll}</span>
