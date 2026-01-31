@@ -122,6 +122,136 @@ export default function OrcinusLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [activeTab, setActiveTab] = useState('domestic');
+  const [lang, setLang] = useState('ko');
+
+  // 다국어 텍스트
+  const t = {
+    ko: {
+      nav: { features: '특징', services: '서비스', contact: '문의', demo: '데모 신청' },
+      hero: {
+        badge: 'Orca - 실시간 통합 자산운용 플랫폼',
+        title1: '자산운용의 모든 것,',
+        title2: '하나의 플랫폼에서.',
+        subtitle: 'PMS · OMS · EMS · 대차관리 · ETF',
+        desc: '실시간 기준가부터 공매도 체크까지, 올인원 솔루션.',
+        cta1: '데모 신청하기',
+        cta2: '서비스 소개서',
+        scroll: '스크롤하여 Orca를 만나보세요'
+      },
+      stats: {
+        realtime: '실시간', realtimeLabel: '기준가 산출',
+        multi: '멀티', multiLabel: '매니저 운용',
+        check: '100%', checkLabel: '공매도 체크'
+      },
+      features: {
+        badge: 'WHY ORCA',
+        title: '왜',
+        titleEnd: '인가?',
+        subtitle: '자산운용사를 위한 실시간 통합 트레이딩 관리 시스템'
+      },
+      modules: {
+        badge: 'ORCA MODULES',
+        title: '시스템 구성',
+        subtitle: '자산운용의 전 과정을 하나의 플랫폼에서'
+      },
+      flow: {
+        badge: 'ARCHITECTURE',
+        title: '주문 흐름',
+        subtitle: '국내/해외 시장을 하나의 플랫폼에서 통합 관리',
+        domestic: '🇰🇷 국내 주문',
+        overseas: '🌏 해외 주문'
+      },
+      deploy: {
+        badge: 'DEPLOYMENT',
+        title: '서비스 운영 방식',
+        subtitle: '고객사 환경에 맞는 유연한 배포 옵션'
+      },
+      about: {
+        badge: 'ABOUT ORCINUS',
+        title: '에 대하여',
+        subtitle: '자산운용의 미래를 함께 만들어갑니다'
+      },
+      cta: {
+        title: 'Orca와 함께 시작하세요',
+        subtitle: '데모를 신청하시면 담당자가 연락드립니다.',
+        btn1: '데모 신청하기',
+        btn2: '서비스 소개서'
+      },
+      footer: {
+        company: '(주) 오르시너스',
+        address: '서울특별시 영등포구',
+        copy: '© 2025 Orcinus. All rights reserved.'
+      },
+      clients: {
+        asset: '자산운용사',
+        invest: '투자자문사'
+      }
+    },
+    en: {
+      nav: { features: 'Features', services: 'Services', contact: 'Contact', demo: 'Request Demo' },
+      hero: {
+        badge: 'Orca - Real-time Integrated Asset Management Platform',
+        title1: 'Everything in Asset Management,',
+        title2: 'In One Platform.',
+        subtitle: 'PMS · OMS · EMS · Securities Lending · ETF',
+        desc: 'All-in-one solution from real-time NAV to short selling check.',
+        cta1: 'Request Demo',
+        cta2: 'Brochure',
+        scroll: 'Scroll to meet Orca'
+      },
+      stats: {
+        realtime: 'Real-time', realtimeLabel: 'NAV Calculation',
+        multi: 'Multi', multiLabel: 'Manager Support',
+        check: '100%', checkLabel: 'Short Sell Check'
+      },
+      features: {
+        badge: 'WHY ORCA',
+        title: 'Why',
+        titleEnd: '?',
+        subtitle: 'Real-time integrated trading management system for asset managers'
+      },
+      modules: {
+        badge: 'ORCA MODULES',
+        title: 'System Architecture',
+        subtitle: 'Entire asset management process in one platform'
+      },
+      flow: {
+        badge: 'ARCHITECTURE',
+        title: 'Order Flow',
+        subtitle: 'Integrated management of domestic and overseas markets',
+        domestic: '🇰🇷 Domestic',
+        overseas: '🌏 Overseas'
+      },
+      deploy: {
+        badge: 'DEPLOYMENT',
+        title: 'Deployment Options',
+        subtitle: 'Flexible deployment options for your environment'
+      },
+      about: {
+        badge: 'ABOUT ORCINUS',
+        title: '',
+        subtitle: 'Building the future of asset management together'
+      },
+      cta: {
+        title: 'Get Started with Orca',
+        subtitle: 'Request a demo and our team will contact you.',
+        btn1: 'Request Demo',
+        btn2: 'Brochure'
+      },
+      footer: {
+        company: 'Orcinus Inc.',
+        address: 'Seoul, South Korea',
+        copy: '© 2025 Orcinus. All rights reserved.'
+      },
+      clients: {
+        asset: 'Asset Managers',
+        invest: 'Investment Advisors'
+      }
+    }
+  };
+  
+  const txt = t[lang];
+  
   const [countUp, setCountUp] = useState({ realtime: false, multi: false, check: false });
 
   // 카운트업 애니메이션을 위한 ref
@@ -239,13 +369,29 @@ export default function OrcinusLanding() {
       <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrollY > 50 ? 'bg-white/95 shadow-lg backdrop-blur-md' : 'bg-transparent'}`}>
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <OrcinusLogo size="small" />
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-slate-700 hover:text-cyan-500 text-sm font-medium transition-all duration-200 hover:scale-110">특징</a>
-            <a href="#services" className="text-slate-700 hover:text-cyan-500 text-sm font-medium transition-all duration-200 hover:scale-110">서비스</a>
-            <a href="#contact" className="text-slate-700 hover:text-cyan-500 text-sm font-medium transition-all duration-200 hover:scale-110">문의</a>
-            <button className="group relative btn-shine bg-gradient-to-r from-cyan-400 to-cyan-500 text-black px-6 py-2.5 rounded-full text-sm font-semibold hover:from-cyan-300 hover:to-cyan-400 hover:scale-[1.15] hover:shadow-xl hover:shadow-cyan-400/60 hover:-translate-y-1 active:scale-105 transition-all duration-300 overflow-hidden">
-              <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-full"></span>
-              <span className="relative">데모 신청</span>
+          <div className="hidden md:flex items-center gap-6">
+            <a href="#features" className="text-slate-700 hover:text-cyan-500 text-sm font-medium transition-all duration-200 hover:scale-105">{txt.nav.features}</a>
+            <a href="#services" className="text-slate-700 hover:text-cyan-500 text-sm font-medium transition-all duration-200 hover:scale-105">{txt.nav.services}</a>
+            <a href="#contact" className="text-slate-700 hover:text-cyan-500 text-sm font-medium transition-all duration-200 hover:scale-105">{txt.nav.contact}</a>
+            
+            {/* 언어 선택 */}
+            <div className="flex items-center gap-1 text-sm border border-slate-200 rounded-full px-1 py-0.5">
+              <button 
+                onClick={() => setLang('ko')}
+                className={`px-3 py-1 rounded-full transition-all duration-200 ${lang === 'ko' ? 'bg-cyan-500 text-white font-medium' : 'text-slate-500 hover:text-slate-700'}`}
+              >
+                한국어
+              </button>
+              <button 
+                onClick={() => setLang('en')}
+                className={`px-3 py-1 rounded-full transition-all duration-200 ${lang === 'en' ? 'bg-cyan-500 text-white font-medium' : 'text-slate-500 hover:text-slate-700'}`}
+              >
+                EN
+              </button>
+            </div>
+            
+            <button className="bg-gradient-to-r from-cyan-400 to-cyan-500 text-black px-6 py-2.5 rounded-full text-sm font-semibold hover:from-cyan-300 hover:to-cyan-400 hover:scale-105 hover:shadow-md hover:shadow-cyan-400/30 hover:-translate-y-0.5 transition-all duration-200">
+              {txt.nav.demo}
             </button>
           </div>
           <button className="md:hidden p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -255,11 +401,28 @@ export default function OrcinusLanding() {
         
         {mobileMenuOpen && (
           <div className="md:hidden bg-white px-6 py-4 space-y-4 border-t border-slate-100">
-            <a href="#features" className="block text-slate-700">특징</a>
-            <a href="#services" className="block text-slate-700">서비스</a>
-            <a href="#contact" className="block text-slate-700">문의</a>
-            <button className="w-full btn-shine bg-gradient-to-r from-cyan-400 to-cyan-500 text-black px-5 py-2.5 rounded-full text-sm font-medium hover:from-cyan-300 hover:to-cyan-400 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300 overflow-hidden">
-              데모 신청
+            <a href="#features" className="block text-slate-700">{txt.nav.features}</a>
+            <a href="#services" className="block text-slate-700">{txt.nav.services}</a>
+            <a href="#contact" className="block text-slate-700">{txt.nav.contact}</a>
+            
+            {/* 모바일 언어 선택 */}
+            <div className="flex items-center gap-2 py-2">
+              <button 
+                onClick={() => setLang('ko')}
+                className={`px-4 py-2 rounded-full text-sm transition-all ${lang === 'ko' ? 'bg-cyan-500 text-white font-medium' : 'bg-slate-100 text-slate-600'}`}
+              >
+                한국어
+              </button>
+              <button 
+                onClick={() => setLang('en')}
+                className={`px-4 py-2 rounded-full text-sm transition-all ${lang === 'en' ? 'bg-cyan-500 text-white font-medium' : 'bg-slate-100 text-slate-600'}`}
+              >
+                English
+              </button>
+            </div>
+            
+            <button className="w-full bg-gradient-to-r from-cyan-400 to-cyan-500 text-black px-5 py-2.5 rounded-full text-sm font-medium hover:from-cyan-300 hover:to-cyan-400 hover:scale-105 hover:shadow-md transition-all duration-200">
+              {txt.nav.demo}
             </button>
           </div>
         )}
@@ -284,28 +447,26 @@ export default function OrcinusLanding() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
               </span>
-              <span className="text-slate-700">Orca - 실시간 통합 자산운용 플랫폼</span>
+              <span className="text-slate-700">{txt.hero.badge}</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#0F172A] leading-[1.15] mb-6" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              자산운용의 모든 것,<br/>
-              <span className="gradient-text">하나의 플랫폼에서.</span>
+              {txt.hero.title1}<br/>
+              <span className="gradient-text">{txt.hero.title2}</span>
             </h1>
             
             <p className="text-lg text-slate-600 mb-6 leading-relaxed max-w-md">
-              <span className="font-semibold text-slate-800">PMS · OMS · EMS · 대차관리 · ETF</span><br/>
-              실시간 기준가부터 공매도 체크까지, 올인원 솔루션.
+              <span className="font-semibold text-slate-800">{txt.hero.subtitle}</span><br/>
+              {txt.hero.desc}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3">
-              <button className="group relative btn-shine bg-gradient-to-r from-cyan-400 to-cyan-500 text-black px-7 py-3.5 rounded-xl text-base font-bold hover:from-cyan-300 hover:to-cyan-400 hover:scale-[1.15] hover:shadow-2xl hover:shadow-cyan-400/60 hover:-translate-y-3 active:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center gap-2 overflow-hidden">
-                <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                <span className="relative">데모 신청하기</span>
-                <Icon name="arrow" className="relative w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
+              <button className="group relative bg-gradient-to-r from-cyan-400 to-cyan-500 text-black px-7 py-3.5 rounded-xl text-base font-bold hover:from-cyan-300 hover:to-cyan-400 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/40 hover:-translate-y-1 active:scale-100 transition-all duration-200 shadow-md flex items-center justify-center gap-2">
+                <span className="relative">{txt.hero.cta1}</span>
+                <Icon name="arrow" className="relative w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </button>
-              <button className="group relative btn-shine bg-white/80 backdrop-blur px-7 py-3.5 rounded-xl text-base font-semibold text-slate-700 hover:bg-white hover:scale-[1.15] hover:shadow-2xl hover:shadow-cyan-500/30 hover:-translate-y-3 hover:text-cyan-600 active:scale-105 transition-all duration-300 shadow-md border-2 border-slate-200 hover:border-cyan-400 overflow-hidden">
-                <span className="absolute inset-0 bg-cyan-50 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                <span className="relative">서비스 소개서</span>
+              <button className="group relative bg-white/80 backdrop-blur px-7 py-3.5 rounded-xl text-base font-semibold text-slate-700 hover:bg-white hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-cyan-600 active:scale-100 transition-all duration-200 shadow-md border border-slate-200 hover:border-cyan-400">
+                <span className="relative">{txt.hero.cta2}</span>
               </button>
             </div>
           </div>
@@ -330,14 +491,67 @@ export default function OrcinusLanding() {
               className="absolute inset-0 flex justify-center items-center transition-all duration-700 ease-out"
               style={{ 
                 opacity: scrollY >= 150 ? 1 : 0,
-                transform: scrollY >= 150 ? 'scale(1) rotate(0deg)' : 'scale(0.5) rotate(20deg)',
+                transform: scrollY >= 150 ? 'scale(1) rotate(0deg) translateY(45px)' : 'scale(0.5) rotate(20deg)',
               }}
             >
-              <img 
-                src="/orca-hero.png" 
-                alt="Orca - 자산운용의 모든 것" 
-                className="w-full max-w-sm drop-shadow-2xl hover:scale-105 transition-transform duration-300"
-              />
+              <div className="relative">
+                <img 
+                  src="/orca-hero.png" 
+                  alt="Orca - 자산운용의 모든 것" 
+                  className="drop-shadow-2xl"
+                  style={{width: '500px', maxWidth: 'none'}}
+                />
+                {/* 바다 효과 */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96">
+                  <svg viewBox="0 0 400 80" className="w-full">
+                    <defs>
+                      <linearGradient id="seaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.4"/>
+                        <stop offset="100%" stopColor="#0891b2" stopOpacity="0.1"/>
+                      </linearGradient>
+                      <filter id="seaGlow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                      </filter>
+                    </defs>
+                    {/* 바다 타원 */}
+                    <ellipse cx="200" cy="50" rx="180" ry="25" fill="url(#seaGradient)" filter="url(#seaGlow)">
+                      <animate attributeName="rx" values="180;190;180" dur="3s" repeatCount="indefinite"/>
+                      <animate attributeName="opacity" values="0.6;0.8;0.6" dur="2s" repeatCount="indefinite"/>
+                    </ellipse>
+                    {/* 물결 라인 */}
+                    <path 
+                      d="M20 40 Q60 25 100 40 Q140 55 180 40 Q220 25 260 40 Q300 55 340 40 Q380 25 400 40" 
+                      stroke="#22d3ee" 
+                      strokeWidth="2.5" 
+                      fill="none" 
+                      opacity="0.7"
+                      filter="url(#seaGlow)"
+                    >
+                      <animate 
+                        attributeName="d" 
+                        values="M20 40 Q60 25 100 40 Q140 55 180 40 Q220 25 260 40 Q300 55 340 40 Q380 25 400 40;M20 40 Q60 55 100 40 Q140 25 180 40 Q220 55 260 40 Q300 25 340 40 Q380 55 400 40;M20 40 Q60 25 100 40 Q140 55 180 40 Q220 25 260 40 Q300 55 340 40 Q380 25 400 40" 
+                        dur="3s" 
+                        repeatCount="indefinite"
+                      />
+                    </path>
+                    <path 
+                      d="M0 50 Q50 35 100 50 Q150 65 200 50 Q250 35 300 50 Q350 65 400 50" 
+                      stroke="#4FC3F7" 
+                      strokeWidth="2" 
+                      fill="none" 
+                      opacity="0.5"
+                    >
+                      <animate 
+                        attributeName="d" 
+                        values="M0 50 Q50 35 100 50 Q150 65 200 50 Q250 35 300 50 Q350 65 400 50;M0 50 Q50 65 100 50 Q150 35 200 50 Q250 65 300 50 Q350 35 400 50;M0 50 Q50 35 100 50 Q150 65 200 50 Q250 35 300 50 Q350 65 400 50" 
+                        dur="2.5s" 
+                        repeatCount="indefinite"
+                      />
+                    </path>
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -347,7 +561,7 @@ export default function OrcinusLanding() {
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 transition-opacity duration-500"
           style={{ opacity: scrollY < 50 ? 1 : 0 }}
         >
-          <span className="text-slate-400 text-xs font-medium">스크롤하여 Orca를 만나보세요</span>
+          <span className="text-slate-400 text-xs font-medium">{txt.hero.scroll}</span>
           <div className="w-6 h-10 rounded-full border-2 border-slate-300 flex justify-center pt-2">
             <div className="w-1.5 h-3 bg-cyan-400 rounded-full animate-bounce"></div>
           </div>
@@ -375,8 +589,8 @@ export default function OrcinusLanding() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             {clients.map((client, i) => (
-              <div key={i} className="group bg-slate-50 rounded-2xl px-5 py-3 flex items-center gap-3 shadow-sm hover:shadow-xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 border border-slate-100 hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50 cursor-pointer">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
+              <div key={i} className="group bg-slate-50 rounded-2xl px-5 py-3 flex items-center gap-3 shadow-sm hover:shadow-xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 border border-slate-100 hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50 cursor-pointer">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
                   <Icon name={client.icon} className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-slate-800 font-semibold group-hover:text-cyan-700 transition-colors">{client.title}</span>
@@ -419,7 +633,7 @@ export default function OrcinusLanding() {
             {features.map((feature, i) => (
               <div key={i} className="hover-lift bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 group cursor-pointer relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-4 shadow-md group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-200">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-4 shadow-md group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-200">
                   <Icon name={feature.icon} className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-[#0F172A] mb-2">{feature.title}</h3>
@@ -480,7 +694,7 @@ export default function OrcinusLanding() {
               <div key={i} className="hover-lift bg-white rounded-2xl p-5 shadow-sm border border-slate-100 hover:shadow-2xl hover:border-cyan-400 relative overflow-hidden text-center cursor-pointer group hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 transition-all duration-300">
                 <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${module.color}`}/>
                 
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${module.color} flex items-center justify-center mx-auto mb-3 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-200`}>
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${module.color} flex items-center justify-center mx-auto mb-3 shadow-md group-hover:scale-105 group-hover:shadow-lg transition-all duration-200`}>
                   <span className="text-white font-bold text-xs">{module.tag}</span>
                 </div>
                 
@@ -569,7 +783,7 @@ export default function OrcinusLanding() {
                   <div className="text-cyan-500 mt-1">→</div>
                 </div>
                 
-                <div className="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl px-10 py-6 shadow-xl text-center hover:scale-110 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/50 hover:-translate-y-2 cursor-pointer">
+                <div className="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl px-10 py-6 shadow-xl text-center hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/50 hover:-translate-y-2 cursor-pointer">
                   <div className="text-white font-black text-2xl">Orca</div>
                   <div className="text-cyan-100 text-sm">Trading System</div>
                 </div>
@@ -637,7 +851,7 @@ export default function OrcinusLanding() {
                   <div className="text-indigo-500 mt-1">→</div>
                 </div>
                 
-                <div className="bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl px-10 py-6 shadow-xl text-center hover:scale-110 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/50 hover:-translate-y-2 cursor-pointer">
+                <div className="bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl px-10 py-6 shadow-xl text-center hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/50 hover:-translate-y-2 cursor-pointer">
                   <div className="text-white font-black text-2xl">Orca</div>
                   <div className="text-indigo-100 text-sm">Trading System</div>
                 </div>
@@ -736,7 +950,7 @@ export default function OrcinusLanding() {
             ].map((option, i) => (
               <div key={i} className="hover-lift bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl text-center cursor-pointer group hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 relative overflow-hidden transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${option.color} flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-200`}>
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${option.color} flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-105 group-hover:shadow-xl transition-all duration-200`}>
                   <Icon name={option.icon} className="w-8 h-8 text-white" />
                 </div>
                 
@@ -784,7 +998,7 @@ export default function OrcinusLanding() {
               { value: "100%", label: "공매도 체크", desc: "차입/대여/대용 반영 실시간 잔고관리" },
               { value: "Web", label: "어디서든 접속", desc: "모바일/PC 설치 불필요" },
             ].map((stat, i) => (
-              <div key={i} className="group bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:scale-110 hover:-translate-y-3 transition-all duration-300 cursor-pointer hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 relative overflow-hidden">
+              <div key={i} className="group bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:scale-105 hover:-translate-y-3 transition-all duration-300 cursor-pointer hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
                 <div className="text-3xl font-black text-[#0F172A] mb-1" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
                   {stat.value}
@@ -799,21 +1013,21 @@ export default function OrcinusLanding() {
             <h3 className="text-xl font-bold text-[#0F172A] mb-4 text-center">핵심 가치</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center group cursor-pointer">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-200">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mx-auto mb-3 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-200">
                   <Icon name="shield" className="w-6 h-6 text-white" />
                 </div>
                 <h4 className="font-bold text-slate-800 mb-1">위험 관리</h4>
                 <p className="text-slate-600 text-sm">실시간 기준가 기반 시장 위험 관리<br/>공매도 법적 처벌 방지</p>
               </div>
               <div className="text-center group cursor-pointer">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-blue-500/30 transition-all duration-200">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mx-auto mb-3 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-blue-500/30 transition-all duration-200">
                   <Icon name="dollar" className="w-6 h-6 text-white" />
                 </div>
                 <h4 className="font-bold text-slate-800 mb-1">비용 절감</h4>
                 <p className="text-slate-600 text-sm">Buy-side 주문 집행으로 거래 비용 최적화<br/>대차 비용 자동 최소화</p>
               </div>
               <div className="text-center group cursor-pointer">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-indigo-500/30 transition-all duration-200">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center mx-auto mb-3 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-indigo-500/30 transition-all duration-200">
                   <Icon name="zap" className="w-6 h-6 text-white" />
                 </div>
                 <h4 className="font-bold text-slate-800 mb-1">업무 자동화</h4>
@@ -831,20 +1045,18 @@ export default function OrcinusLanding() {
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500"/>
             
             <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              Orca와 함께 시작하세요.
+              {txt.cta.title}
             </h2>
             <p className="text-slate-600 text-lg mb-8 max-w-md mx-auto">
-              복잡한 자산운용 환경을 단순하게.<br/>데모를 통해 직접 경험해보세요.
+              {txt.cta.subtitle}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button className="group relative btn-shine bg-gradient-to-r from-cyan-400 to-cyan-500 text-black px-8 py-4 rounded-xl text-lg font-bold hover:from-cyan-300 hover:to-cyan-400 hover:scale-[1.15] hover:shadow-2xl hover:shadow-cyan-400/60 hover:-translate-y-3 active:scale-105 transition-all duration-300 shadow-lg overflow-hidden">
-                <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                <span className="relative">데모 신청하기</span>
+              <button className="group relative bg-gradient-to-r from-cyan-400 to-cyan-500 text-black px-8 py-4 rounded-xl text-lg font-bold hover:from-cyan-300 hover:to-cyan-400 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/40 hover:-translate-y-1 active:scale-100 transition-all duration-200 shadow-md">
+                <span className="relative">{txt.hero.cta1}</span>
               </button>
-              <button className="group relative btn-shine bg-white px-8 py-4 rounded-xl text-lg font-semibold text-slate-700 hover:scale-[1.15] hover:shadow-2xl hover:shadow-cyan-500/30 hover:-translate-y-3 hover:text-cyan-600 active:scale-105 transition-all duration-300 shadow-md border-2 border-slate-200 hover:border-cyan-400 overflow-hidden">
-                <span className="absolute inset-0 bg-cyan-50 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                <span className="relative">서비스 소개서</span>
+              <button className="group relative bg-white px-8 py-4 rounded-xl text-lg font-semibold text-slate-700 hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-cyan-600 active:scale-100 transition-all duration-200 shadow-md border border-slate-200 hover:border-cyan-400">
+                <span className="relative">{txt.hero.cta2}</span>
               </button>
             </div>
           </div>
