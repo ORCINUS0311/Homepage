@@ -78,13 +78,13 @@ const Icon = ({ name, className = "" }) => {
 };
 
 // Orca Fin Illustration
-const OrcaFinIllustration = ({ className = "" }) => (
+const OrcaFinIllustration = ({ className = "", light = false }) => (
   <svg className={className} viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <linearGradient id="finGradientHero" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#1E3A5F"/>
-        <stop offset="50%" stopColor="#0F172A"/>
-        <stop offset="100%" stopColor="#1E3A5F"/>
+      <linearGradient id={light ? "finGradientLight" : "finGradientHero"} x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor={light ? "#22D3EE" : "#1E3A5F"}/>
+        <stop offset="50%" stopColor={light ? "#06B6D4" : "#0F172A"}/>
+        <stop offset="100%" stopColor={light ? "#22D3EE" : "#1E3A5F"}/>
       </linearGradient>
       <linearGradient id="glowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
         <stop offset="0%" stopColor="#4FC3F7" stopOpacity="0.6"/>
@@ -98,9 +98,9 @@ const OrcaFinIllustration = ({ className = "" }) => (
     <ellipse cx="200" cy="450" rx="150" ry="30" fill="url(#glowGradient)" opacity="0.5">
       <animate attributeName="rx" values="150;160;150" dur="3s" repeatCount="indefinite"/>
     </ellipse>
-    <path d="M120 450 Q140 250 200 80 Q210 60 220 80 Q280 250 300 450 Z" fill="url(#finGradientHero)"/>
+    <path d="M120 450 Q140 250 200 80 Q210 60 220 80 Q280 250 300 450 Z" fill={light ? "url(#finGradientLight)" : "url(#finGradientHero)"}/>
     {/* 아래쪽 물결 */}
-    <path d="M80 430 Q140 410 200 430 Q260 450 320 430" stroke="#4FC3F7" strokeWidth="3" fill="none" strokeLinecap="round" filter="url(#glow)">
+    <path d="M80 430 Q140 410 200 430 Q260 450 320 430" stroke={light ? "#0891B2" : "#4FC3F7"} strokeWidth="3" fill="none" strokeLinecap="round" filter="url(#glow)">
       <animate attributeName="d" dur="4s" repeatCount="indefinite" values="
         M80 430 Q140 410 200 430 Q260 450 320 430;
         M80 435 Q140 455 200 435 Q260 415 320 435;
@@ -499,14 +499,12 @@ export default function OrcinusLanding() {
             <div className="flex items-center gap-2">
               {showLogo ? (
                 <>
-                  <div className="w-6 h-8">
-                    <OrcaFinIllustration className="w-full h-full" />
-                  </div>
+                  <img src="/favicon-light-32.png" alt="Orcinus" className="w-8 h-8" />
                   <span className="font-bold text-slate-800 text-lg" style={{fontFamily: "'Space Grotesk', sans-serif"}}>Orcinus</span>
                 </>
               ) : (
                 <>
-                  <img src="/orca-hero.png" alt="Orca" className="w-8 h-8 object-contain" />
+                  <img src="/orca-hero.png" alt="Orca" className="w-8 h-8" />
                   <span className="font-bold text-slate-800 text-lg" style={{fontFamily: "'Space Grotesk', sans-serif"}}>Orca</span>
                 </>
               )}
