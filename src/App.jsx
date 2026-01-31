@@ -336,7 +336,7 @@ export default function OrcinusLanding() {
               <img 
                 src="/orca-hero.png" 
                 alt="Orca - 자산운용의 모든 것" 
-                className="w-full max-w-md drop-shadow-2xl hover:scale-105 transition-transform duration-300"
+                className="w-full max-w-sm drop-shadow-2xl hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>
