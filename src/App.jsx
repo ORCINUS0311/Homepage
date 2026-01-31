@@ -457,7 +457,7 @@ export default function OrcinusLanding() {
         {/* 인트로 동영상 */}
         {showIntro && (
           <div 
-            className={`absolute inset-0 z-20 bg-black flex items-center justify-center -mt-40 sm:mt-0 transition-opacity duration-500 ${introFading ? 'opacity-0' : 'opacity-100'}`}
+            className={`absolute inset-0 z-20 bg-black flex items-center justify-center -mt-60 sm:mt-0 transition-opacity duration-500 ${introFading ? 'opacity-0' : 'opacity-100'}`}
           >
             <video 
               autoPlay 
