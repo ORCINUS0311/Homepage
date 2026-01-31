@@ -90,11 +90,23 @@ const OrcaFinIllustration = ({ className = "" }) => (
         <stop offset="0%" stopColor="#4FC3F7" stopOpacity="0.6"/>
         <stop offset="100%" stopColor="#4FC3F7" stopOpacity="0"/>
       </linearGradient>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
     </defs>
     <ellipse cx="200" cy="450" rx="150" ry="30" fill="url(#glowGradient)" opacity="0.5">
       <animate attributeName="rx" values="150;160;150" dur="3s" repeatCount="indefinite"/>
     </ellipse>
     <path d="M120 450 Q140 250 200 80 Q210 60 220 80 Q280 250 300 450 Z" fill="url(#finGradientHero)"/>
+    {/* 아래쪽 물결 */}
+    <path d="M80 430 Q140 410 200 430 Q260 450 320 430" stroke="#4FC3F7" strokeWidth="3" fill="none" strokeLinecap="round" filter="url(#glow)">
+      <animate attributeName="d" dur="4s" repeatCount="indefinite" values="
+        M80 430 Q140 410 200 430 Q260 450 320 430;
+        M80 435 Q140 455 200 435 Q260 415 320 435;
+        M80 430 Q140 410 200 430 Q260 450 320 430
+      "/>
+    </path>
     <circle cx="150" cy="380" r="4" fill="#4FC3F7" opacity="0.4">
       <animate attributeName="cy" values="380;320;260" dur="4s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0.4;0.2;0" dur="4s" repeatCount="indefinite"/>
