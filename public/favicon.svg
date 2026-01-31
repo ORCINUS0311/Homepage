@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="finGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A2B4C"/>
+      <stop offset="100%" stop-color="#2E4A6F"/>
+    </linearGradient>
+  </defs>
+  <path d="M25 95 Q30 45 50 10 Q55 5 60 10 Q80 45 85 95 Z" fill="url(#finGrad)"/>
+  <path d="M30 85 Q50 75 65 85 Q75 90 85 85" stroke="#4FC3F7" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>
