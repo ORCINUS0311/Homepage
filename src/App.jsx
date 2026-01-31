@@ -491,9 +491,9 @@ export default function OrcinusLanding() {
         
         <FloatingParticles />
 
-        <div className="relative max-w-6xl mx-auto px-6 pt-20 lg:pt-28 pb-8 lg:pb-16 grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+        <div className="relative max-w-6xl mx-auto px-6 pt-16 lg:pt-28 pb-4 lg:pb-16 flex flex-col-reverse lg:grid lg:grid-cols-2 gap-4 lg:gap-12 items-center">
           <div className="z-10">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-sm border border-slate-200">
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full text-sm font-medium mb-4 lg:mb-6 shadow-sm border border-slate-200">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
@@ -501,12 +501,12 @@ export default function OrcinusLanding() {
               <span className="text-slate-700">{txt.hero.badge}</span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#0F172A] leading-[1.15] mb-6" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#0F172A] leading-[1.15] mb-4 lg:mb-6" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
               {txt.hero.title1}<br/>
               <span className="gradient-text">{txt.hero.title2}</span>
             </h1>
             
-            <p className="text-lg text-slate-600 mb-6 leading-relaxed max-w-md">
+            <p className="text-lg text-slate-600 mb-4 lg:mb-6 leading-relaxed max-w-md">
               <span className="font-semibold text-slate-800">{txt.hero.subtitle}</span><br/>
               {txt.hero.desc}
             </p>
@@ -523,7 +523,7 @@ export default function OrcinusLanding() {
           </div>
           
           {/* 히어로 이미지 - 스크롤 시 지느러미 → 범고래 전환 */}
-          <div className="relative flex items-center justify-center min-h-[200px] lg:min-h-[400px] mt-4 lg:mt-0">
+          <div className="relative flex items-center justify-center min-h-[150px] lg:min-h-[400px] mt-0 lg:mt-0">
             <div className="absolute w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] bg-gradient-to-br from-cyan-300/20 to-blue-400/20 rounded-full blur-3xl"/>
             
             {/* 모바일: 고래만 보이기 */}
