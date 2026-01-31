@@ -122,8 +122,35 @@ export default function OrcinusLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [activeTab, setActiveTab] = useState('domestic');
+  const [activeModule, setActiveModule] = useState(null);
   const [lang, setLang] = useState('ko');
   const [showIntro, setShowIntro] = useState(true);
+  const [showLogo, setShowLogo] = useState(true); // true: 로고, false: 돌고래
+  
+  // 스크롤 애니메이션 훅
+  const useScrollAnimation = () => {
+    const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef(null);
+    
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      );
+      
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+      
+      return () => observer.disconnect();
+    }, []);
+    
+    return [ref, isVisible];
+  };
   const [introFading, setIntroFading] = useState(false);
 
   // 다국어 텍스트
@@ -303,6 +330,26 @@ export default function OrcinusLanding() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // 스크롤 애니메이션 옵저버
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
+    );
+    
+    document.querySelectorAll('.scroll-fade-in, .scroll-slide-left, .scroll-slide-right, .scroll-scale').forEach((el) => {
+      observer.observe(el);
+    });
+    
+    return () => observer.disconnect();
+  }, []);
+
   const features = [
     { icon: "activity", title: "실시간 손익 & 기준가", desc: "운용역별/펀드별 실시간 기준가 업데이트" },
     { icon: "zap", title: "국내/해외 실시간 체결", desc: "해외 자산도 당일 실시간 반영, 장중 진입/청산 가능" },
@@ -334,6 +381,50 @@ export default function OrcinusLanding() {
           0%, 100% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
         }
+        
+        /* 스크롤 애니메이션 */
+        .scroll-fade-in {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-fade-in.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .scroll-slide-left {
+          opacity: 0;
+          transform: translateX(-40px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-slide-left.visible {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        .scroll-slide-right {
+          opacity: 0;
+          transform: translateX(40px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-slide-right.visible {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        .scroll-scale {
+          opacity: 0;
+          transform: scale(0.95);
+          transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .scroll-scale.visible {
+          opacity: 1;
+          transform: scale(1);
+        }
+        /* 순차 딜레이 */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
         
         .gradient-text {
           background: linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #0EA5E9 100%);
@@ -392,10 +483,29 @@ export default function OrcinusLanding() {
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrollY > 50 ? 'bg-white/95 shadow-lg backdrop-blur-md' : 'bg-transparent'}`}>
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <OrcinusLogo size="small" />
+          {/* 로고/돌고래 토글 */}
+          <div className="flex items-center gap-3">
+            {showLogo ? (
+              <OrcinusLogo size="small" />
+            ) : (
+              <div className="flex items-center gap-2">
+                <img src="/orca-hero.png" alt="Orca" className="w-8 h-8 object-contain" />
+                <span className="font-bold text-slate-800">Orca</span>
+              </div>
+            )}
+            {/* 토글 버튼 */}
+            <button 
+              onClick={() => setShowLogo(!showLogo)}
+              className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
+              title={showLogo ? "돌고래로 전환" : "로고로 전환"}
+            >
+              <span className="text-xs">{showLogo ? "🐋" : "✦"}</span>
+            </button>
+          </div>
           <div className="hidden md:flex items-center gap-6">
             <a href="#features" className="text-slate-700 hover:text-cyan-500 text-sm font-medium transition-all duration-200 hover:scale-105">{txt.nav.features}</a>
             <a href="#services" className="text-slate-700 hover:text-cyan-500 text-sm font-medium transition-all duration-200 hover:scale-105">{txt.nav.services}</a>
+            <a href="#about" className="text-slate-700 hover:text-cyan-500 text-sm font-medium transition-all duration-200 hover:scale-105">회사소개</a>
             <a href="#contact" className="text-slate-700 hover:text-cyan-500 text-sm font-medium transition-all duration-200 hover:scale-105">{txt.nav.contact}</a>
             
             {/* 언어 선택 */}
@@ -427,6 +537,7 @@ export default function OrcinusLanding() {
           <div className="md:hidden bg-white px-6 py-4 space-y-4 border-t border-slate-100">
             <a href="#features" className="block text-slate-700">{txt.nav.features}</a>
             <a href="#services" className="block text-slate-700">{txt.nav.services}</a>
+            <a href="#about" className="block text-slate-700">회사소개</a>
             <a href="#contact" className="block text-slate-700">{txt.nav.contact}</a>
             
             {/* 모바일 언어 선택 */}
@@ -676,6 +787,125 @@ export default function OrcinusLanding() {
         </svg>
       </section>
 
+
+      {/* Client + Stats Section */}
+      <section ref={statsRef} className="relative py-16 px-6 bg-white border-y border-slate-100">
+        <div className="max-w-6xl mx-auto">
+          {/* 고객 대상 타이틀 */}
+          <div className="text-center mb-10">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 text-sm font-semibold mb-4">{txt.clients.badge}</span>
+            <h2 className="text-2xl md:text-3xl font-black text-[#0F172A] mb-3" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
+              {txt.clients.title}
+            </h2>
+            <p className="text-slate-500 text-sm max-w-md mx-auto">
+              {txt.clients.subtitle}
+            </p>
+          </div>
+          
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {clients.map((client, i) => (
+              <div key={i} className="group bg-slate-50 rounded-2xl px-5 py-3 flex items-center gap-3 shadow-sm hover:shadow-xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 border border-slate-100 hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50 cursor-pointer">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
+                  <Icon name={client.icon} className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-slate-800 font-semibold group-hover:text-cyan-700 transition-colors">{client.title}</span>
+              </div>
+            ))}
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            {[
+              { value: "실시간", label: "기준가 산출", icon: "⚡", color: "from-cyan-400 to-cyan-600" },
+              { value: "멀티", label: "매니저 운용", icon: "👥", color: "from-blue-400 to-blue-600" },
+              { value: "100%", label: "공매도 체크", icon: "✓", color: "from-indigo-400 to-indigo-600" },
+              { value: "통합", label: "올인원 플랫폼", icon: "🔗", color: "from-violet-400 to-violet-600" },
+            ].map((stat, i) => (
+              <div 
+                key={i} 
+                className="flex flex-col items-center"
+              >
+                {/* 원형 카드 - 튀어오르는 애니메이션 */}
+                <div 
+                  className={`stat-circle relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full bg-gradient-to-br ${stat.color} flex flex-col items-center justify-center shadow-xl cursor-pointer hover:scale-110 transition-transform duration-300 ${countUp.realtime ? 'animate-bounce-in' : 'opacity-0 scale-50'}`}
+                  style={{animationDelay: `${i * 150}ms`}}
+                >
+                  {/* 아이콘 */}
+                  <span className="text-3xl sm:text-4xl mb-1">{stat.icon}</span>
+                  {/* 값 */}
+                  <span className="text-white text-xl sm:text-2xl font-black" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
+                    {stat.value}
+                  </span>
+                  
+                  {/* 링 효과 */}
+                  <div className="absolute inset-0 rounded-full border-4 border-white/20 animate-ping-slow"></div>
+                </div>
+                
+                {/* 라벨 */}
+                <p 
+                  className={`mt-4 text-slate-700 font-semibold text-sm sm:text-base ${countUp.realtime ? 'animate-fade-up' : 'opacity-0'}`}
+                  style={{animationDelay: `${i * 150 + 300}ms`}}
+                >
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+          
+          <style>{`
+            @keyframes bounceIn {
+              0% {
+                opacity: 0;
+                transform: scale(0.3) translateY(50px);
+              }
+              50% {
+                opacity: 1;
+                transform: scale(1.1) translateY(-10px);
+              }
+              70% {
+                transform: scale(0.9) translateY(5px);
+              }
+              100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+              }
+            }
+            @keyframes fadeUp {
+              0% {
+                opacity: 0;
+                transform: translateY(10px);
+              }
+              100% {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+            @keyframes pingSlow {
+              0% {
+                transform: scale(1);
+                opacity: 0.3;
+              }
+              50% {
+                transform: scale(1.1);
+                opacity: 0.1;
+              }
+              100% {
+                transform: scale(1);
+                opacity: 0.3;
+              }
+            }
+            .animate-bounce-in {
+              animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            }
+            .animate-fade-up {
+              animation: fadeUp 0.4s ease-out forwards;
+            }
+            .animate-ping-slow {
+              animation: pingSlow 2s ease-in-out infinite;
+            }
+          `}</style>
+        </div>
+      </section>
+
       {/* 슬로건 섹션 - 선 위주 파도 애니메이션 */}
       <section className="relative py-16 px-6 bg-white overflow-hidden">
         {/* 배경 파도 라인 애니메이션 */}
@@ -789,83 +1019,10 @@ export default function OrcinusLanding() {
         `}</style>
       </section>
 
-      {/* Client + Stats Section */}
-      <section ref={statsRef} className="relative py-16 px-6 bg-white border-y border-slate-100">
-        <div className="max-w-6xl mx-auto">
-          {/* 고객 대상 타이틀 */}
-          <div className="text-center mb-10">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 text-sm font-semibold mb-4">{txt.clients.badge}</span>
-            <h2 className="text-2xl md:text-3xl font-black text-[#0F172A] mb-3" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              {txt.clients.title}
-            </h2>
-            <p className="text-slate-500 text-sm max-w-md mx-auto">
-              {txt.clients.subtitle}
-            </p>
-          </div>
-          
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {clients.map((client, i) => (
-              <div key={i} className="group bg-slate-50 rounded-2xl px-5 py-3 flex items-center gap-3 shadow-sm hover:shadow-xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 border border-slate-100 hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50 cursor-pointer">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
-                  <Icon name={client.icon} className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-slate-800 font-semibold group-hover:text-cyan-700 transition-colors">{client.title}</span>
-              </div>
-            ))}
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {[
-              { value: "실시간", label: "기준가 산출", icon: "⚡", color: "from-cyan-400 to-cyan-600" },
-              { value: "멀티", label: "매니저 운용", icon: "👥", color: "from-blue-400 to-blue-600" },
-              { value: "100%", label: "공매도 체크", icon: "✓", color: "from-indigo-400 to-indigo-600" },
-              { value: "통합", label: "올인원 플랫폼", icon: "🔗", color: "from-violet-400 to-violet-600" },
-            ].map((stat, i) => (
-              <div 
-                key={i} 
-                className={`group relative text-center p-6 rounded-2xl bg-white border border-slate-100 hover:border-transparent hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden ${countUp.realtime ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} 
-                style={{transitionDelay: `${i * 100}ms`}}
-              >
-                {/* 호버 시 배경 그라데이션 */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
-                
-                {/* 원형 아이콘 */}
-                <div className={`relative w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br ${stat.color} flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300`}>
-                  <span className="text-2xl text-white">{stat.icon}</span>
-                  {/* 회전 링 */}
-                  <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-white/30 group-hover:animate-spin-slow transition-all duration-300"></div>
-                </div>
-                
-                {/* 값 */}
-                <div className={`text-2xl sm:text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r ${stat.color} mb-1 group-hover:scale-105 transition-transform duration-300`} style={{fontFamily: "'Space Grotesk', sans-serif"}}>
-                  {stat.value}
-                </div>
-                
-                {/* 라벨 */}
-                <div className="text-slate-600 font-medium text-sm group-hover:text-slate-800 transition-colors">{stat.label}</div>
-                
-                {/* 하단 라인 애니메이션 */}
-                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${stat.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
-              </div>
-            ))}
-          </div>
-          
-          <style>{`
-            @keyframes spin-slow {
-              from { transform: rotate(0deg); }
-              to { transform: rotate(360deg); }
-            }
-            .group-hover\\:animate-spin-slow:hover {
-              animation: spin-slow 3s linear infinite;
-            }
-          `}</style>
-        </div>
-      </section>
-
       {/* Features Section */}
       <section id="features" className="relative py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-14 scroll-fade-in">
             <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-sm font-semibold mb-4">WHY ORCA</span>
             <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
               왜 <span className="gradient-text">Orca</span>인가?
@@ -877,7 +1034,7 @@ export default function OrcinusLanding() {
           
           <div className="grid md:grid-cols-2 gap-5">
             {features.map((feature, i) => (
-              <div key={i} className="hover-lift bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 group cursor-pointer relative overflow-hidden">
+              <div key={i} className={`scroll-fade-in delay-${(i % 4) + 1} hover-lift bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 group cursor-pointer relative overflow-hidden`}>
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-4 shadow-md group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-200">
                   <Icon name={feature.icon} className="w-6 h-6 text-white" />
@@ -890,10 +1047,11 @@ export default function OrcinusLanding() {
         </div>
       </section>
 
-      {/* Services Section - 5개 모듈 */}
+
+      {/* Services Section - 시스템 구성 */}
       <section id="services" className="relative py-20 px-6 bg-slate-50">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-14 scroll-fade-in">
             <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 text-sm font-semibold mb-4">ORCA MODULES</span>
             <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
               시스템 구성
@@ -903,298 +1061,148 @@ export default function OrcinusLanding() {
             </p>
           </div>
           
-          {/* 5개 모듈 카드 - 개선된 디자인 */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+          {/* 7개 모듈 카드 - 간결한 디자인 */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {[
               { 
+                id: "pms",
                 tag: "PMS", 
-                title: "포트폴리오", 
+                title: "포트폴리오 관리", 
+                desc: "실시간 기준가 산출 및 펀드 성과 분석",
                 color: "from-cyan-500 to-cyan-600",
-                bgColor: "bg-cyan-50",
-                items: ["실시간 기준가 관리", "멀티 매니저 지원", "펀드 마감/성과 분석"]
+                details: ["실시간 기준가 관리", "멀티 매니저 지원", "펀드 마감/성과 분석", "포트폴리오 리밸런싱", "벤치마크 비교 분석"]
               },
               { 
+                id: "oms",
                 tag: "OMS", 
-                title: "주문관리", 
+                title: "주문 관리", 
+                desc: "주문 생성부터 체결까지 통합 관리",
                 color: "from-blue-500 to-blue-600",
-                bgColor: "bg-blue-50",
-                items: ["주문 상계 처리", "리스크 관리", "주문 제약 위반 방지"]
+                details: ["주문 상계 처리", "리스크 관리", "주문 제약 위반 방지", "배분 규칙 자동화", "컴플라이언스 체크"]
               },
               { 
+                id: "ems",
                 tag: "EMS", 
-                title: "주문집행", 
+                title: "주문 집행", 
+                desc: "알고리즘 트레이딩 및 최적 체결",
                 color: "from-indigo-500 to-indigo-600",
-                bgColor: "bg-indigo-50",
-                items: ["TWAP/VWAP 알고리즘", "Smart Order Routing", "거래 비용 최적화"]
+                details: ["TWAP/VWAP 알고리즘", "Smart Order Routing", "거래 비용 최적화", "실시간 체결 모니터링", "TCA 분석"]
               },
               { 
+                id: "slbs",
                 tag: "SLBS", 
-                title: "대차관리", 
+                title: "대차 관리", 
+                desc: "차입/대여 통합 관리 시스템",
                 color: "from-violet-500 to-violet-600",
-                bgColor: "bg-violet-50",
-                items: ["차입/대여/대용 관리", "대차 허브 연동", "대차 프로세스 자동화"]
+                details: ["차입/대여/대용 관리", "대차 허브 연동", "대차 프로세스 자동화", "담보 관리", "리콜 처리"]
               },
               { 
+                id: "etfs",
                 tag: "ETFS", 
-                title: "ETF관리", 
+                title: "ETF 관리", 
+                desc: "Active ETF 운용 특화 시스템",
                 color: "from-purple-500 to-purple-600",
-                bgColor: "bg-purple-50",
-                items: ["Active ETF 운용", "실시간 PDF 전송", "설정환매/리콜 관리"]
+                details: ["Active ETF 운용", "실시간 PDF 전송", "설정환매/리콜 관리", "AP 연동", "NAV 실시간 계산"]
+              },
+              { 
+                id: "ipms",
+                tag: "IPMS", 
+                title: "내부 잔고 관리", 
+                desc: "실시간 잔고 및 공매도 체크",
+                color: "from-slate-600 to-slate-700",
+                details: ["실시간 잔고관리", "공매도 체크", "거래 내역 기록", "T+2 결제 관리", "잔고 불일치 알림"]
+              },
+              { 
+                id: "mds",
+                tag: "MDS", 
+                title: "시장 데이터", 
+                desc: "국내/해외 실시간 시세 제공",
+                color: "from-emerald-500 to-emerald-600",
+                details: ["국내/해외 실시간 시세", "기준가 실시간 반영", "해외 자산 당일 반영", "환율 정보", "지수 데이터"]
               },
             ].map((module, i) => (
-              <div key={i} className="group bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-xl hover:border-transparent hover:-translate-y-2 relative overflow-hidden transition-all duration-300">
+              <div 
+                key={i} 
+                onClick={() => setActiveModule(module)}
+                className={`scroll-scale delay-${(i % 4) + 1} group bg-white rounded-2xl p-5 shadow-sm border border-slate-200 hover:shadow-xl hover:border-transparent hover:-translate-y-2 cursor-pointer relative overflow-hidden transition-all duration-300`}
+              >
                 {/* 상단 컬러 바 */}
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${module.color} group-hover:h-2 transition-all duration-300`}/>
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${module.color} group-hover:h-1.5 transition-all duration-300`}/>
                 
-                {/* 태그 배지 */}
-                <div className={`inline-flex items-center justify-center px-3 py-1 rounded-full ${module.bgColor} mb-4`}>
-                  <span className={`text-xs font-bold bg-gradient-to-r ${module.color} bg-clip-text text-transparent`}>{module.tag}</span>
-                </div>
+                {/* 태그 */}
+                <span className={`inline-block text-xs font-black bg-gradient-to-r ${module.color} bg-clip-text text-transparent mb-2`}>
+                  {module.tag}
+                </span>
                 
                 {/* 타이틀 */}
-                <h3 className="text-lg font-bold text-[#0F172A] mb-4">{module.title}</h3>
+                <h3 className="text-base font-bold text-[#0F172A] mb-2 group-hover:text-cyan-600 transition-colors">
+                  {module.title}
+                </h3>
                 
-                {/* 기능 리스트 */}
-                <ul className="space-y-2">
-                  {module.items.map((item, j) => (
-                    <li key={j} className="flex items-start gap-2 text-slate-600 text-sm">
-                      <span className={`mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r ${module.color} flex-shrink-0`}></span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* 한 줄 설명 */}
+                <p className="text-slate-500 text-sm line-clamp-2">{module.desc}</p>
+                
+                {/* 더보기 아이콘 */}
+                <div className="absolute bottom-4 right-4 w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-cyan-100 transition-colors">
+                  <span className="text-slate-400 group-hover:text-cyan-600 text-sm">→</span>
+                </div>
               </div>
             ))}
           </div>
-          
-          {/* 하단 추가 시스템 */}
-          <div className="mt-8 grid md:grid-cols-2 gap-5">
-            <div className="group bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-xl hover:border-transparent hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-600 to-slate-700 group-hover:h-2 transition-all duration-300"/>
-              <div className="flex items-start gap-4">
-                <div className="inline-flex items-center justify-center px-3 py-2 rounded-xl bg-slate-100 flex-shrink-0">
-                  <span className="text-sm font-bold text-slate-700">IPMS</span>
-                </div>
-                <div>
-                  <h4 className="font-bold text-[#0F172A] text-lg mb-2">내부 잔고 관리 시스템</h4>
-                  <ul className="space-y-1">
-                    <li className="flex items-center gap-2 text-slate-600 text-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
-                      차입/대여/대용 반영 실시간 잔고관리
-                    </li>
-                    <li className="flex items-center gap-2 text-slate-600 text-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
-                      공매도 체크
-                    </li>
-                    <li className="flex items-center gap-2 text-slate-600 text-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
-                      모든 거래 내역 기록
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="group bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-xl hover:border-transparent hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-600 to-slate-700 group-hover:h-2 transition-all duration-300"/>
-              <div className="flex items-start gap-4">
-                <div className="inline-flex items-center justify-center px-3 py-2 rounded-xl bg-slate-100 flex-shrink-0">
-                  <span className="text-sm font-bold text-slate-700">MDS</span>
-                </div>
-                <div>
-                  <h4 className="font-bold text-[#0F172A] text-lg mb-2">실시간 시장 데이터</h4>
-                  <ul className="space-y-1">
-                    <li className="flex items-center gap-2 text-slate-600 text-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
-                      국내/해외 실시간 시세
-                    </li>
-                    <li className="flex items-center gap-2 text-slate-600 text-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
-                      기준가 실시간 반영
-                    </li>
-                    <li className="flex items-center gap-2 text-slate-600 text-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
-                      해외 자산 당일 반영
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* 주문 흐름 아키텍처 섹션 */}
-      <section className="relative py-20 px-6 bg-white overflow-hidden">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 text-sm font-semibold mb-4">ARCHITECTURE</span>
-            <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              주문 흐름
-            </h2>
-            <p className="text-slate-600 text-base max-w-lg mx-auto">
-              국내/해외 시장을 하나의 플랫폼에서 통합 관리
-            </p>
-          </div>
-          
-          {/* 탭 버튼 */}
-          <div className="flex justify-center gap-4 mb-10">
+      {/* 모듈 상세 모달 */}
+      {activeModule && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+          onClick={() => setActiveModule(null)}
+        >
+          <div 
+            className="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl relative overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* 상단 컬러 바 */}
+            <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${activeModule.color}`}/>
+            
+            {/* 닫기 버튼 */}
             <button 
-              onClick={() => setActiveTab('domestic')}
-              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${activeTab === 'domestic' ? 'bg-cyan-400 text-black shadow-lg scale-105' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+              onClick={() => setActiveModule(null)}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
             >
-              🇰🇷 국내 주문
+              <span className="text-slate-500">✕</span>
             </button>
-            <button 
-              onClick={() => setActiveTab('overseas')}
-              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${activeTab === 'overseas' ? 'bg-indigo-500 text-white shadow-lg scale-105' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
-            >
-              🌏 해외 주문
+            
+            {/* 헤더 */}
+            <div className="mb-6">
+              <span className={`inline-block text-sm font-black bg-gradient-to-r ${activeModule.color} bg-clip-text text-transparent mb-2`}>
+                {activeModule.tag}
+              </span>
+              <h3 className="text-2xl font-bold text-[#0F172A]">{activeModule.title}</h3>
+              <p className="text-slate-500 mt-2">{activeModule.desc}</p>
+            </div>
+            
+            {/* 기능 리스트 */}
+            <div className="space-y-3">
+              <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">주요 기능</h4>
+              <ul className="space-y-2">
+                {activeModule.details.map((item, j) => (
+                  <li key={j} className="flex items-center gap-3 text-slate-700">
+                    <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${activeModule.color}`}></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            {/* 문의 버튼 */}
+            <button className={`mt-8 w-full py-3 rounded-xl bg-gradient-to-r ${activeModule.color} text-white font-semibold hover:opacity-90 transition-opacity`}>
+              상세 문의하기
             </button>
           </div>
-
-          {/* 국내 주문 다이어그램 */}
-          {activeTab === 'domestic' && (
-            <div className="bg-gradient-to-br from-slate-50 via-white to-cyan-50 rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
-              {/* Row 1: 자산운용사 → Orca */}
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mb-8">
-                <div className="bg-white rounded-2xl px-6 sm:px-8 py-4 sm:py-5 shadow-lg border border-slate-200 text-center">
-                  <div className="text-2xl sm:text-3xl mb-2">🏢</div>
-                  <div className="font-bold text-slate-800 text-sm sm:text-base whitespace-nowrap">자산운용사</div>
-                </div>
-                
-                <div className="flex flex-col items-center">
-                  <span className="text-xs text-slate-400 mb-1">주문</span>
-                  <div className="w-12 sm:w-20 h-1 bg-gradient-to-r from-slate-300 via-cyan-400 to-cyan-500 rounded-full"></div>
-                  <div className="text-cyan-500 mt-1 rotate-90 sm:rotate-0">→</div>
-                </div>
-                
-                <div className="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl px-8 sm:px-10 py-5 sm:py-6 shadow-xl text-center">
-                  <div className="text-white font-black text-xl sm:text-2xl">Orca</div>
-                  <div className="text-cyan-100 text-xs sm:text-sm whitespace-nowrap">Trading System</div>
-                </div>
-              </div>
-
-              {/* Row 2: 분기점 */}
-              <div className="flex justify-center mb-8">
-                <div className="w-1 h-8 sm:h-12 bg-gradient-to-b from-cyan-400 to-cyan-500 rounded-full"></div>
-              </div>
-
-              {/* Row 3: STP Hub */}
-              <div className="flex justify-center items-center gap-8 mb-8">
-                <div className="bg-cyan-100 rounded-2xl px-5 sm:px-6 py-3 sm:py-4 border-2 border-cyan-300 text-center shadow-md">
-                  <div className="font-bold text-cyan-700 text-sm sm:text-base whitespace-nowrap">STP Hub</div>
-                </div>
-              </div>
-
-              {/* Row 4: 세 갈래 라인 */}
-              <div className="hidden sm:flex justify-center gap-4 mb-6">
-                <div className="w-1/3 h-0.5 bg-gradient-to-r from-transparent via-cyan-300 to-cyan-400 rounded-full"></div>
-                <div className="w-1/3 h-0.5 bg-gradient-to-l from-transparent via-cyan-300 to-cyan-400 rounded-full"></div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-                <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-slate-200 text-center">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                    <span className="text-white text-lg sm:text-xl">🏛️</span>
-                  </div>
-                  <div className="font-bold text-slate-800 text-sm sm:text-base whitespace-nowrap">증권사</div>
-                  <div className="text-slate-400 text-xs mt-1 whitespace-nowrap">주문 처리</div>
-                </div>
-
-                <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-slate-200 text-center">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                    <span className="text-white text-lg sm:text-xl">📊</span>
-                  </div>
-                  <div className="font-bold text-slate-800 text-sm sm:text-base whitespace-nowrap">거래소</div>
-                  <div className="text-slate-400 text-xs mt-1">체결</div>
-                </div>
-
-                <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-slate-200 text-center">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                    <span className="text-white text-lg sm:text-xl">📋</span>
-                  </div>
-                  <div className="font-bold text-slate-800 text-sm sm:text-base whitespace-nowrap">사무수탁사</div>
-                  <div className="text-slate-400 text-xs mt-1 whitespace-nowrap">체결/잔고</div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* 해외 주문 다이어그램 */}
-          {activeTab === 'overseas' && (
-            <div className="bg-gradient-to-br from-slate-50 via-white to-indigo-50 rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
-              {/* Row 1: 자산운용사 → Orca */}
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mb-8">
-                <div className="bg-white rounded-2xl px-6 sm:px-8 py-4 sm:py-5 shadow-lg border border-slate-200 text-center">
-                  <div className="text-2xl sm:text-3xl mb-2">🏢</div>
-                  <div className="font-bold text-slate-800 text-sm sm:text-base whitespace-nowrap">자산운용사</div>
-                </div>
-                
-                <div className="flex flex-col items-center">
-                  <span className="text-xs text-slate-400 mb-1">주문</span>
-                  <div className="w-12 sm:w-20 h-1 bg-gradient-to-r from-slate-300 via-indigo-400 to-indigo-500 rounded-full"></div>
-                  <div className="text-indigo-500 mt-1 rotate-90 sm:rotate-0">→</div>
-                </div>
-                
-                <div className="bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl px-8 sm:px-10 py-5 sm:py-6 shadow-xl text-center">
-                  <div className="text-white font-black text-xl sm:text-2xl">Orca</div>
-                  <div className="text-indigo-100 text-xs sm:text-sm">Trading System</div>
-                </div>
-              </div>
-
-              {/* Row 2: 두 갈래 분기 */}
-              <div className="flex justify-center gap-16 sm:gap-32 mb-6">
-                <div className="flex flex-col items-center">
-                  <div className="w-1 h-8 sm:h-10 bg-gradient-to-b from-indigo-400 to-indigo-500 rounded-full"></div>
-                  <span className="text-xs text-indigo-500 bg-indigo-50 px-2 py-1 rounded mt-1 font-medium">FIX</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <div className="w-1 h-8 sm:h-10 bg-gradient-to-b from-violet-400 to-violet-500 rounded-full"></div>
-                  <span className="text-xs text-violet-500 bg-violet-50 px-2 py-1 rounded mt-1 font-medium">EMSX</span>
-                </div>
-              </div>
-
-              {/* Row 3: FixNet / EMSX */}
-              <div className="flex justify-center gap-8 sm:gap-20 mb-8">
-                <div className="bg-indigo-100 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 border-2 border-indigo-300 text-center shadow-md">
-                  <div className="font-bold text-indigo-700 text-sm sm:text-base">FixNet</div>
-                </div>
-                <div className="bg-violet-100 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 border-2 border-violet-300 text-center shadow-md">
-                  <div className="font-bold text-violet-700 text-sm sm:text-base">EMSX</div>
-                  <div className="text-violet-400 text-xs">Bloomberg</div>
-                </div>
-              </div>
-
-              {/* Row 4: 합류 */}
-              <div className="hidden sm:flex justify-center gap-4 mb-6">
-                <div className="w-1/3 h-0.5 bg-gradient-to-r from-transparent via-indigo-300 to-indigo-400 rounded-full"></div>
-                <div className="w-1/3 h-0.5 bg-gradient-to-l from-transparent via-violet-300 to-violet-400 rounded-full"></div>
-              </div>
-
-              {/* Row 5: 증권사 → 거래소 */}
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
-                <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-slate-200 text-center">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                    <span className="text-white text-lg sm:text-xl">🏛️</span>
-                  </div>
-                  <div className="font-bold text-slate-800 text-sm sm:text-base whitespace-nowrap">증권사</div>
-                </div>
-
-                <div className="flex flex-col items-center">
-                  <div className="w-12 sm:w-16 h-1 bg-gradient-to-r from-indigo-400 to-violet-500 rounded-full"></div>
-                  <div className="text-indigo-500 mt-1 rotate-90 sm:rotate-0">→</div>
-                </div>
-
-                <div className="bg-gradient-to-br from-slate-700 to-slate-900 rounded-2xl p-4 sm:p-6 shadow-xl text-center">
-                  <div className="text-2xl sm:text-3xl mb-2">🌍</div>
-                  <div className="font-bold text-white text-sm sm:text-base whitespace-nowrap">해외 거래소</div>
-                  <div className="text-slate-300 text-xs mt-1">NYSE · NASDAQ · LSE</div>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
-      </section>
+      )}
+
 
       {/* 서비스 운영 방식 섹션 */}
       <section className="relative py-20 px-6 bg-white">
@@ -1318,6 +1326,121 @@ export default function OrcinusLanding() {
                 <h4 className="font-bold text-slate-800 mb-1">업무 자동화</h4>
                 <p className="text-slate-600 text-sm">주문/대차/백오피스 자동화<br/>운용 지원 인력 생산성 극대화</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 회사 소개 섹션 - 토스/카카오 스타일 */}
+      <section id="about" className="relative py-24 px-6 bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden">
+        {/* 배경 장식 */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="relative max-w-5xl mx-auto">
+          {/* 헤더 */}
+          <div className="text-center mb-20 scroll-fade-in">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-500/20 text-cyan-400 text-sm font-semibold mb-6">ABOUT ORCINUS</span>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-6" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
+              자산운용의 미래를<br/>함께 만들어갑니다
+            </h2>
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              Orcinus는 자산운용사가 더 나은 투자 결정을 내릴 수 있도록<br className="hidden md:block"/>
+              기술로 혁신합니다
+            </p>
+          </div>
+          
+          {/* 미션 & 비전 */}
+          <div className="grid md:grid-cols-2 gap-8 mb-20">
+            <div className="scroll-slide-left bg-white/5 backdrop-blur rounded-3xl p-8 border border-white/10 hover:border-cyan-500/30 transition-colors">
+              <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-6">
+                <span className="text-2xl">🎯</span>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">Mission</h3>
+              <p className="text-slate-300 leading-relaxed">
+                자산운용사의 복잡한 업무를 단순화하고, 실시간 데이터 기반의 
+                의사결정을 지원하여 투자 성과를 극대화합니다.
+              </p>
+            </div>
+            <div className="scroll-slide-right bg-white/5 backdrop-blur rounded-3xl p-8 border border-white/10 hover:border-cyan-500/30 transition-colors">
+              <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                <span className="text-2xl">🔭</span>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">Vision</h3>
+              <p className="text-slate-300 leading-relaxed">
+                대한민국을 넘어 글로벌 자산운용 기술의 표준이 되어, 
+                금융 시장의 효율성과 투명성을 높입니다.
+              </p>
+            </div>
+          </div>
+          
+          {/* 핵심 가치 - 가로 스크롤 */}
+          <div className="mb-20 scroll-fade-in">
+            <h3 className="text-xl font-bold text-white mb-8 text-center">Core Values</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { icon: "⚡", title: "Speed", desc: "빠른 실행과 대응" },
+                { icon: "🔒", title: "Trust", desc: "신뢰할 수 있는 시스템" },
+                { icon: "🔬", title: "Innovation", desc: "끊임없는 기술 혁신" },
+                { icon: "🤝", title: "Partnership", desc: "고객과 함께 성장" },
+              ].map((value, i) => (
+                <div key={i} className={`scroll-scale delay-${i + 1} bg-white/5 rounded-2xl p-6 text-center border border-white/10 hover:bg-white/10 transition-colors`}>
+                  <span className="text-3xl mb-3 block">{value.icon}</span>
+                  <h4 className="text-white font-bold mb-1">{value.title}</h4>
+                  <p className="text-slate-400 text-sm">{value.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* 연혁 타임라인 */}
+          <div className="mb-20 scroll-fade-in">
+            <h3 className="text-xl font-bold text-white mb-8 text-center">History</h3>
+            <div className="relative">
+              {/* 중앙 라인 */}
+              <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-blue-500 to-indigo-500 hidden md:block"></div>
+              
+              <div className="space-y-8">
+                {[
+                  { year: "2024", title: "Orca 정식 런칭", desc: "자산운용사 대상 통합 트레이딩 시스템 출시" },
+                  { year: "2023", title: "Orcinus 설립", desc: "금융 IT 전문가들이 모여 회사 설립" },
+                ].map((item, i) => (
+                  <div key={i} className={`flex items-center gap-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                    <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                      <span className="text-cyan-400 font-bold text-lg">{item.year}</span>
+                      <h4 className="text-white font-bold text-xl mt-1">{item.title}</h4>
+                      <p className="text-slate-400 mt-2">{item.desc}</p>
+                    </div>
+                    <div className="hidden md:flex w-4 h-4 bg-cyan-500 rounded-full border-4 border-slate-900 z-10"></div>
+                    <div className="flex-1 hidden md:block"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          {/* 팀 소개 */}
+          <div className="text-center">
+            <h3 className="text-xl font-bold text-white mb-4">우리 팀</h3>
+            <p className="text-slate-400 mb-8">
+              금융과 기술의 전문가들이 함께합니다
+            </p>
+            <div className="flex justify-center gap-6 flex-wrap">
+              {[
+                { role: "CEO", expertise: "자산운용 20년" },
+                { role: "CTO", expertise: "금융IT 15년" },
+                { role: "CPO", expertise: "트레이딩 시스템 전문" },
+              ].map((member, i) => (
+                <div key={i} className="bg-white/5 rounded-2xl p-6 border border-white/10 min-w-[150px]">
+                  <div className="w-16 h-16 bg-gradient-to-br from-slate-600 to-slate-700 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <span className="text-2xl">👤</span>
+                  </div>
+                  <h4 className="text-white font-bold">{member.role}</h4>
+                  <p className="text-slate-400 text-sm mt-1">{member.expertise}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
