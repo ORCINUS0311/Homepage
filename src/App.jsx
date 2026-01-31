@@ -186,8 +186,8 @@ export default function OrcinusLanding() {
       },
       clients: {
         badge: 'ORCINUS SERVICE',
-        title: 'Orca, 자산운용 전문가만을 위한 단 하나의 플랫폼',
-        subtitle: 'Orcinus가 만든 올인원 트레이딩 시스템 — PMS · OMS · EMS를 하나로',
+        title: 'Orca by Orcinus',
+        subtitle: '자산운용사를 위한 통합 플랫폼',
         asset: '자산운용사',
         invest: '투자자문사'
       }
@@ -250,8 +250,8 @@ export default function OrcinusLanding() {
       },
       clients: {
         badge: 'ORCINUS SERVICE',
-        title: 'Orca — The Only Platform for Asset Management Professionals',
-        subtitle: 'All-in-one trading system by Orcinus — PMS · OMS · EMS unified',
+        title: 'Orca by Orcinus',
+        subtitle: 'The Integrated Platform for Asset Managers',
         asset: 'Asset Managers',
         invest: 'Investment Advisors'
       }
@@ -463,7 +463,7 @@ export default function OrcinusLanding() {
               autoPlay 
               muted 
               playsInline
-              className="w-[45%] h-auto object-contain"
+              className="w-[85%] sm:w-[70%] lg:w-[45%] h-auto object-contain"
             >
               <source src="/OrcaSwim.mp4" type="video/mp4" />
             </video>
@@ -474,7 +474,7 @@ export default function OrcinusLanding() {
                 setIntroFading(true);
                 setTimeout(() => setShowIntro(false), 300);
               }}
-              className="absolute bottom-8 right-8 text-white/70 hover:text-white text-sm px-4 py-2 border border-white/30 rounded-full hover:bg-white/10 transition-all z-30"
+              className="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 text-white/70 hover:text-white text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2 border border-white/30 rounded-full hover:bg-white/10 transition-all z-30"
             >
               Skip
             </button>
