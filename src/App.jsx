@@ -288,6 +288,8 @@ export default function OrcinusLanding() {
   const txt = t[lang];
   
   const [countUp, setCountUp] = useState({ realtime: false, multi: false, check: false });
+  const [graphAnimated, setGraphAnimated] = useState(false);
+  const graphRef = useRef(null);
 
   // 인트로 타이머 (3~4초 후 자동 전환)
   useEffect(() => {
@@ -317,6 +319,14 @@ export default function OrcinusLanding() {
         const rect = statsRef.current.getBoundingClientRect();
         if (rect.top < window.innerHeight * 0.8) {
           setCountUp({ realtime: true, multi: true, check: true });
+        }
+      }
+      
+      // 그래프 애니메이션 트리거
+      if (graphRef.current && !graphAnimated) {
+        const rect = graphRef.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.75) {
+          setGraphAnimated(true);
         }
       }
     };
@@ -483,23 +493,40 @@ export default function OrcinusLanding() {
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrollY > 50 ? 'bg-white/95 shadow-lg backdrop-blur-md' : 'bg-transparent'}`}>
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* 로고/돌고래 토글 */}
-          <div className="flex items-center gap-3">
-            {/* 로고/제품 세그먼트 토글 */}
-            <div className="flex items-center gap-1 bg-slate-100 rounded-full p-1">
+          {/* 로고 + 토글 */}
+          <div className="flex items-center gap-4">
+            {/* 로고/이름 */}
+            <div className="flex items-center gap-2">
+              {showLogo ? (
+                <>
+                  <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-black text-sm">O</span>
+                  </div>
+                  <span className="font-bold text-slate-800 text-lg" style={{fontFamily: "'Space Grotesk', sans-serif"}}>Orcinus</span>
+                </>
+              ) : (
+                <>
+                  <img src="/orca-hero.png" alt="Orca" className="w-8 h-8 object-contain" />
+                  <span className="font-bold text-slate-800 text-lg" style={{fontFamily: "'Space Grotesk', sans-serif"}}>Orca</span>
+                </>
+              )}
+            </div>
+            
+            {/* 토글 버튼 */}
+            <div className="flex items-center gap-1 bg-slate-100 rounded-full p-0.5">
               <button 
                 onClick={() => setShowLogo(true)}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 flex items-center gap-1 ${showLogo ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`w-7 h-7 rounded-full text-xs font-medium transition-all duration-200 flex items-center justify-center ${showLogo ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}
+                title="회사 소개"
               >
-                <span>✦</span>
-                <span className="hidden sm:inline">Orcinus</span>
+                ✦
               </button>
               <button 
                 onClick={() => setShowLogo(false)}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 flex items-center gap-1 ${!showLogo ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`w-7 h-7 rounded-full text-xs font-medium transition-all duration-200 flex items-center justify-center ${!showLogo ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}
+                title="제품 소개"
               >
-                <span>🐋</span>
-                <span className="hidden sm:inline">Orca</span>
+                🐋
               </button>
             </div>
           </div>
@@ -1145,13 +1172,13 @@ export default function OrcinusLanding() {
                       </div>
                       <span className="px-2 py-0.5 bg-cyan-50 text-cyan-600 rounded text-xs">기본</span>
                     </div>
-                    <div className="flex items-center gap-3 bg-white/80 rounded-xl p-3 border border-slate-200">
-                      <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 font-bold text-xs">2</div>
+                    <div className="flex items-center gap-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-3 border-2 border-blue-300">
+                      <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-xs">2</div>
                       <div className="flex-1">
-                        <span className="font-semibold text-slate-800">OMS만 도입</span>
-                        <p className="text-xs text-slate-500">주문 관리 자동화</p>
+                        <span className="font-semibold text-slate-800">PMS + OMS + EMS</span>
+                        <p className="text-xs text-slate-500">투자결정부터 체결까지 완전 자동화</p>
                       </div>
-                      <span className="px-2 py-0.5 bg-blue-50 text-blue-600 rounded text-xs">인기</span>
+                      <span className="px-2 py-0.5 bg-blue-500 text-white rounded text-xs font-medium">인기</span>
                     </div>
                     <div className="flex items-center gap-3 bg-white/80 rounded-xl p-3 border border-slate-200">
                       <div className="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 font-bold text-xs">3</div>
@@ -1399,8 +1426,38 @@ export default function OrcinusLanding() {
             </div>
           </div>
           
+          {/* 중소형 운용사 메시지 */}
+          <div className="mt-12 scroll-fade-in">
+            <div className="bg-gradient-to-r from-amber-50 via-orange-50 to-yellow-50 rounded-3xl p-8 border border-amber-200 relative overflow-hidden">
+              {/* 배경 장식 */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-200/30 rounded-full blur-2xl"></div>
+              
+              <div className="relative flex flex-col md:flex-row items-center gap-6">
+                <div className="flex-shrink-0">
+                  <div className="w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">
+                    <span className="text-4xl">🏆</span>
+                  </div>
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                  <h3 className="text-xl font-bold text-slate-800 mb-2">
+                    이제 <span className="text-amber-600">중소형 운용사</span>도 ETF 운용이 가능합니다
+                  </h3>
+                  <p className="text-slate-600 mb-4">
+                    복잡한 PDF 관리, 실시간 NAV 계산, AP 연동... <br className="hidden md:block"/>
+                    ETF 운용의 높은 진입장벽을 Orca가 낮춰드립니다.
+                  </p>
+                  <div className="flex flex-wrap justify-center md:justify-start gap-2">
+                    <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">전담 인력 최소화</span>
+                    <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">시스템 구축비 절감</span>
+                    <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">빠른 시장 진입</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
           {/* 하단 강조 */}
-          <div className="mt-12 text-center scroll-fade-in">
+          <div className="mt-8 text-center scroll-fade-in">
             <div className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-2xl shadow-lg">
               <p className="text-lg font-bold">ETF 운용의 모든 것, Orca 하나로</p>
               <p className="text-purple-100 text-sm mt-1">PDF 관리부터 NAV 계산까지 자동화</p>
@@ -1461,7 +1518,7 @@ export default function OrcinusLanding() {
       )}
 
       {/* 운영 효율성 그래프 섹션 */}
-      <section className="relative py-20 px-6 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
+      <section ref={graphRef} className="relative py-20 px-6 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 scroll-fade-in">
             <span className="inline-block px-4 py-1.5 rounded-full bg-green-50 text-green-700 text-sm font-semibold mb-4">EFFICIENCY</span>
@@ -1530,13 +1587,13 @@ export default function OrcinusLanding() {
                       stroke="url(#lineGradRed)" 
                       strokeWidth="3"
                       strokeLinecap="round"
-                      className="graph-line-red"
+                      className={graphAnimated ? 'graph-line-red animate' : 'graph-line-red'}
                     />
                     {/* 기존 방식 영역 */}
                     <path 
                       d="M50,230 Q120,200 160,160 T270,80 T370,40 L370,250 L50,250 Z" 
                       fill="url(#areaGradRed)"
-                      className="graph-area-red"
+                      className={graphAnimated ? 'graph-area-red animate' : 'graph-area-red'}
                     />
                     
                     {/* Orca 사용 - 시안색 선 (완만한 상승) */}
@@ -1546,21 +1603,21 @@ export default function OrcinusLanding() {
                       stroke="url(#lineGradGreen)" 
                       strokeWidth="3"
                       strokeLinecap="round"
-                      className="graph-line-green"
+                      className={graphAnimated ? 'graph-line-green animate' : 'graph-line-green'}
                     />
                     {/* Orca 영역 */}
                     <path 
                       d="M50,230 Q120,220 160,200 T270,170 T370,150 L370,250 L50,250 Z" 
                       fill="url(#areaGradGreen)"
-                      className="graph-area-green"
+                      className={graphAnimated ? 'graph-area-green animate' : 'graph-area-green'}
                     />
                     
                     {/* 끝점 표시 */}
-                    <circle cx="370" cy="40" r="6" fill="#ef4444" className="graph-dot-red"/>
-                    <circle cx="370" cy="150" r="6" fill="#06b6d4" className="graph-dot-green"/>
+                    <circle cx="370" cy="40" r="6" fill="#ef4444" className={graphAnimated ? 'graph-dot-red animate' : 'graph-dot-red'}/>
+                    <circle cx="370" cy="150" r="6" fill="#06b6d4" className={graphAnimated ? 'graph-dot-green animate' : 'graph-dot-green'}/>
                     
                     {/* 차이 표시 화살표 */}
-                    <line x1="385" y1="50" x2="385" y2="140" stroke="#10b981" strokeWidth="2" strokeDasharray="4,4"/>
+                    <line x1="385" y1="50" x2="385" y2="140" stroke="#10b981" strokeWidth="2" strokeDasharray="4,4" className={graphAnimated ? 'graph-diff animate' : 'graph-diff'}/>
                     <text x="395" y="95" fill="#10b981" fontSize="12" fontWeight="bold">↕ 절감</text>
                   </svg>
                 </div>
@@ -1616,28 +1673,37 @@ export default function OrcinusLanding() {
             .graph-line-red, .graph-line-green {
               stroke-dasharray: 500;
               stroke-dashoffset: 500;
+            }
+            .graph-line-red.animate {
               animation: drawLine 2s ease-out forwards;
             }
-            .graph-line-green {
-              animation-delay: 0.3s;
+            .graph-line-green.animate {
+              animation: drawLine 2s ease-out 0.3s forwards;
             }
             .graph-area-red, .graph-area-green {
               opacity: 0;
+            }
+            .graph-area-red.animate {
               animation: fadeInArea 1s ease-out 1.5s forwards;
             }
-            .graph-area-green {
-              animation-delay: 1.8s;
+            .graph-area-green.animate {
+              animation: fadeInArea 1s ease-out 1.8s forwards;
             }
             .graph-dot-red, .graph-dot-green {
               opacity: 0;
               transform-origin: center;
-              animation: popDot 0.3s ease-out forwards;
             }
-            .graph-dot-red {
-              animation-delay: 2s;
+            .graph-dot-red.animate {
+              animation: popDot 0.3s ease-out 2s forwards;
             }
-            .graph-dot-green {
-              animation-delay: 2.3s;
+            .graph-dot-green.animate {
+              animation: popDot 0.3s ease-out 2.3s forwards;
+            }
+            .graph-diff {
+              opacity: 0;
+            }
+            .graph-diff.animate {
+              animation: fadeInArea 0.5s ease-out 2.5s forwards;
             }
             @keyframes drawLine {
               to {
