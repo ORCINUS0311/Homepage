@@ -79,45 +79,54 @@ const Icon = ({ name, className = "" }) => {
 };
 
 // Orca Fin Illustration
-const OrcaFinIllustration = ({ className = "", light = false }) => (
-  <svg className={className} viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id={light ? "finGradientLight" : "finGradientHero"} x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor={light ? "#22D3EE" : "#1E3A5F"}/>
-        <stop offset="50%" stopColor={light ? "#06B6D4" : "#0F172A"}/>
-        <stop offset="100%" stopColor={light ? "#22D3EE" : "#1E3A5F"}/>
-      </linearGradient>
-      <linearGradient id="glowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#4FC3F7" stopOpacity="0.6"/>
-        <stop offset="100%" stopColor="#4FC3F7" stopOpacity="0"/>
-      </linearGradient>
-      <filter id="glow">
-        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
-    </defs>
-    <ellipse cx="200" cy="450" rx="150" ry="30" fill="url(#glowGradient)" opacity="0.5">
-      <animate attributeName="rx" values="150;160;150" dur="3s" repeatCount="indefinite"/>
-    </ellipse>
-    <path d="M120 450 Q140 250 200 80 Q210 60 220 80 Q280 250 300 450 Z" fill={light ? "url(#finGradientLight)" : "url(#finGradientHero)"}/>
-    {/* 아래쪽 물결 */}
-    <path d="M80 430 Q140 410 200 430 Q260 450 320 430" stroke={light ? "#0891B2" : "#4FC3F7"} strokeWidth="3" fill="none" strokeLinecap="round" filter="url(#glow)">
-      <animate attributeName="d" dur="4s" repeatCount="indefinite" values="
-        M80 430 Q140 410 200 430 Q260 450 320 430;
-        M80 435 Q140 455 200 435 Q260 415 320 435;
-        M80 430 Q140 410 200 430 Q260 450 320 430
-      "/>
-    </path>
-    <circle cx="150" cy="380" r="4" fill="#4FC3F7" opacity="0.4">
-      <animate attributeName="cy" values="380;320;260" dur="4s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.4;0.2;0" dur="4s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="250" cy="400" r="3" fill="#4FC3F7" opacity="0.3">
-      <animate attributeName="cy" values="400;340;280" dur="5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.3;0.15;0" dur="5s" repeatCount="indefinite"/>
-    </circle>
-  </svg>
-);
+const OrcaFinIllustration = ({ className = "", light = false }) => {
+  const finColor = light ? "#06B6D4" : "#1E3A5F";
+  const waveColor = light ? "#0891B2" : "#4FC3F7";
+  
+  return (
+    <svg className={className} viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+      {/* 바닥 그림자 */}
+      <ellipse cx="200" cy="450" rx="150" ry="30" fill="#4FC3F7" opacity="0.3">
+        <animate attributeName="rx" values="150;160;150" dur="3s" repeatCount="indefinite"/>
+      </ellipse>
+      {/* 지느러미 본체 */}
+      <path 
+        d="M120 450 Q140 250 200 80 Q210 60 220 80 Q280 250 300 450 Z" 
+        fill={finColor}
+      />
+      {/* 지느러미 하이라이트 */}
+      <path 
+        d="M180 450 Q190 280 200 120 Q205 100 210 120 Q220 280 230 450 Z" 
+        fill={light ? "#22D3EE" : "#2D4A6F"}
+        opacity="0.5"
+      />
+      {/* 아래쪽 물결 */}
+      <path 
+        d="M80 430 Q140 410 200 430 Q260 450 320 430" 
+        stroke={waveColor} 
+        strokeWidth="3" 
+        fill="none" 
+        strokeLinecap="round"
+      >
+        <animate attributeName="d" dur="4s" repeatCount="indefinite" values="
+          M80 430 Q140 410 200 430 Q260 450 320 430;
+          M80 435 Q140 455 200 435 Q260 415 320 435;
+          M80 430 Q140 410 200 430 Q260 450 320 430
+        "/>
+      </path>
+      {/* 물방울 1 */}
+      <circle cx="150" cy="380" r="4" fill="#4FC3F7" opacity="0.4">
+        <animate attributeName="cy" values="380;320;260" dur="4s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.4;0.2;0" dur="4s" repeatCount="indefinite"/>
+      </circle>
+      {/* 물방울 2 */}
+      <circle cx="250" cy="400" r="3" fill="#4FC3F7" opacity="0.3">
+        <animate attributeName="cy" values="400;340;280" dur="5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.3;0.15;0" dur="5s" repeatCount="indefinite"/>
+      </circle>
+    </svg>
+  );
+};
 
 export default function OrcinusLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -162,7 +171,7 @@ export default function OrcinusLanding() {
         badge: 'Orca - 실시간 통합 자산운용 플랫폼',
         title1: '자산운용의 모든 것,',
         title2: '하나의 플랫폼에서.',
-        subtitle: 'PMS · OMS · EMS · 대차관리 · ETF',
+        subtitle: 'PMS · OMS · EMS · SLBS · IPMS',
         desc: '실시간 기준가부터 공매도 체크까지, 올인원 솔루션.',
         cta1: '데모 신청하기',
         cta2: '서비스 소개서',
@@ -198,9 +207,11 @@ export default function OrcinusLanding() {
         example3Desc: '주문부터 체결까지 일원화',
         example4: 'PMS + SLBS',
         example4Desc: '포트폴리오 + 대차관리',
+        example5: '맞춤형 구성',
+        example5Desc: '고객사 니즈에 맞춘 커스터마이징',
         basic: '기본',
         popular: '인기',
-        recommend: '추천',
+        custom: '사용자화',
         synergy: '전체 통합 시 시너지 극대화',
         stepExpand: '단계별 확장 가능'
       },
@@ -377,7 +388,7 @@ export default function OrcinusLanding() {
         badge: 'Orca - Real-time Integrated Asset Management Platform',
         title1: 'Everything in Asset Management,',
         title2: 'In One Platform.',
-        subtitle: 'PMS · OMS · EMS · Securities Lending · ETF',
+        subtitle: 'PMS · OMS · EMS · SLBS · IPMS',
         desc: 'All-in-one solution from real-time NAV to short selling check.',
         cta1: 'Request Demo',
         cta2: 'Brochure',
@@ -413,9 +424,11 @@ export default function OrcinusLanding() {
         example3Desc: 'Unified order to execution',
         example4: 'PMS + SLBS',
         example4Desc: 'Portfolio + Securities Lending',
+        example5: 'Custom Build',
+        example5Desc: 'Tailored to your specific needs',
         basic: 'Basic',
         popular: 'Popular',
-        recommend: 'Recommended',
+        custom: 'Custom',
         synergy: 'Maximum synergy with full integration',
         stepExpand: 'Gradual expansion available'
       },
@@ -1020,7 +1033,7 @@ export default function OrcinusLanding() {
                 <img 
                   src="/orca-hero.png" 
                   alt="Orca" 
-                  className="drop-shadow-2xl w-96 relative z-10 transition-transform duration-300 hover:scale-105"
+                  className="drop-shadow-2xl w-96 relative z-10 transition-transform duration-300 hover:scale-105 -translate-x-8 translate-y-6"
                 />
               )}
             </div>
@@ -1177,32 +1190,91 @@ export default function OrcinusLanding() {
       </section>
 
 
-      {/* Features Section */}
-      <section id="features" className="relative py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14 scroll-fade-in">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-sm font-semibold mb-4">{txt.features.badge}</span>
-            <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
+      {/* Features Section - 왜 Orca인가? */}
+      <section id="features" className="relative py-24 px-6 bg-gradient-to-b from-white via-slate-50 to-white overflow-hidden">
+        {/* 배경 장식 */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-100/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
+        
+        <div className="max-w-6xl mx-auto relative">
+          <div className="text-center mb-16 scroll-fade-in">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-cyan-50 to-blue-50 text-cyan-700 text-sm font-semibold mb-4 border border-cyan-200">{txt.features.badge}</span>
+            <h2 className="text-3xl md:text-5xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
               {txt.features.title} <span className="gradient-text">Orca</span>{txt.features.titleEnd}
             </h2>
-            <p className="text-slate-600 text-base max-w-lg mx-auto">
+            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
               {txt.features.subtitle}
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-5">
-            {features.map((feature, i) => (
-              <div key={i} className={`scroll-fade-in delay-${i + 1} hover-lift bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 group cursor-pointer relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-4 shadow-md group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-200">
-                  <Icon name={feature.icon} className="w-6 h-6 text-white" />
+          
+          {/* 순환 플라이휠 다이어그램 */}
+          <div className="mt-8 scroll-fade-in delay-4">
+            <div className="relative max-w-2xl mx-auto">
+              {/* 원형 SVG */}
+              <svg viewBox="0 0 400 400" className="w-full max-w-lg mx-auto">
+                {/* 외곽 원형 그라데이션 링 */}
+                <defs>
+                  <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#22d3ee"/>
+                    <stop offset="25%" stopColor="#06b6d4"/>
+                    <stop offset="50%" stopColor="#3b82f6"/>
+                    <stop offset="75%" stopColor="#6366f1"/>
+                    <stop offset="100%" stopColor="#22d3ee"/>
+                  </linearGradient>
+                </defs>
+                
+                {/* 외곽 원 */}
+                <circle cx="200" cy="200" r="180" fill="none" stroke="url(#circleGradient)" strokeWidth="12" opacity="0.3"/>
+                <circle cx="200" cy="200" r="180" fill="none" stroke="url(#circleGradient)" strokeWidth="12" strokeDasharray="280 1000" strokeLinecap="round">
+                  <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="20s" repeatCount="indefinite"/>
+                </circle>
+                
+                {/* 내부 원 */}
+                <circle cx="200" cy="200" r="140" fill="white" stroke="#e2e8f0" strokeWidth="1"/>
+                
+                {/* 중앙 텍스트 */}
+                <text x="200" y="175" textAnchor="middle" className="text-2xl font-black fill-slate-800">Orca</text>
+                <text x="200" y="205" textAnchor="middle" className="text-xs fill-cyan-600 font-semibold">{lang === 'ko' ? 'Real-time Data' : 'Real-time Data'}</text>
+                <text x="200" y="225" textAnchor="middle" className="text-xs fill-slate-500">{lang === 'ko' ? '실시간 데이터 기반' : 'Based System'}</text>
+              </svg>
+              
+              {/* 4개 포인트 - 원 라인 위에 배치 */}
+              {/* 상단 - PMS */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-center">
+                <div className="w-14 h-14 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-2">
+                  <span className="text-white text-xs font-black">PMS</span>
                 </div>
-                <h3 className="text-xl font-bold text-[#0F172A] mb-2">{feature.title}</h3>
-                <p className="text-slate-600">{feature.desc}</p>
+                <span className="text-xs font-semibold text-slate-700">{lang === 'ko' ? '포트폴리오' : 'Portfolio'}</span>
               </div>
-            ))}
+              
+              {/* 우측 - OMS */}
+              <div className="absolute top-1/2 -right-3 -translate-y-1/2 text-center">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-2">
+                  <span className="text-white text-xs font-black">OMS</span>
+                </div>
+                <span className="text-xs font-semibold text-slate-700">{lang === 'ko' ? '주문관리' : 'Order'}</span>
+              </div>
+              
+              {/* 하단 - EMS */}
+              <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-center">
+                <div className="w-14 h-14 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-2">
+                  <span className="text-white text-xs font-black">EMS</span>
+                </div>
+                <span className="text-xs font-semibold text-slate-700">{lang === 'ko' ? '체결관리' : 'Execution'}</span>
+              </div>
+              
+              {/* 좌측 - SLBS */}
+              <div className="absolute top-1/2 -left-3 -translate-y-1/2 text-center">
+                <div className="w-14 h-14 bg-gradient-to-br from-violet-400 to-violet-600 rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-2">
+                  <span className="text-white text-xs font-black">SLBS</span>
+                </div>
+                <span className="text-xs font-semibold text-slate-700">{lang === 'ko' ? '대차/대여/대용' : 'Securities Lending'}</span>
+              </div>
+            </div>
           </div>
         </div>
+          
       </section>
 
 
@@ -1419,59 +1491,35 @@ export default function OrcinusLanding() {
                 </div>
               </div>
               
-              {/* 보조 모듈 - SLBS, IPMS, ETFS */}
-              <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto scroll-fade-in delay-5">
-                {/* SLBS */}
+              {/* SLBS */}
+              <div className="relative flex items-center justify-center mb-10">
                 <div 
                   onClick={() => setSelectedModule({
                     tag: "SLBS",
                     title: lang === 'ko' ? "대차 관리" : "Securities Lending",
-                    desc: lang === 'ko' ? "차입/대여 통합 관리 시스템" : "Integrated lending/borrowing management",
+                    desc: lang === 'ko' ? "대차/대여/대용 통합 관리" : "Lending/Borrowing/Collateral Management",
                     color: "from-violet-500 to-violet-600",
                     details: lang === 'ko'
                       ? ["차입/대여/대용 관리", "대차 허브 연동", "대차 프로세스 자동화", "담보 관리", "리콜 처리"]
                       : ["Lending/Borrowing Management", "Lending Hub Integration", "Process Automation", "Collateral Management", "Recall Processing"]
                   })}
-                  className="bg-white rounded-xl shadow-lg border border-violet-200 p-4 cursor-pointer hover:shadow-xl hover:border-violet-400 hover:scale-[1.02] transition-all"
+                  className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-violet-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all scroll-fade-in delay-5"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-violet-400 to-violet-600 rounded-xl flex items-center justify-center">
-                      <span className="text-white text-xs font-black">SLBS</span>
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-violet-400 to-violet-600 rounded-2xl flex items-center justify-center shadow-lg">
+                      <span className="text-white text-2xl font-black">SLBS</span>
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-bold text-slate-800 text-sm">{txt.structure.slbs}</h4>
-                      <p className="text-slate-500 text-xs">Stock Lending</p>
+                      <h3 className="text-xl font-bold text-slate-800">Securities Lending</h3>
+                      <p className="text-slate-500 text-sm">{lang === 'ko' ? '대차/대여/대용 관리' : 'Lending & Borrowing'}</p>
                     </div>
-                    <span className="text-violet-400">→</span>
+                    <span className="text-violet-500 text-xl">→</span>
                   </div>
                 </div>
-                
-                {/* ETFS */}
-                <div 
-                  onClick={() => setSelectedModule({
-                    tag: "ETFS",
-                    title: lang === 'ko' ? "ETF 관리" : "ETF Management",
-                    desc: lang === 'ko' ? "Active ETF 운용 특화 시스템" : "Active ETF specialized system",
-                    color: "from-purple-500 to-purple-600",
-                    details: lang === 'ko'
-                      ? ["PDF 자동 생성/전송", "iNAV 실시간 계산", "설정/환매 자동 처리", "AP 연동", "ETF 리밸런싱"]
-                      : ["PDF Auto Generation", "Real-time iNAV", "Creation/Redemption", "AP Integration", "ETF Rebalancing"]
-                  })}
-                  className="bg-white rounded-xl shadow-lg border border-purple-200 p-4 cursor-pointer hover:shadow-xl hover:border-purple-400 hover:scale-[1.02] transition-all"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center">
-                      <span className="text-white text-xs font-black">ETFS</span>
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-bold text-slate-800 text-sm">{lang === 'ko' ? 'ETF 시스템' : 'ETF System'}</h4>
-                      <p className="text-slate-500 text-xs">Active ETF</p>
-                    </div>
-                    <span className="text-purple-400">→</span>
-                  </div>
-                </div>
-                
-                {/* IPMS */}
+              </div>
+              
+              {/* IPMS */}
+              <div className="relative flex items-center justify-center mb-12">
                 <div 
                   onClick={() => setSelectedModule({
                     tag: "IPMS",
@@ -1482,17 +1530,17 @@ export default function OrcinusLanding() {
                       ? ["내부 계좌 관리", "잔고 관리", "포지션 추적", "결제 예정 관리", "내부 거래 조정"]
                       : ["Internal Account Management", "Position Tracking", "Settlement Management", "Internal Trade Reconciliation", "Balance Management"]
                   })}
-                  className="bg-white rounded-xl shadow-lg border border-slate-200 p-4 cursor-pointer hover:shadow-xl hover:border-slate-400 hover:scale-[1.02] transition-all"
+                  className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-slate-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all scroll-fade-in delay-6"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-slate-500 to-slate-700 rounded-xl flex items-center justify-center">
-                      <span className="text-white text-xs font-black">IPMS</span>
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-slate-500 to-slate-700 rounded-2xl flex items-center justify-center shadow-lg">
+                      <span className="text-white text-2xl font-black">IPMS</span>
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-bold text-slate-800 text-sm">{txt.structure.ipms}</h4>
-                      <p className="text-slate-500 text-xs">Position Mgmt</p>
+                      <h3 className="text-xl font-bold text-slate-800">Internal Position</h3>
+                      <p className="text-slate-500 text-sm">{lang === 'ko' ? '내부 포지션 관리' : 'Position Management'}</p>
                     </div>
-                    <span className="text-slate-400">→</span>
+                    <span className="text-slate-500 text-xl">→</span>
                   </div>
                 </div>
               </div>
@@ -1564,34 +1612,43 @@ export default function OrcinusLanding() {
                   <div className="space-y-3 mb-5">
                     <div className="flex items-center gap-3 bg-white/80 rounded-xl p-3 border border-slate-200">
                       <div className="w-8 h-8 bg-cyan-100 rounded-lg flex items-center justify-center text-cyan-600 font-bold text-xs">1</div>
-                      <div className="flex-1">
+                      <div className="flex-1 text-center">
                         <span className="font-semibold text-slate-800">{txt.modules.example1}</span>
                         <p className="text-xs text-slate-500">{txt.modules.example1Desc}</p>
                       </div>
-                      <span className="px-2 py-0.5 bg-cyan-50 text-cyan-600 rounded text-xs">{txt.modules.basic}</span>
+                      <span className="px-2 py-0.5 bg-cyan-50 text-cyan-600 rounded text-xs min-w-[52px] text-center">{txt.modules.basic}</span>
                     </div>
                     <div className="flex items-center gap-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-3 border-2 border-blue-300">
                       <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-xs">2</div>
-                      <div className="flex-1">
+                      <div className="flex-1 text-center">
                         <span className="font-semibold text-slate-800">{txt.modules.example2}</span>
                         <p className="text-xs text-slate-500">{txt.modules.example2Desc}</p>
                       </div>
-                      <span className="px-2 py-0.5 bg-blue-500 text-white rounded text-xs font-medium">{txt.modules.popular}</span>
+                      <span className="px-2 py-0.5 bg-blue-500 text-white rounded text-xs font-medium min-w-[52px] text-center">{txt.modules.popular}</span>
                     </div>
                     <div className="flex items-center gap-3 bg-white/80 rounded-xl p-3 border border-slate-200">
                       <div className="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 font-bold text-xs">3</div>
-                      <div className="flex-1">
+                      <div className="flex-1 text-center">
                         <span className="font-semibold text-slate-800">{txt.modules.example3}</span>
                         <p className="text-xs text-slate-500">{txt.modules.example3Desc}</p>
                       </div>
-                      <span className="px-2 py-0.5 bg-indigo-50 text-indigo-600 rounded text-xs">{txt.modules.recommend}</span>
+                      <span className="min-w-[52px]"></span>
                     </div>
                     <div className="flex items-center gap-3 bg-white/80 rounded-xl p-3 border border-slate-200">
                       <div className="w-8 h-8 bg-violet-100 rounded-lg flex items-center justify-center text-violet-600 font-bold text-xs">4</div>
-                      <div className="flex-1">
+                      <div className="flex-1 text-center">
                         <span className="font-semibold text-slate-800">{txt.modules.example4}</span>
                         <p className="text-xs text-slate-500">{txt.modules.example4Desc}</p>
                       </div>
+                      <span className="min-w-[52px]"></span>
+                    </div>
+                    <div className="flex items-center gap-3 bg-gradient-to-r from-slate-50 to-slate-100 rounded-xl p-3 border border-dashed border-slate-300">
+                      <div className="w-8 h-8 bg-slate-200 rounded-lg flex items-center justify-center text-slate-600 font-bold text-xs">5</div>
+                      <div className="flex-1 text-center">
+                        <span className="font-semibold text-slate-800">{txt.modules.example5}</span>
+                        <p className="text-xs text-slate-500">{txt.modules.example5Desc}</p>
+                      </div>
+                      <span className="px-2 py-0.5 bg-slate-200 text-slate-600 rounded text-xs min-w-[52px] text-center">{txt.modules.custom}</span>
                     </div>
                   </div>
                   
