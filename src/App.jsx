@@ -1209,7 +1209,7 @@ export default function OrcinusLanding() {
           
           
           {/* 순환 플라이휠 다이어그램 */}
-          <div className="mt-8 scroll-fade-in delay-4">
+          <div className="mt-8">
             <div className="relative max-w-2xl mx-auto">
               {/* 원형 SVG */}
               <svg viewBox="0 0 400 400" className="w-full max-w-lg mx-auto">
