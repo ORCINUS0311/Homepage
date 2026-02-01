@@ -251,39 +251,50 @@ export default function OrcinusLanding() {
         badge: 'EFFICIENCY',
         title: '운영 효율성',
         titleHighlight: '극대화',
-        subtitle: '펀드/일임, 수탁고가 늘어나도 관리비용은 최소화',
-        yAxis: '관리 비용',
-        xAxis: '펀드/일임 · 수탁고',
+        subtitle: '펀드가 늘어나도 관리 인력은 최소화',
+        yAxis: '관리 인원',
+        xAxis: '펀드/일임 수',
         many: '많음',
         few: '적음',
         existing: '기존 방식',
-        existingDesc: '비용 비례 증가',
+        existingDesc: '인력 비례 증가',
         orca: 'Orca 도입',
         orcaDesc: '효율적 관리',
-        saving: '비용 절감',
-        result: '관리 비용 절감',
+        saving: '절감',
+        basis: '펀드 100개 기준',
+        percent: '최대 60%',
+        result: '인력 비용 절감',
         point1: '자동화로 반복 업무 제거',
         point2: '실시간 모니터링으로 효율 UP',
         point3: '규모 확장에도 안정적 운영'
       },
       momentum: {
-        badge: 'FLYWHEEL EFFECT',
-        title: '한번 돌기 시작하면',
-        titleHighlight: '멈추지 않습니다',
-        subtitle: '',
-        item1: '15년+ 노하우',
-        item2: '금융 네트워크',
-        item3: '빠른 도메인 이해',
-        item4: '맞춤 커스터마이징',
-        item5: '신뢰 구축',
-        center: 'FLYWHEEL',
-        centerSub: '선순환',
+        badge: 'OUR EXPERTISE',
+        title: '시스템 도입은',
+        titleHighlight: '관성의 힘',
+        subtitle: '처음 돌리기는 어렵지만, 한번 돌아가면 멈추지 않습니다',
+        gear1: '15년+',
+        gear1Label: '금융 IT 노하우',
+        gear1Desc: '수많은 프로젝트 경험으로 검증된 전문성',
+        gear2: '맞춤형',
+        gear2Label: '커스터마이징',
+        gear2Desc: '고객사 업무 프로세스에 최적화된 설계',
+        gear3: '시너지',
+        gear3Label: '통합 효과',
+        gear3Desc: '모듈 간 연동으로 배가되는 업무 효율',
+        phase1: '도입 단계',
+        phase1Desc: '초기 설정과 적응 기간',
+        phase2: '가속 단계',
+        phase2Desc: '업무 효율 급상승',
+        phase3: '관성 단계',
+        phase3Desc: '자동화된 워크플로우',
         bottomMsg: '한번 구축하면 오래 쓰는 시스템, 그래서 처음이 중요합니다'
       },
       deploy: {
         badge: 'DEPLOYMENT',
         title: '서비스 운영 방식',
         subtitle: '고객사 환경에 맞는 유연한 배포 옵션',
+        desc: '필요한 모듈만 선택적으로 도입하여 서비스 도입 부담을 줄이고, 기존 시스템을 순차적으로 대체할 수 있습니다.',
         saas: 'SaaS',
         saasTitle: 'Orcinus Cloud',
         saasDesc: '클라우드 기반 서비스',
@@ -342,7 +353,7 @@ export default function OrcinusLanding() {
         speedDesc: '복잡한 금융 업무도 빠르게 파악하고 설계',
         solution: '불가능을 가능으로',
         solutionDesc: '안 된다고 생각한 것도 방법을 찾아 해결',
-        bottomMsg: '금융 IT의 모든 것'
+        bottomMsg: '네트워킹부터 커스터마이징까지, 금융 IT의 모든 것'
       },
       slogan: '자산운용의 흐름을 읽는 힘',
       clientTypes: {
@@ -466,39 +477,50 @@ export default function OrcinusLanding() {
         badge: 'EFFICIENCY',
         title: 'Operational Efficiency',
         titleHighlight: 'Maximized',
-        subtitle: 'Keep management costs minimal even as funds and AUM grow',
-        yAxis: 'Management Cost',
-        xAxis: 'Funds · AUM',
-        many: 'High',
-        few: 'Low',
+        subtitle: 'Keep management staff minimal even as funds grow',
+        yAxis: 'Staff Count',
+        xAxis: 'Number of Funds',
+        many: 'Many',
+        few: 'Few',
         existing: 'Traditional',
-        existingDesc: 'Linear cost increase',
+        existingDesc: 'Linear staff increase',
         orca: 'With Orca',
         orcaDesc: 'Efficient management',
-        saving: 'Cost Savings',
-        result: 'Management cost reduction',
+        saving: 'Savings',
+        basis: 'Based on 100 funds',
+        percent: 'Up to 60%',
+        result: 'Staff cost reduction',
         point1: 'Automation eliminates repetitive tasks',
         point2: 'Real-time monitoring boosts efficiency',
         point3: 'Stable operation even at scale'
       },
       momentum: {
-        badge: 'FLYWHEEL EFFECT',
-        title: 'Once it starts spinning,',
-        titleHighlight: 'it never stops',
-        subtitle: '',
-        item1: '15+ Years Know-how',
-        item2: 'Financial Network',
-        item3: 'Rapid Domain Grasp',
-        item4: 'Custom Solutions',
-        item5: 'Trust Building',
-        center: 'FLYWHEEL',
-        centerSub: 'Virtuous Cycle',
+        badge: 'OUR EXPERTISE',
+        title: 'System Implementation is',
+        titleHighlight: 'About Momentum',
+        subtitle: 'Hard to start, but once running, it never stops',
+        gear1: '15+',
+        gear1Label: 'Years of Expertise',
+        gear1Desc: 'Proven expertise from countless projects',
+        gear2: 'Custom',
+        gear2Label: 'Tailored Solutions',
+        gear2Desc: 'Optimized design for your workflow',
+        gear3: 'Synergy',
+        gear3Label: 'Integration Effect',
+        gear3Desc: 'Multiplied efficiency through module integration',
+        phase1: 'Implementation',
+        phase1Desc: 'Initial setup & adaptation',
+        phase2: 'Acceleration',
+        phase2Desc: 'Rapid efficiency gains',
+        phase3: 'Momentum',
+        phase3Desc: 'Automated workflow',
         bottomMsg: 'Systems built once, used for years - that\'s why the beginning matters'
       },
       deploy: {
         badge: 'DEPLOYMENT',
         title: 'Deployment Options',
         subtitle: 'Flexible deployment options for your environment',
+        desc: 'Adopt only the modules you need to reduce implementation burden and gradually replace existing systems.',
         saas: 'SaaS',
         saasTitle: 'Orcinus Cloud',
         saasDesc: 'Cloud-based service',
@@ -557,7 +579,7 @@ export default function OrcinusLanding() {
         speedDesc: 'Quickly grasp and design for complex financial workflows',
         solution: 'Making Impossible Possible',
         solutionDesc: 'Finding solutions where others see obstacles',
-        bottomMsg: 'Everything in Financial IT'
+        bottomMsg: 'From networking to customization - everything in financial IT'
       },
       slogan: 'The Power to Read the Flow of Asset Management',
       clientTypes: {
@@ -635,7 +657,13 @@ export default function OrcinusLanding() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [graphAnimated]);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // 스크롤 애니메이션 옵저버
   useEffect(() => {
@@ -658,9 +686,11 @@ export default function OrcinusLanding() {
   }, []);
 
   const features = [
-    { icon: "activity", title: "국내/해외 체결과 실시간 손익", desc: "해외 자산도 당일 실시간 반영, 운용역별/펀드별 기준가 실시간 업데이트" },
+    { icon: "activity", title: "실시간 손익 & 기준가", desc: "운용역별/펀드별 실시간 기준가 업데이트" },
+    { icon: "zap", title: "국내/해외 실시간 체결", desc: "해외 자산도 당일 실시간 반영, 장중 진입/청산 가능" },
+    { icon: "shield", title: "실시간 리스크 관리", desc: "실시간 반영으로 즉각적인 리스크 체크 가능" },
+    { icon: "target", title: "Active ETF 운용", desc: "실시간 PDF 전송, 설정환매, 대여리콜 관리" },
     { icon: "layers", title: "멀티매니저 운용", desc: "매니저별 손익/잔고 관리, 반대방향 주문 자동상계 후 동시진행" },
-    { icon: "database", title: "자산운용사 통합시스템", desc: "PMS, OMS, EMS를 하나로 통합하여 운용 전 과정을 원스톱으로 관리" },
   ];
 
   const clients = [
@@ -987,7 +1017,7 @@ export default function OrcinusLanding() {
             {/* 모바일: 토글에 따라 로고/돌고래 전환 */}
             <div className="lg:hidden flex justify-center items-center my-4">
               {showLogo ? (
-                <OrcaFinIllustration className="w-48 sm:w-56 drop-shadow-2xl" />
+                <OrcaFinIllustration className="w-40 sm:w-48 drop-shadow-2xl" />
               ) : (
                 <img 
                   src="/orca-hero.png" 
@@ -1015,12 +1045,12 @@ export default function OrcinusLanding() {
             {/* 데스크탑: 토글에 따라 로고/돌고래 전환 */}
             <div className="absolute inset-0 hidden lg:flex justify-center items-center">
               {showLogo ? (
-                <OrcaFinIllustration className="w-full max-w-lg relative z-10" />
+                <OrcaFinIllustration className="w-full max-w-sm relative z-10" />
               ) : (
                 <img 
                   src="/orca-hero.png" 
                   alt="Orca" 
-                  className="drop-shadow-2xl w-96 relative z-10 transition-transform duration-300 hover:scale-105"
+                  className="drop-shadow-2xl w-64 relative z-10 transition-transform duration-300 hover:scale-105"
                 />
               )}
             </div>
@@ -1177,35 +1207,80 @@ export default function OrcinusLanding() {
       </section>
 
 
-      {/* Features Section */}
-      <section id="features" className="relative py-20 px-6 bg-white">
+      {/* Client + Stats Section */}
+      <section ref={statsRef} className="relative py-20 px-6 bg-white border-y border-slate-100">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14 scroll-fade-in">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-sm font-semibold mb-4">{txt.features.badge}</span>
+          {/* 고객 대상 타이틀 */}
+          <div className="text-center mb-12 scroll-fade-in">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 text-sm font-semibold mb-4">{txt.clients.badge}</span>
             <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              {txt.features.title} <span className="gradient-text">Orca</span>{txt.features.titleEnd}
+              {txt.clients.title} <span className="text-cyan-600">{txt.clients.titleHighlight}</span>
             </h2>
             <p className="text-slate-600 text-base max-w-lg mx-auto">
-              {txt.features.subtitle}
+              {txt.clients.subtitle}
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-5">
-            {features.map((feature, i) => (
-              <div key={i} className={`scroll-fade-in delay-${i + 1} hover-lift bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 group cursor-pointer relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-4 shadow-md group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-200">
-                  <Icon name={feature.icon} className="w-6 h-6 text-white" />
+          {/* 고객 타입 버튼 */}
+          <div className="flex flex-wrap justify-center gap-4 mb-16 scroll-fade-in delay-1">
+            {clients.map((client, i) => (
+              <div key={i} className="group bg-white rounded-2xl px-6 py-4 flex items-center gap-4 shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 border-2 border-slate-100 hover:border-cyan-400 cursor-pointer">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
+                  <Icon name={client.icon} className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-[#0F172A] mb-2">{feature.title}</h3>
-                <p className="text-slate-600">{feature.desc}</p>
+                <span className="text-slate-800 font-bold text-lg group-hover:text-cyan-700 transition-colors">{client.title}</span>
               </div>
             ))}
           </div>
+          
+          {/* 강점 카드 그리드 */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {/* 금융 네트워크 */}
+            <div className="scroll-fade-in delay-2 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-6 border border-cyan-100 hover:shadow-xl hover:border-cyan-300 transition-all group">
+              <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                <span className="text-2xl">🌐</span>
+              </div>
+              <h4 className="text-lg font-bold text-slate-800 mb-2">{txt.clients.network}</h4>
+              <p className="text-slate-600 text-sm">{txt.clients.networkDesc}</p>
+            </div>
+            
+            {/* 다양한 업무 경험 */}
+            <div className="scroll-fade-in delay-3 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100 hover:shadow-xl hover:border-blue-300 transition-all group">
+              <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                <span className="text-2xl">📊</span>
+              </div>
+              <h4 className="text-lg font-bold text-slate-800 mb-2">{txt.clients.experience}</h4>
+              <p className="text-slate-600 text-sm">{txt.clients.experienceDesc}</p>
+            </div>
+            
+            {/* 빠른 도메인 이해 */}
+            <div className="scroll-fade-in delay-4 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-6 border border-indigo-100 hover:shadow-xl hover:border-indigo-300 transition-all group">
+              <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                <span className="text-2xl">⚡</span>
+              </div>
+              <h4 className="text-lg font-bold text-slate-800 mb-2">{txt.clients.speed}</h4>
+              <p className="text-slate-600 text-sm">{txt.clients.speedDesc}</p>
+            </div>
+            
+            {/* 불가능을 가능으로 */}
+            <div className="scroll-fade-in delay-5 bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-6 border border-purple-100 hover:shadow-xl hover:border-purple-300 transition-all group">
+              <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                <span className="text-2xl">🚀</span>
+              </div>
+              <h4 className="text-lg font-bold text-slate-800 mb-2">{txt.clients.solution}</h4>
+              <p className="text-slate-600 text-sm">{txt.clients.solutionDesc}</p>
+            </div>
+          </div>
+          
+          {/* 하단 메시지 */}
+          <div className="text-center scroll-fade-in delay-6">
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full shadow-lg">
+              <span className="text-xl">💡</span>
+              <span className="font-semibold">{txt.clients.bottomMsg}</span>
+            </div>
+          </div>
         </div>
       </section>
-
-
 
       {/* 슬로건 섹션 - 선 위주 파도 애니메이션 */}
       <section className="relative py-16 px-6 bg-white overflow-hidden">
@@ -1318,6 +1393,35 @@ export default function OrcinusLanding() {
         `}</style>
       </section>
 
+      {/* Features Section */}
+      <section id="features" className="relative py-20 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14 scroll-fade-in">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-sm font-semibold mb-4">{txt.features.badge}</span>
+            <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
+              {txt.features.title} <span className="gradient-text">Orca</span>{txt.features.titleEnd}
+            </h2>
+            <p className="text-slate-600 text-base max-w-lg mx-auto">
+              {txt.features.subtitle}
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-5">
+            {features.map((feature, i) => (
+              <div key={i} className={`scroll-fade-in delay-${i + 1} hover-lift bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 group cursor-pointer relative overflow-hidden`}>
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-4 shadow-md group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-200">
+                  <Icon name={feature.icon} className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-[#0F172A] mb-2">{feature.title}</h3>
+                <p className="text-slate-600">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
       {/* Services Section - 시스템 구성 */}
       <section id="services" className="relative py-20 px-6 bg-slate-50">
         <div className="max-w-6xl mx-auto">
@@ -1330,182 +1434,86 @@ export default function OrcinusLanding() {
               {txt.modules.subtitle}
             </p>
           </div>
-
-          {/* 통합 시스템 구조 - 클릭하면 상세 정보 */}
-          <div className="max-w-4xl mx-auto">
-            {/* 메인 플로우 - PMS → OMS → EMS */}
-            <div className="relative">
-              {/* 연결선 - 세로 (스크롤 시 나타남) */}
-              <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-400 via-blue-500 to-indigo-600 transform -translate-x-1/2 hidden md:block scroll-fade-in"></div>
-              
-              {/* PMS */}
-              <div className="relative flex items-center justify-center mb-10">
-                <div 
-                  onClick={() => setSelectedModule({
-                    tag: "PMS",
-                    title: lang === 'ko' ? "포트폴리오 관리" : "Portfolio Management",
-                    desc: lang === 'ko' ? "실시간 기준가 산출 및 펀드 성과 분석" : "Real-time NAV calculation and fund performance analysis",
-                    color: "from-cyan-500 to-cyan-600",
-                    details: lang === 'ko' 
-                      ? ["실시간 기준가 관리", "멀티 매니저 지원", "펀드 마감/성과 분석", "포트폴리오 리밸런싱", "벤치마크 비교 분석"]
-                      : ["Real-time NAV Management", "Multi-Manager Support", "Fund Closing/Performance", "Portfolio Rebalancing", "Benchmark Analysis"]
-                  })}
-                  className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-cyan-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all scroll-fade-in"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg">
-                      <span className="text-white text-2xl font-black">PMS</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-slate-800">Portfolio Management</h3>
-                      <p className="text-slate-500 text-sm">{txt.structure.pms}</p>
-                    </div>
-                    <span className="text-cyan-500 text-xl">→</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* OMS */}
-              <div className="relative flex items-center justify-center mb-10">
-                <div 
-                  onClick={() => setSelectedModule({
-                    tag: "OMS",
-                    title: lang === 'ko' ? "주문 관리" : "Order Management",
-                    desc: lang === 'ko' ? "주문 생성부터 체결까지 통합 관리" : "Integrated management from order creation to execution",
-                    color: "from-blue-500 to-blue-600",
-                    details: lang === 'ko'
-                      ? ["주문 상계 처리", "리스크 관리", "주문 제약 위반 방지", "배분 규칙 자동화", "컴플라이언스 체크"]
-                      : ["Order Netting", "Risk Management", "Order Constraint Prevention", "Allocation Rule Automation", "Compliance Check"]
-                  })}
-                  className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-blue-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all scroll-fade-in delay-2"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
-                      <span className="text-white text-2xl font-black">OMS</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-slate-800">Order Management</h3>
-                      <p className="text-slate-500 text-sm">{txt.structure.oms}</p>
-                    </div>
-                    <span className="text-blue-500 text-xl">→</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* EMS */}
-              <div className="relative flex items-center justify-center mb-12">
-                <div 
-                  onClick={() => setSelectedModule({
-                    tag: "EMS",
-                    title: lang === 'ko' ? "주문 집행" : "Execution Management",
-                    desc: lang === 'ko' ? "알고리즘 트레이딩 및 최적 체결" : "Algorithmic trading and optimal execution",
-                    color: "from-indigo-500 to-indigo-600",
-                    details: lang === 'ko'
-                      ? ["TWAP/VWAP 알고리즘", "Smart Order Routing", "거래 비용 최적화", "실시간 체결 모니터링", "TCA 분석"]
-                      : ["TWAP/VWAP Algorithm", "Smart Order Routing", "Transaction Cost Optimization", "Real-time Execution Monitoring", "TCA Analysis"]
-                  })}
-                  className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-indigo-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all scroll-fade-in delay-4"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
-                      <span className="text-white text-2xl font-black">EMS</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-slate-800">Execution Management</h3>
-                      <p className="text-slate-500 text-sm">{txt.structure.ems}</p>
-                    </div>
-                    <span className="text-indigo-500 text-xl">→</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* 보조 모듈 - SLBS, IPMS, ETFS */}
-              <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto scroll-fade-in delay-5">
-                {/* SLBS */}
-                <div 
-                  onClick={() => setSelectedModule({
-                    tag: "SLBS",
-                    title: lang === 'ko' ? "대차 관리" : "Securities Lending",
-                    desc: lang === 'ko' ? "차입/대여 통합 관리 시스템" : "Integrated lending/borrowing management",
-                    color: "from-violet-500 to-violet-600",
-                    details: lang === 'ko'
-                      ? ["차입/대여/대용 관리", "대차 허브 연동", "대차 프로세스 자동화", "담보 관리", "리콜 처리"]
-                      : ["Lending/Borrowing Management", "Lending Hub Integration", "Process Automation", "Collateral Management", "Recall Processing"]
-                  })}
-                  className="bg-white rounded-xl shadow-lg border border-violet-200 p-4 cursor-pointer hover:shadow-xl hover:border-violet-400 hover:scale-[1.02] transition-all"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-violet-400 to-violet-600 rounded-xl flex items-center justify-center">
-                      <span className="text-white text-xs font-black">SLBS</span>
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-bold text-slate-800 text-sm">{txt.structure.slbs}</h4>
-                      <p className="text-slate-500 text-xs">Stock Lending</p>
-                    </div>
-                    <span className="text-violet-400">→</span>
-                  </div>
-                </div>
+          
+          {/* 7개 모듈 카드 - 간결한 디자인 */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { 
+                id: "pms",
+                tag: "PMS", 
+                title: "포트폴리오 관리", 
+                desc: "실시간 기준가 산출 및 펀드 성과 분석",
+                color: "from-cyan-500 to-cyan-600",
+                details: ["실시간 기준가 관리", "멀티 매니저 지원", "펀드 마감/성과 분석", "포트폴리오 리밸런싱", "벤치마크 비교 분석"]
+              },
+              { 
+                id: "oms",
+                tag: "OMS", 
+                title: "주문 관리", 
+                desc: "주문 생성부터 체결까지 통합 관리",
+                color: "from-blue-500 to-blue-600",
+                details: ["주문 상계 처리", "리스크 관리", "주문 제약 위반 방지", "배분 규칙 자동화", "컴플라이언스 체크"]
+              },
+              { 
+                id: "ems",
+                tag: "EMS", 
+                title: "주문 집행", 
+                desc: "알고리즘 트레이딩 및 최적 체결",
+                color: "from-indigo-500 to-indigo-600",
+                details: ["TWAP/VWAP 알고리즘", "Smart Order Routing", "거래 비용 최적화", "실시간 체결 모니터링", "TCA 분석"]
+              },
+              { 
+                id: "slbs",
+                tag: "SLBS", 
+                title: "대차 관리", 
+                desc: "차입/대여 통합 관리 시스템",
+                color: "from-violet-500 to-violet-600",
+                details: ["차입/대여/대용 관리", "대차 허브 연동", "대차 프로세스 자동화", "담보 관리", "리콜 처리"]
+              },
+              { 
+                id: "etfs",
+                tag: "ETFS", 
+                title: "ETF 관리", 
+                desc: "Active ETF 운용 특화 시스템",
+                color: "from-purple-500 to-purple-600",
+                details: ["Active ETF 운용", "실시간 PDF 전송", "설정환매/리콜 관리", "AP 연동", "NAV 실시간 계산"]
+              },
+              { 
+                id: "ipms",
+                tag: "IPMS", 
+                title: "내부 잔고 관리", 
+                desc: "실시간 잔고 및 공매도 체크",
+                color: "from-slate-600 to-slate-700",
+                details: ["실시간 잔고관리", "공매도 체크", "거래 내역 기록", "T+2 결제 관리", "잔고 불일치 알림"]
+              },
+            ].map((module, i) => (
+              <div 
+                key={i} 
+                onClick={() => setActiveModule(module)}
+                className={`scroll-scale delay-${(i % 4) + 1} group bg-white rounded-2xl p-5 shadow-sm border border-slate-200 hover:shadow-xl hover:border-transparent hover:-translate-y-2 cursor-pointer relative overflow-hidden transition-all duration-300`}
+              >
+                {/* 상단 컬러 바 */}
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${module.color} group-hover:h-1.5 transition-all duration-300`}/>
                 
-                {/* ETFS */}
-                <div 
-                  onClick={() => setSelectedModule({
-                    tag: "ETFS",
-                    title: lang === 'ko' ? "ETF 관리" : "ETF Management",
-                    desc: lang === 'ko' ? "Active ETF 운용 특화 시스템" : "Active ETF specialized system",
-                    color: "from-purple-500 to-purple-600",
-                    details: lang === 'ko'
-                      ? ["PDF 자동 생성/전송", "iNAV 실시간 계산", "설정/환매 자동 처리", "AP 연동", "ETF 리밸런싱"]
-                      : ["PDF Auto Generation", "Real-time iNAV", "Creation/Redemption", "AP Integration", "ETF Rebalancing"]
-                  })}
-                  className="bg-white rounded-xl shadow-lg border border-purple-200 p-4 cursor-pointer hover:shadow-xl hover:border-purple-400 hover:scale-[1.02] transition-all"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center">
-                      <span className="text-white text-xs font-black">ETFS</span>
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-bold text-slate-800 text-sm">{lang === 'ko' ? 'ETF 시스템' : 'ETF System'}</h4>
-                      <p className="text-slate-500 text-xs">Active ETF</p>
-                    </div>
-                    <span className="text-purple-400">→</span>
-                  </div>
-                </div>
+                {/* 태그 */}
+                <span className={`inline-block text-xs font-black bg-gradient-to-r ${module.color} bg-clip-text text-transparent mb-2`}>
+                  {module.tag}
+                </span>
                 
-                {/* IPMS */}
-                <div 
-                  onClick={() => setSelectedModule({
-                    tag: "IPMS",
-                    title: lang === 'ko' ? "내부 포지션 관리" : "Internal Position Management",
-                    desc: lang === 'ko' ? "사내 계좌/잔고 통합 관리" : "Internal account/position management",
-                    color: "from-slate-500 to-slate-600",
-                    details: lang === 'ko'
-                      ? ["내부 계좌 관리", "잔고 관리", "포지션 추적", "결제 예정 관리", "내부 거래 조정"]
-                      : ["Internal Account Management", "Position Tracking", "Settlement Management", "Internal Trade Reconciliation", "Balance Management"]
-                  })}
-                  className="bg-white rounded-xl shadow-lg border border-slate-200 p-4 cursor-pointer hover:shadow-xl hover:border-slate-400 hover:scale-[1.02] transition-all"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-slate-500 to-slate-700 rounded-xl flex items-center justify-center">
-                      <span className="text-white text-xs font-black">IPMS</span>
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-bold text-slate-800 text-sm">{txt.structure.ipms}</h4>
-                      <p className="text-slate-500 text-xs">Position Mgmt</p>
-                    </div>
-                    <span className="text-slate-400">→</span>
-                  </div>
+                {/* 타이틀 */}
+                <h3 className="text-base font-bold text-[#0F172A] mb-2 group-hover:text-cyan-600 transition-colors">
+                  {module.title}
+                </h3>
+                
+                {/* 한 줄 설명 */}
+                <p className="text-slate-500 text-sm line-clamp-2">{module.desc}</p>
+                
+                {/* 더보기 아이콘 */}
+                <div className="absolute bottom-4 right-4 w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-cyan-100 transition-colors">
+                  <span className="text-slate-400 group-hover:text-cyan-600 text-sm">→</span>
                 </div>
               </div>
-              
-              {/* 연결 설명 */}
-              <div className="mt-8 text-center scroll-fade-in delay-4">
-                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-50 via-blue-50 to-indigo-50 px-6 py-3 rounded-full border border-slate-200">
-                  <span className="text-cyan-600">●</span>
-                  <span className="text-sm text-slate-600">{txt.structure.connected}</span>
-                  <span className="text-indigo-600">●</span>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
           
           {/* 선택적 모듈 강조 */}
@@ -1606,42 +1614,314 @@ export default function OrcinusLanding() {
         </div>
       </section>
 
-      {/* Client + Stats Section */}
-      <section ref={statsRef} className="relative py-20 px-6 bg-white border-y border-slate-100">
-        <div className="max-w-6xl mx-auto">
-          {/* 고객 대상 타이틀 */}
+      {/* 시스템 구조도 섹션 */}
+      <section className="relative py-20 px-6 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+        <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 scroll-fade-in">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 text-sm font-semibold mb-4">{txt.clients.badge}</span>
+            <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mb-4">{txt.structure.badge}</span>
             <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              {txt.clients.title} <span className="text-cyan-600">{txt.clients.titleHighlight}</span>
+              {txt.structure.title}
             </h2>
             <p className="text-slate-600 text-base max-w-lg mx-auto">
-              {txt.clients.subtitle}
+              {txt.structure.subtitle}
             </p>
           </div>
           
-          {/* 고객 타입 버튼 */}
-          <div className="flex flex-wrap justify-center gap-4 mb-16 scroll-fade-in delay-1">
-            {clients.map((client, i) => (
-              <div key={i} className="group bg-white rounded-2xl px-6 py-4 flex items-center gap-4 shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 border-2 border-slate-100 hover:border-cyan-400 cursor-pointer">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
-                  <Icon name={client.icon} className="w-6 h-6 text-white" />
+          {/* 메인 플로우 - PMS → OMS → EMS */}
+          <div className="relative">
+            {/* 연결선 - 세로 */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-400 via-blue-500 to-indigo-600 transform -translate-x-1/2 hidden md:block"></div>
+            
+            {/* PMS */}
+            <div className="relative flex items-center justify-center mb-6 scroll-fade-in">
+              <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-cyan-400 p-6 relative z-10">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg">
+                    <span className="text-white text-2xl font-black">PMS</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-800">Portfolio Management</h3>
+                    <p className="text-slate-500 text-sm">{txt.structure.pms}</p>
+                  </div>
                 </div>
-                <span className="text-slate-800 font-bold text-lg group-hover:text-cyan-700 transition-colors">{client.title}</span>
+                {/* 화살표 */}
+                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-cyan-500 text-2xl z-20">↓</div>
               </div>
-            ))}
-          </div>
-          
-          
-          {/* 하단 메시지 */}
-          <div className="text-center scroll-fade-in delay-6">
-            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full shadow-lg">
-              <span className="text-xl">💡</span>
-              <span className="font-semibold">{txt.clients.bottomMsg}</span>
+            </div>
+            
+            {/* OMS */}
+            <div className="relative flex items-center justify-center mb-6 scroll-fade-in delay-1">
+              <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-blue-400 p-6 relative z-10">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
+                    <span className="text-white text-2xl font-black">OMS</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-800">Order Management</h3>
+                    <p className="text-slate-500 text-sm">{txt.structure.oms}</p>
+                  </div>
+                </div>
+                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-blue-500 text-2xl z-20">↓</div>
+              </div>
+            </div>
+            
+            {/* EMS */}
+            <div className="relative flex items-center justify-center mb-12 scroll-fade-in delay-2">
+              <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-indigo-400 p-6 relative z-10">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
+                    <span className="text-white text-2xl font-black">EMS</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-800">Execution Management</h3>
+                    <p className="text-slate-500 text-sm">{txt.structure.ems}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* 보조 모듈 - SLBS, IPMS */}
+            <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto scroll-fade-in delay-3">
+              {/* SLBS */}
+              <div className="bg-white rounded-xl shadow-lg border border-violet-200 p-5 hover:shadow-xl hover:border-violet-400 transition-all">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 bg-gradient-to-br from-violet-400 to-violet-600 rounded-xl flex items-center justify-center">
+                    <span className="text-white text-xs font-black">SLBS</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">{txt.structure.slbs}</h4>
+                    <p className="text-slate-500 text-xs">Stock Lending & Borrowing</p>
+                  </div>
+                </div>
+                <p className="text-slate-600 text-sm">{txt.structure.slbsDesc}</p>
+              </div>
+              
+              {/* IPMS */}
+              <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-5 hover:shadow-xl hover:border-slate-400 transition-all">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 bg-gradient-to-br from-slate-500 to-slate-700 rounded-xl flex items-center justify-center">
+                    <span className="text-white text-xs font-black">IPMS</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">{txt.structure.ipms}</h4>
+                    <p className="text-slate-500 text-xs">Internal Position Management</p>
+                  </div>
+                </div>
+                <p className="text-slate-600 text-sm">{txt.structure.ipmsDesc}</p>
+              </div>
+            </div>
+            
+            {/* 연결 설명 */}
+            <div className="mt-10 text-center scroll-fade-in delay-4">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-50 via-blue-50 to-indigo-50 px-6 py-3 rounded-full border border-slate-200">
+                <span className="text-cyan-600">●</span>
+                <span className="text-sm text-slate-600">{txt.structure.connected}</span>
+                <span className="text-indigo-600">●</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ETF 운용 시스템 섹션 */}
+      <section className="relative py-20 px-6 bg-white overflow-hidden">
+        {/* 배경 장식 */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-100 to-transparent rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-cyan-100 to-transparent rounded-full blur-3xl opacity-50"></div>
+        
+        <div className="relative max-w-6xl mx-auto">
+          <div className="text-center mb-14 scroll-fade-in">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-purple-50 text-purple-700 text-sm font-semibold mb-4">{txt.etf.badge}</span>
+            <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
+              {txt.etf.title}
+            </h2>
+            <p className="text-slate-600 text-base max-w-lg mx-auto">
+              {txt.etf.subtitle}
+            </p>
+          </div>
+          
+          {/* ETF 타입 */}
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            {/* Passive ETF */}
+            <div className="scroll-slide-left bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
+                  <span className="text-white text-lg">📊</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-800">Passive ETF</h3>
+                  <p className="text-blue-600 text-sm font-medium">인덱스 추종</p>
+                </div>
+              </div>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-500 mt-1">✓</span>
+                  <span className="text-slate-600">벤치마크 추적 오차 최소화</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-500 mt-1">✓</span>
+                  <span className="text-slate-600">리밸런싱 자동화</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-500 mt-1">✓</span>
+                  <span className="text-slate-600">PDF 자동 생성 및 전송</span>
+                </li>
+              </ul>
+            </div>
+            
+            {/* Active ETF */}
+            <div className="scroll-slide-right bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 border border-purple-100">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg">
+                  <span className="text-white text-lg">🚀</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-800">Active ETF</h3>
+                  <p className="text-purple-600 text-sm font-medium">초과 수익 추구</p>
+                </div>
+              </div>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-500 mt-1">✓</span>
+                  <span className="text-slate-600">실시간 PDF 전송 (AP 연동)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-500 mt-1">✓</span>
+                  <span className="text-slate-600">설정/환매 실시간 처리</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-500 mt-1">✓</span>
+                  <span className="text-slate-600">대여 리콜 자동 관리</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          {/* 핵심 기능 */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 scroll-fade-in">
+            <div className="bg-white rounded-2xl p-5 shadow-lg border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all">
+              <div className="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                <span className="text-2xl">📄</span>
+              </div>
+              <h4 className="font-bold text-slate-800 mb-1">PDF 자동화</h4>
+              <p className="text-slate-500 text-xs">Portfolio Deposit File<br/>자동 생성 및 전송</p>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-5 shadow-lg border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all">
+              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                <span className="text-2xl">📈</span>
+              </div>
+              <h4 className="font-bold text-slate-800 mb-1">iNAV 실시간</h4>
+              <p className="text-slate-500 text-xs">장중 순자산가치<br/>실시간 계산</p>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-5 shadow-lg border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all">
+              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                <span className="text-2xl">🔄</span>
+              </div>
+              <h4 className="font-bold text-slate-800 mb-1">설정/환매</h4>
+              <p className="text-slate-500 text-xs">Creation & Redemption<br/>자동 처리</p>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-5 shadow-lg border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all">
+              <div className="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                <span className="text-2xl">🏦</span>
+              </div>
+              <h4 className="font-bold text-slate-800 mb-1">AP 연동</h4>
+              <p className="text-slate-500 text-xs">지정참가회사<br/>실시간 데이터 교환</p>
+            </div>
+          </div>
+          
+          {/* 중소형 운용사 메시지 */}
+          <div className="mt-12 scroll-fade-in">
+            <div className="bg-gradient-to-r from-amber-50 via-orange-50 to-yellow-50 rounded-3xl p-8 border border-amber-200 relative overflow-hidden">
+              {/* 배경 장식 */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-200/30 rounded-full blur-2xl"></div>
+              
+              <div className="relative flex flex-col md:flex-row items-center gap-6">
+                <div className="flex-shrink-0">
+                  <div className="w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">
+                    <span className="text-4xl">🏆</span>
+                  </div>
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                  <h3 className="text-xl font-bold text-slate-800 mb-2">
+                    {txt.etf.sme}
+                  </h3>
+                  <p className="text-slate-600 mb-4">
+                    {txt.etf.smeDesc}
+                  </p>
+                  <div className="flex flex-wrap justify-center md:justify-start gap-2">
+                    <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">{txt.etf.smeTag1}</span>
+                    <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">{txt.etf.smeTag2}</span>
+                    <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">{txt.etf.smeTag3}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* 하단 강조 */}
+          <div className="mt-8 text-center scroll-fade-in">
+            <div className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-2xl shadow-lg">
+              <p className="text-lg font-bold">ETF 운용의 모든 것, Orca 하나로</p>
+              <p className="text-purple-100 text-sm mt-1">PDF 관리부터 NAV 계산까지 자동화</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 모듈 상세 모달 */}
+      {activeModule && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+          onClick={() => setActiveModule(null)}
+        >
+          <div 
+            className="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl relative overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* 상단 컬러 바 */}
+            <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${activeModule.color}`}/>
+            
+            {/* 닫기 버튼 */}
+            <button 
+              onClick={() => setActiveModule(null)}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
+            >
+              <span className="text-slate-500">✕</span>
+            </button>
+            
+            {/* 헤더 */}
+            <div className="mb-6">
+              <span className={`inline-block text-sm font-black bg-gradient-to-r ${activeModule.color} bg-clip-text text-transparent mb-2`}>
+                {activeModule.tag}
+              </span>
+              <h3 className="text-2xl font-bold text-[#0F172A]">{activeModule.title}</h3>
+              <p className="text-slate-500 mt-2">{activeModule.desc}</p>
+            </div>
+            
+            {/* 기능 리스트 */}
+            <div className="space-y-3">
+              <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">주요 기능</h4>
+              <ul className="space-y-2">
+                {activeModule.details.map((item, j) => (
+                  <li key={j} className="flex items-center gap-3 text-slate-700">
+                    <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${activeModule.color}`}></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            {/* 문의 버튼 */}
+            <button className={`mt-8 w-full py-3 rounded-xl bg-gradient-to-r ${activeModule.color} text-white font-semibold hover:opacity-90 transition-opacity`}>
+              상세 문의하기
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* 운영 효율성 그래프 섹션 */}
       <section ref={graphRef} className="relative py-20 px-6 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
         <div className="max-w-5xl mx-auto">
@@ -1768,10 +2048,11 @@ export default function OrcinusLanding() {
                   </div>
                 </div>
                 
-                {/* 핵심 효과 */}
+                {/* 핵심 수치 */}
                 <div className="bg-gradient-to-br from-green-50 to-cyan-50 rounded-2xl p-5 border border-green-100">
-                  <p className="text-lg font-black text-green-600 mb-1">{txt.efficiency.result}</p>
-                  <p className="text-sm text-slate-600">{txt.efficiency.saving}</p>
+                  <p className="text-sm text-slate-600 mb-2">{txt.efficiency.basis}</p>
+                  <p className="text-3xl font-black text-green-600">{txt.efficiency.percent}</p>
+                  <p className="text-sm text-slate-700 font-medium">{txt.efficiency.result}</p>
                 </div>
                 
                 {/* 포인트 */}
@@ -1857,308 +2138,193 @@ export default function OrcinusLanding() {
       </section>
 
 
-
-      {/* ETF 운용 시스템 섹션 */}
-      <section className="relative py-20 px-6 bg-white overflow-hidden">
+      {/* 모멘텀 섹션 - 톱니바퀴 */}
+      <section className="relative py-24 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
         {/* 배경 장식 */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-100 to-transparent rounded-full blur-3xl opacity-50"></div>
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-cyan-100 to-transparent rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-20 w-64 h-64 border border-cyan-500 rounded-full"></div>
+          <div className="absolute bottom-20 right-20 w-48 h-48 border border-blue-500 rounded-full"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-slate-600 rounded-full"></div>
+        </div>
         
         <div className="relative max-w-6xl mx-auto">
-          <div className="text-center mb-14 scroll-fade-in">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-purple-50 text-purple-700 text-sm font-semibold mb-4">{txt.etf.badge}</span>
-            <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              {txt.etf.title}
+          <div className="text-center mb-16 scroll-fade-in">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-500/20 text-cyan-400 text-sm font-semibold mb-4">{txt.momentum.badge}</span>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
+              {txt.momentum.title} <span className="text-cyan-400">{txt.momentum.titleHighlight}</span>
             </h2>
-            <p className="text-slate-600 text-base max-w-lg mx-auto">
-              {txt.etf.subtitle}
+            <p className="text-slate-400 text-base max-w-lg mx-auto">
+              {txt.momentum.subtitle}
             </p>
           </div>
           
-          {/* ETF 타입 */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            {/* Passive ETF */}
-            <div className="scroll-slide-left bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-lg border border-blue-200">
-                  <svg className="w-7 h-7 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M3 3v18h18M7 16l4-4 4 4 5-6" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-800">Passive ETF</h3>
-                  <p className="text-blue-600 text-sm font-medium">인덱스 추종</p>
-                </div>
-              </div>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-500 mt-1">✓</span>
-                  <span className="text-slate-600">벤치마크 추적 오차 최소화</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-500 mt-1">✓</span>
-                  <span className="text-slate-600">리밸런싱 자동화</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-500 mt-1">✓</span>
-                  <span className="text-slate-600">PDF 자동 생성 및 전송</span>
-                </li>
-              </ul>
-            </div>
-            
-            {/* Active ETF */}
-            <div className="scroll-slide-right bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 border border-purple-100">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-lg border border-purple-200">
-                  <svg className="w-7 h-7 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M13 7l5 5m0 0l-5 5m5-5H6" strokeLinecap="round" strokeLinejoin="round"/>
-                    <circle cx="12" cy="12" r="10"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-800">Active ETF</h3>
-                  <p className="text-purple-600 text-sm font-medium">초과 수익 추구</p>
-                </div>
-              </div>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-500 mt-1">✓</span>
-                  <span className="text-slate-600">실시간 PDF 전송 (AP 연동)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-500 mt-1">✓</span>
-                  <span className="text-slate-600">설정/환매 실시간 처리</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-500 mt-1">✓</span>
-                  <span className="text-slate-600">대여 리콜 자동 관리</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          
-          {/* 핵심 기능 */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 scroll-fade-in">
-            <div className="bg-white rounded-2xl p-5 shadow-lg border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all">
-              <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center mx-auto mb-3 border border-slate-200">
-                <svg className="w-6 h-6 text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" strokeLinecap="round" strokeLinejoin="round"/>
+          {/* 톱니바퀴 시각화 */}
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-12 mb-16">
+            {/* 메인 톱니바퀴 그룹 */}
+            <div className="relative w-80 h-80">
+              {/* 큰 톱니바퀴 */}
+              <div className="absolute top-0 left-0 w-48 h-48 scroll-fade-in delay-1">
+                <svg viewBox="0 0 100 100" className="w-full h-full animate-spin-slow">
+                  <defs>
+                    <linearGradient id="gearGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#06b6d4"/>
+                      <stop offset="100%" stopColor="#0284c7"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M50,10 L55,20 L65,15 L60,25 L70,25 L62,33 L72,38 L62,42 L70,50 L60,50 L65,60 L55,55 L50,65 L45,55 L35,60 L40,50 L30,50 L38,42 L28,38 L38,33 L30,25 L40,25 L35,15 L45,20 Z" fill="url(#gearGrad1)" opacity="0.9"/>
+                  <circle cx="50" cy="50" r="15" fill="#0f172a"/>
+                  <circle cx="50" cy="50" r="8" fill="#06b6d4" opacity="0.5"/>
                 </svg>
-              </div>
-              <h4 className="font-bold text-slate-800 mb-1">PDF 자동화</h4>
-              <p className="text-slate-500 text-xs">Portfolio Deposit File<br/>자동 생성 및 전송</p>
-            </div>
-            
-            <div className="bg-white rounded-2xl p-5 shadow-lg border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all">
-              <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center mx-auto mb-3 border border-slate-200">
-                <svg className="w-6 h-6 text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <h4 className="font-bold text-slate-800 mb-1">iNAV 실시간</h4>
-              <p className="text-slate-500 text-xs">장중 순자산가치<br/>실시간 계산</p>
-            </div>
-            
-            <div className="bg-white rounded-2xl p-5 shadow-lg border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all">
-              <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center mx-auto mb-3 border border-slate-200">
-                <svg className="w-6 h-6 text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <h4 className="font-bold text-slate-800 mb-1">설정/환매</h4>
-              <p className="text-slate-500 text-xs">Creation & Redemption<br/>자동 처리</p>
-            </div>
-            
-            <div className="bg-white rounded-2xl p-5 shadow-lg border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all">
-              <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center mx-auto mb-3 border border-slate-200">
-                <svg className="w-6 h-6 text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <h4 className="font-bold text-slate-800 mb-1">AP 연동</h4>
-              <p className="text-slate-500 text-xs">지정참가회사<br/>실시간 데이터 교환</p>
-            </div>
-          </div>
-          
-          {/* 중소형 운용사 메시지 */}
-          <div className="mt-12 scroll-fade-in">
-            <div className="bg-gradient-to-r from-purple-50 via-violet-50 to-purple-50 rounded-3xl p-8 border border-purple-200 relative overflow-hidden">
-              {/* 배경 장식 */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-200/30 rounded-full blur-2xl"></div>
-              
-              <div className="relative flex flex-col md:flex-row items-center gap-6">
-                <div className="flex-shrink-0">
-                  <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-lg border border-purple-200">
-                    <svg className="w-10 h-10 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                </div>
-                <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-xl font-bold text-slate-800 mb-2">
-                    {txt.etf.sme}
-                  </h3>
-                  <p className="text-slate-600 mb-4">
-                    {txt.etf.smeDesc}
-                  </p>
-                  <div className="flex flex-wrap justify-center md:justify-start gap-2">
-                    <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">{txt.etf.smeTag1}</span>
-                    <span className="px-3 py-1 bg-violet-100 text-violet-700 rounded-full text-sm">{txt.etf.smeTag2}</span>
-                    <span className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm">{txt.etf.smeTag3}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* 하단 강조 */}
-          <div className="mt-8 text-center scroll-fade-in">
-            <div className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-2xl shadow-lg">
-              <p className="text-lg font-bold">ETF 운용의 모든 것, Orca 하나로</p>
-              <p className="text-purple-100 text-sm mt-1">PDF 관리부터 NAV 계산까지 자동화</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 모듈 상세 모달 */}
-      {activeModule && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
-          onClick={() => setActiveModule(null)}
-        >
-          <div 
-            className="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl relative overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* 상단 컬러 바 */}
-            <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${activeModule.color}`}/>
-            
-            {/* 닫기 버튼 */}
-            <button 
-              onClick={() => setActiveModule(null)}
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
-            >
-              <span className="text-slate-500">✕</span>
-            </button>
-            
-            {/* 헤더 */}
-            <div className="mb-6">
-              <span className={`inline-block text-sm font-black bg-gradient-to-r ${activeModule.color} bg-clip-text text-transparent mb-2`}>
-                {activeModule.tag}
-              </span>
-              <h3 className="text-2xl font-bold text-[#0F172A]">{activeModule.title}</h3>
-              <p className="text-slate-500 mt-2">{activeModule.desc}</p>
-            </div>
-            
-            {/* 기능 리스트 */}
-            <div className="space-y-3">
-              <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">주요 기능</h4>
-              <ul className="space-y-2">
-                {activeModule.details.map((item, j) => (
-                  <li key={j} className="flex items-center gap-3 text-slate-700">
-                    <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${activeModule.color}`}></span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            {/* 문의 버튼 */}
-            <button className={`mt-8 w-full py-3 rounded-xl bg-gradient-to-r ${activeModule.color} text-white font-semibold hover:opacity-90 transition-opacity`}>
-              상세 문의하기
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* 플라이휠 섹션 */}
-      <section className="relative py-16 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
-        {/* 배경 원형 장식 */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-10">
-          <div className="w-[400px] h-[400px] border border-slate-600 rounded-full"></div>
-        </div>
-        
-        <div className="relative max-w-4xl mx-auto">
-          {/* 상단 타이틀 */}
-          <div className="text-center mb-8 scroll-fade-in">
-            <span className="inline-block px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-semibold mb-3">{txt.momentum.badge}</span>
-            <h2 className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              {txt.momentum.title} <span className="text-cyan-400">{txt.momentum.titleHighlight}</span>
-            </h2>
-            <p className="text-slate-400 text-sm">{txt.momentum.subtitle}</p>
-          </div>
-          
-          {/* 플라이휠 원 */}
-          <div className="flex justify-center mb-8">
-            <div className="relative w-48 h-48 md:w-56 md:h-56">
-              {/* 회전하는 외부 링 */}
-              <svg viewBox="0 0 400 400" className="absolute inset-0 w-full h-full animate-flywheel">
-                <defs>
-                  <linearGradient id="fwGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#22d3ee"/>
-                    <stop offset="50%" stopColor="#3b82f6"/>
-                    <stop offset="100%" stopColor="#8b5cf6"/>
-                  </linearGradient>
-                </defs>
-                {/* 외부 원 */}
-                <circle cx="200" cy="200" r="180" fill="none" stroke="url(#fwGrad)" strokeWidth="3" opacity="0.5"/>
-                {/* 화살표들 */}
-                <g>
-                  <path d="M200,30 L210,50 L190,50 Z" fill="#22d3ee"/>
-                  <path d="M370,200 L350,210 L350,190 Z" fill="#3b82f6"/>
-                  <path d="M200,370 L190,350 L210,350 Z" fill="#8b5cf6"/>
-                  <path d="M30,200 L50,190 L50,210 Z" fill="#a855f7"/>
-                </g>
-              </svg>
-              
-              {/* 중앙 원 */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-28 h-28 md:w-32 md:h-32 bg-gradient-to-br from-slate-800 to-slate-900 rounded-full border-4 border-cyan-500/50 shadow-2xl shadow-cyan-500/20 flex items-center justify-center">
+                <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <span className="text-lg md:text-xl font-black text-white">{txt.momentum.center}</span>
-                    <p className="text-cyan-400 text-xs">{txt.momentum.centerSub}</p>
+                    <span className="text-2xl font-black text-cyan-400">{txt.momentum.gear1}</span>
+                    <p className="text-xs text-slate-400">{txt.momentum.gear1Label}</p>
                   </div>
+                </div>
+              </div>
+              
+              {/* 중간 톱니바퀴 */}
+              <div className="absolute top-24 right-0 w-36 h-36 scroll-fade-in delay-2">
+                <svg viewBox="0 0 100 100" className="w-full h-full animate-spin-slow-reverse">
+                  <defs>
+                    <linearGradient id="gearGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#3b82f6"/>
+                      <stop offset="100%" stopColor="#6366f1"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M50,10 L55,20 L65,15 L60,25 L70,25 L62,33 L72,38 L62,42 L70,50 L60,50 L65,60 L55,55 L50,65 L45,55 L35,60 L40,50 L30,50 L38,42 L28,38 L38,33 L30,25 L40,25 L35,15 L45,20 Z" fill="url(#gearGrad2)" opacity="0.9"/>
+                  <circle cx="50" cy="50" r="15" fill="#0f172a"/>
+                  <circle cx="50" cy="50" r="6" fill="#3b82f6" opacity="0.5"/>
+                </svg>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <span className="text-lg font-black text-blue-400">{txt.momentum.gear2}</span>
+                    <p className="text-xs text-slate-400">{txt.momentum.gear2Label}</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* 작은 톱니바퀴 */}
+              <div className="absolute bottom-0 left-20 w-28 h-28 scroll-fade-in delay-3">
+                <svg viewBox="0 0 100 100" className="w-full h-full animate-spin-slow">
+                  <defs>
+                    <linearGradient id="gearGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#8b5cf6"/>
+                      <stop offset="100%" stopColor="#a855f7"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M50,15 L55,25 L65,22 L60,32 L68,35 L60,42 L68,50 L60,52 L65,62 L55,58 L50,68 L45,58 L35,62 L40,52 L32,50 L40,42 L32,35 L40,32 L35,22 L45,25 Z" fill="url(#gearGrad3)" opacity="0.9"/>
+                  <circle cx="50" cy="50" r="12" fill="#0f172a"/>
+                  <circle cx="50" cy="50" r="5" fill="#8b5cf6" opacity="0.5"/>
+                </svg>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <span className="text-sm font-black text-purple-400">{txt.momentum.gear3}</span>
+                    <p className="text-xs text-slate-400" style={{fontSize: '9px'}}>{txt.momentum.gear3Label}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* 단계별 설명 */}
+            <div className="space-y-6 scroll-fade-in delay-4">
+              {/* Phase 1 */}
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl flex items-center justify-center border border-slate-600">
+                  <span className="text-2xl">🔧</span>
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded">Phase 1</span>
+                    <h4 className="font-bold text-white">{txt.momentum.phase1}</h4>
+                  </div>
+                  <p className="text-slate-400 text-sm">{txt.momentum.phase1Desc}</p>
+                </div>
+              </div>
+              
+              {/* 화살표 */}
+              <div className="flex justify-center">
+                <div className="w-0.5 h-8 bg-gradient-to-b from-slate-600 to-cyan-500"></div>
+              </div>
+              
+              {/* Phase 2 */}
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-cyan-500/30">
+                  <span className="text-2xl">🚀</span>
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="px-2 py-0.5 bg-cyan-500/20 text-cyan-400 text-xs rounded">Phase 2</span>
+                    <h4 className="font-bold text-white">{txt.momentum.phase2}</h4>
+                  </div>
+                  <p className="text-slate-400 text-sm">{txt.momentum.phase2Desc}</p>
+                </div>
+              </div>
+              
+              {/* 화살표 */}
+              <div className="flex justify-center">
+                <div className="w-0.5 h-8 bg-gradient-to-b from-cyan-500 to-purple-500"></div>
+              </div>
+              
+              {/* Phase 3 */}
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-violet-600 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/30 animate-pulse">
+                  <span className="text-2xl">⚡</span>
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="px-2 py-0.5 bg-purple-500/20 text-purple-400 text-xs rounded">Phase 3</span>
+                    <h4 className="font-bold text-white">{txt.momentum.phase3}</h4>
+                  </div>
+                  <p className="text-slate-400 text-sm">{txt.momentum.phase3Desc}</p>
                 </div>
               </div>
             </div>
           </div>
           
-          {/* 5개 요소 - 가로 배치 */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            <div className="bg-slate-800/90 backdrop-blur px-4 py-2 rounded-xl border border-cyan-500/30 shadow-lg">
-              <span className="text-cyan-400 font-bold text-sm whitespace-nowrap">{txt.momentum.item1}</span>
+          {/* 강점 카드 */}
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-700 hover:border-cyan-500 transition-all scroll-fade-in delay-5">
+              <div className="text-4xl mb-4">🏆</div>
+              <h4 className="text-lg font-bold text-white mb-2">{txt.momentum.gear1Label}</h4>
+              <p className="text-slate-400 text-sm">{txt.momentum.gear1Desc}</p>
             </div>
-            <div className="bg-slate-800/90 backdrop-blur px-4 py-2 rounded-xl border border-blue-500/30 shadow-lg">
-              <span className="text-blue-400 font-bold text-sm whitespace-nowrap">{txt.momentum.item2}</span>
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-700 hover:border-blue-500 transition-all scroll-fade-in delay-6">
+              <div className="text-4xl mb-4">🎯</div>
+              <h4 className="text-lg font-bold text-white mb-2">{txt.momentum.gear2Label}</h4>
+              <p className="text-slate-400 text-sm">{txt.momentum.gear2Desc}</p>
             </div>
-            <div className="bg-slate-800/90 backdrop-blur px-4 py-2 rounded-xl border border-indigo-500/30 shadow-lg">
-              <span className="text-indigo-400 font-bold text-sm whitespace-nowrap">{txt.momentum.item3}</span>
-            </div>
-            <div className="bg-slate-800/90 backdrop-blur px-4 py-2 rounded-xl border border-purple-500/30 shadow-lg">
-              <span className="text-purple-400 font-bold text-sm whitespace-nowrap">{txt.momentum.item4}</span>
-            </div>
-            <div className="bg-slate-800/90 backdrop-blur px-4 py-2 rounded-xl border border-violet-500/30 shadow-lg">
-              <span className="text-violet-400 font-bold text-sm whitespace-nowrap">{txt.momentum.item5}</span>
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-700 hover:border-purple-500 transition-all scroll-fade-in delay-7">
+              <div className="text-4xl mb-4">🔗</div>
+              <h4 className="text-lg font-bold text-white mb-2">{txt.momentum.gear3Label}</h4>
+              <p className="text-slate-400 text-sm">{txt.momentum.gear3Desc}</p>
             </div>
           </div>
           
           {/* 하단 메시지 */}
-          <div className="text-center scroll-fade-in">
-            <p className="text-cyan-400 text-base md:text-lg font-medium italic">"{txt.momentum.bottomMsg}"</p>
+          <div className="text-center scroll-fade-in delay-8">
+            <p className="text-slate-400 text-base italic">"{txt.momentum.bottomMsg}"</p>
           </div>
         </div>
         
         <style>{`
-          @keyframes flywheel-spin {
+          @keyframes spin-slow {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
           }
-          .animate-flywheel {
-            animation: flywheel-spin 20s linear infinite;
+          @keyframes spin-slow-reverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+          }
+          .animate-spin-slow {
+            animation: spin-slow 20s linear infinite;
+          }
+          .animate-spin-slow-reverse {
+            animation: spin-slow-reverse 15s linear infinite;
           }
         `}</style>
       </section>
+
 
       {/* 서비스 운영 방식 섹션 */}
       <section className="relative py-20 px-6 bg-white">
