@@ -184,7 +184,7 @@ export default function OrcinusLanding() {
       stats: {
         realtime: '실시간', realtimeLabel: '기준가 산출',
         multi: '멀티', multiLabel: '매니저 운용',
-        check: '100%', checkLabel: '공매도 체크'
+        check: '실시간', checkLabel: '공매도 체크'
       },
       features: {
         badge: 'WHY ORCA',
@@ -401,7 +401,7 @@ export default function OrcinusLanding() {
       stats: {
         realtime: 'Real-time', realtimeLabel: 'NAV Calculation',
         multi: 'Multi', multiLabel: 'Manager Support',
-        check: '100%', checkLabel: 'Short Sell Check'
+        check: 'Real-time', checkLabel: 'Short Sell Check'
       },
       features: {
         badge: 'WHY ORCA',
