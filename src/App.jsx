@@ -1197,7 +1197,7 @@ export default function OrcinusLanding() {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
         
         <div className="max-w-6xl mx-auto relative">
-          <div className="text-center mb-16 scroll-fade-in">
+          <div className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-cyan-50 to-blue-50 text-cyan-700 text-sm font-semibold mb-4 border border-cyan-200">{txt.features.badge}</span>
             <h2 className="text-3xl md:text-5xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
               {txt.features.title} <span className="gradient-text">Orca</span>{txt.features.titleEnd}
@@ -1393,7 +1393,7 @@ export default function OrcinusLanding() {
       {/* Services Section - 시스템 구성 */}
       <section id="services" className="relative py-20 px-6 bg-slate-50">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14 scroll-fade-in">
+          <div className="text-center mb-14">
             <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 text-sm font-semibold mb-4">{txt.modules.badge}</span>
             <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
               {txt.modules.title}
@@ -1408,7 +1408,7 @@ export default function OrcinusLanding() {
             {/* 메인 플로우 - PMS → OMS → EMS */}
             <div className="relative">
               {/* 연결선 - 세로 (스크롤 시 나타남) */}
-              <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-400 via-blue-500 to-indigo-600 transform -translate-x-1/2 hidden md:block scroll-fade-in"></div>
+              <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-400 via-blue-500 to-indigo-600 transform -translate-x-1/2 hidden md:block"></div>
               
               {/* PMS */}
               <div className="relative flex items-center justify-center mb-10">
@@ -1422,7 +1422,7 @@ export default function OrcinusLanding() {
                       ? ["실시간 기준가 관리", "멀티 매니저 지원", "펀드 마감/성과 분석", "포트폴리오 리밸런싱", "벤치마크 비교 분석"]
                       : ["Real-time NAV Management", "Multi-Manager Support", "Fund Closing/Performance", "Portfolio Rebalancing", "Benchmark Analysis"]
                   })}
-                  className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-cyan-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all scroll-fade-in"
+                  className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-cyan-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg">
@@ -1449,7 +1449,7 @@ export default function OrcinusLanding() {
                       ? ["주문 상계 처리", "리스크 관리", "주문 제약 위반 방지", "배분 규칙 자동화", "컴플라이언스 체크"]
                       : ["Order Netting", "Risk Management", "Order Constraint Prevention", "Allocation Rule Automation", "Compliance Check"]
                   })}
-                  className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-blue-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all scroll-fade-in delay-2"
+                  className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-blue-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
@@ -1476,7 +1476,7 @@ export default function OrcinusLanding() {
                       ? ["TWAP/VWAP 알고리즘", "Smart Order Routing", "거래 비용 최적화", "실시간 체결 모니터링", "TCA 분석"]
                       : ["TWAP/VWAP Algorithm", "Smart Order Routing", "Transaction Cost Optimization", "Real-time Execution Monitoring", "TCA Analysis"]
                   })}
-                  className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-indigo-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all scroll-fade-in delay-4"
+                  className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-indigo-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
@@ -1503,7 +1503,7 @@ export default function OrcinusLanding() {
                       ? ["차입/대여/대용 관리", "대차 허브 연동", "대차 프로세스 자동화", "담보 관리", "리콜 처리"]
                       : ["Lending/Borrowing Management", "Lending Hub Integration", "Process Automation", "Collateral Management", "Recall Processing"]
                   })}
-                  className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-violet-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all scroll-fade-in delay-5"
+                  className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-violet-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 bg-gradient-to-br from-violet-400 to-violet-600 rounded-2xl flex items-center justify-center shadow-lg">
@@ -1530,7 +1530,7 @@ export default function OrcinusLanding() {
                       ? ["내부 계좌 관리", "잔고 관리", "포지션 추적", "결제 예정 관리", "내부 거래 조정"]
                       : ["Internal Account Management", "Position Tracking", "Settlement Management", "Internal Trade Reconciliation", "Balance Management"]
                   })}
-                  className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-slate-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all scroll-fade-in delay-6"
+                  className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-slate-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 bg-gradient-to-br from-slate-500 to-slate-700 rounded-2xl flex items-center justify-center shadow-lg">
@@ -1546,7 +1546,7 @@ export default function OrcinusLanding() {
               </div>
               
               {/* 연결 설명 */}
-              <div className="mt-8 text-center scroll-fade-in delay-4">
+              <div className="mt-8 text-center">
                 <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-50 via-blue-50 to-indigo-50 px-6 py-3 rounded-full border border-slate-200">
                   <span className="text-cyan-600">●</span>
                   <span className="text-sm text-slate-600">{txt.structure.connected}</span>
@@ -1557,7 +1557,7 @@ export default function OrcinusLanding() {
           </div>
           
           {/* 선택적 모듈 강조 */}
-          <div className="mt-12 scroll-fade-in">
+          <div className="mt-12">
             <div className="relative bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-3xl p-8 border border-cyan-200/50 overflow-hidden">
               {/* 배경 장식 */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-400/20 rounded-full blur-3xl"></div>
@@ -1678,7 +1678,7 @@ export default function OrcinusLanding() {
           </div>
           
           {/* 고객 타입 버튼 */}
-          <div className="flex flex-wrap justify-center gap-4 mb-16 scroll-fade-in delay-1">
+          <div className="flex flex-wrap justify-center gap-4 mb-16 scroll-fade-in">
             {clients.map((client, i) => (
               <div key={i} className="group bg-white rounded-2xl px-6 py-4 flex items-center gap-4 shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 border-2 border-slate-100 hover:border-cyan-400 cursor-pointer">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
@@ -1691,7 +1691,7 @@ export default function OrcinusLanding() {
           
           
           {/* 하단 메시지 */}
-          <div className="text-center scroll-fade-in delay-6">
+          <div className="text-center scroll-fade-in">
             <div className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full shadow-lg">
               <span className="text-xl">💡</span>
               <span className="font-semibold">{txt.clients.bottomMsg}</span>
