@@ -1494,7 +1494,7 @@ export default function OrcinusLanding() {
           
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             {clients.map((client, i) => (
-              <div key={i} className="group bg-slate-50 rounded-2xl px-5 py-3 flex items-center gap-3 shadow-sm hover:shadow-xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 border border-slate-100 hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50">
+              <div key={i} className="group bg-slate-50 rounded-2xl px-5 py-3 flex items-center gap-3 shadow-sm hover:shadow-xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 border border-slate-100 hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50 cursor-pointer">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
                   <Icon name={client.icon} className="w-5 h-5 text-white" />
                 </div>
@@ -1516,7 +1516,7 @@ export default function OrcinusLanding() {
               >
                 {/* 원형 카드 - 튀어오르는 애니메이션 */}
                 <div 
-                  className={`stat-circle relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full bg-gradient-to-br ${stat.color} flex flex-col items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300 ${countUp.realtime ? 'animate-bounce-in' : 'opacity-0 scale-50'}`}
+                  className={`stat-circle relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full bg-gradient-to-br ${stat.color} flex flex-col items-center justify-center shadow-xl cursor-pointer hover:scale-110 transition-transform duration-300 ${countUp.realtime ? 'animate-bounce-in' : 'opacity-0 scale-50'}`}
                   style={{animationDelay: `${i * 150}ms`}}
                 >
                   {/* 아이콘 */}
@@ -1724,7 +1724,7 @@ export default function OrcinusLanding() {
           
           <div className="grid md:grid-cols-2 gap-5">
             {features.map((feature, i) => (
-              <div key={i} className={`scroll-fade-in delay-${(i % 4) + 1} hover-lift bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 group relative overflow-hidden`}>
+              <div key={i} className={`scroll-fade-in delay-${(i % 4) + 1} hover-lift bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 group cursor-pointer relative overflow-hidden`}>
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-4 shadow-md group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-200">
                   <Icon name={feature.icon} className="w-6 h-6 text-white" />
@@ -1871,7 +1871,7 @@ export default function OrcinusLanding() {
               const deployText = txt.deploy.options[i];
               return { ...opt, title: deployText.title, desc: deployText.desc, features: deployText.features };
             }).map((option, i) => (
-              <div key={i} className="hover-lift bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl text-center group hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 relative overflow-hidden transition-all duration-300">
+              <div key={i} className="hover-lift bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl text-center cursor-pointer group hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 relative overflow-hidden transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${option.color} flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-105 group-hover:shadow-xl transition-all duration-200`}>
                   <Icon name={option.icon} className="w-8 h-8 text-white" />
@@ -1916,7 +1916,7 @@ export default function OrcinusLanding() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {txt.about.stats.map((stat, i) => (
-              <div key={i} className="group bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:scale-105 hover:-translate-y-3 transition-all duration-300 hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 relative overflow-hidden">
+              <div key={i} className="group bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:scale-105 hover:-translate-y-3 transition-all duration-300 cursor-pointer hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
                 <div className="text-3xl font-black text-[#0F172A] mb-1" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
                   {stat.value}
@@ -1935,7 +1935,7 @@ export default function OrcinusLanding() {
                 { icon: "dollar", color: "from-blue-500 to-indigo-600", shadowColor: "group-hover:shadow-blue-500/30" },
                 { icon: "zap", color: "from-indigo-500 to-violet-600", shadowColor: "group-hover:shadow-indigo-500/30" },
               ].map((item, i) => (
-                <div key={i} className="text-center group">
+                <div key={i} className="text-center group cursor-pointer">
                   <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto mb-3 group-hover:scale-105 group-hover:shadow-lg ${item.shadowColor} transition-all duration-200`}>
                     <Icon name={item.icon} className="w-6 h-6 text-white" />
                   </div>
@@ -2010,7 +2010,51 @@ export default function OrcinusLanding() {
             </div>
           </div>
           
-
+          {/* 연혁 타임라인 */}
+          <div className="mb-20 scroll-fade-in">
+            <h3 className="text-xl font-bold text-white mb-8 text-center">History</h3>
+            <div className="relative">
+              {/* 중앙 라인 */}
+              <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-blue-500 to-indigo-500 hidden md:block"></div>
+              
+              <div className="space-y-8">
+                {txt.about.timeline.map((item, i) => (
+                  <div key={i} className={`flex items-center gap-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                    <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                      <span className="text-cyan-400 font-bold text-lg">{item.year}</span>
+                      <h4 className="text-white font-bold text-xl mt-1">{item.title}</h4>
+                      <p className="text-slate-400 mt-2">{item.desc}</p>
+                    </div>
+                    <div className="hidden md:flex w-4 h-4 bg-cyan-500 rounded-full border-4 border-slate-900 z-10"></div>
+                    <div className="flex-1 hidden md:block"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          {/* 팀 소개 */}
+          <div className="text-center">
+            <h3 className="text-xl font-bold text-white mb-4">{txt.about.teamTitle}</h3>
+            <p className="text-slate-400 mb-8">
+              {txt.about.teamDesc}
+            </p>
+            <div className="flex justify-center gap-6 flex-wrap">
+              {[
+                { role: "CEO" },
+                { role: "CTO" },
+                { role: "CPO" },
+              ].map((member, i) => ({ ...member, expertise: txt.about.teamMembers[i].expertise })).map((member, i) => (
+                <div key={i} className="bg-white/5 rounded-2xl p-6 border border-white/10 min-w-[150px]">
+                  <div className="w-16 h-16 bg-gradient-to-br from-slate-600 to-slate-700 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <span className="text-2xl">👤</span>
+                  </div>
+                  <h4 className="text-white font-bold">{member.role}</h4>
+                  <p className="text-slate-400 text-sm mt-1">{member.expertise}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

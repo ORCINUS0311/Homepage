@@ -192,6 +192,11 @@ export default function OrcinusLanding() {
         titleEnd: '인가?',
         subtitle: '자산운용사를 위한 실시간 통합 트레이딩 관리 시스템'
       },
+      featureCards: [
+        { icon: 'activity', title: '국내/해외 체결과 실시간 손익', desc: '해외 자산도 당일 실시간 반영, 운용역별/펀드별 기준가 실시간 업데이트' },
+        { icon: 'layers', title: '멀티매니저 운용', desc: '매니저별 손익/잔고 관리, 반대방향 주문 자동상계 후 동시진행' },
+        { icon: 'database', title: '자산운용사 통합시스템', desc: 'PMS, OMS, EMS를 하나로 통합하여 운용 전 과정을 원스톱으로 관리' },
+      ],
       modules: {
         badge: 'ORCA MODULES',
         title: '시스템 구성',
@@ -312,7 +317,8 @@ export default function OrcinusLanding() {
         onpremDesc: '고객사 데이터센터 설치',
         onpremF1: '고객사 서버에 직접 설치',
         onpremF2: '완전한 데이터 통제',
-        onpremF3: '내부망 운영 가능'
+        onpremF3: '내부망 운영 가능',
+        desc: '고객사 환경과 보안 정책에 맞춰 최적의 배포 방식을 제안합니다'
       },
       aboutSection: {
         badge: 'ABOUT ORCINUS',
@@ -356,6 +362,103 @@ export default function OrcinusLanding() {
         bottomMsg: '금융 IT의 모든 것'
       },
       slogan: '자산운용의 흐름을 읽는 힘',
+      diagram: {
+        realtimeData: 'Real-time Data',
+        realtimeBased: '실시간 데이터 기반',
+        portfolio: '포트폴리오',
+        orderMgmt: '주문관리',
+        executionMgmt: '체결관리',
+        securitiesLending: '대차/대여/대용'
+      },
+      moduleDetail: {
+        pmsTitle: '포트폴리오 관리',
+        pmsDesc: '실시간 기준가 산출 및 펀드 성과 분석',
+        pmsD1: '실시간 기준가 관리',
+        pmsD2: '멀티 매니저 지원',
+        pmsD3: '펀드 마감/성과 분석',
+        pmsD4: '포트폴리오 리밸런싱',
+        pmsD5: '벤치마크 비교 분석',
+        omsTitle: '주문 관리',
+        omsDesc: '주문 생성부터 체결까지 통합 관리',
+        omsD1: '주문 상계 처리',
+        omsD2: '리스크 관리',
+        omsD3: '주문 제약 위반 방지',
+        omsD4: '배분 규칙 자동화',
+        omsD5: '컴플라이언스 체크',
+        emsTitle: '주문 집행',
+        emsDesc: '알고리즘 트레이딩 및 최적 체결',
+        emsD1: 'TWAP/VWAP 알고리즘',
+        emsD2: 'Smart Order Routing',
+        emsD3: '거래 비용 최적화',
+        emsD4: '실시간 체결 모니터링',
+        emsD5: 'TCA 분석',
+        slbsTitle: '대차 관리',
+        slbsDesc: '대차/대여/대용 통합 관리',
+        slbsD1: '차입/대여/대용 관리',
+        slbsD2: '대차 허브 연동',
+        slbsD3: '대차 프로세스 자동화',
+        slbsD4: '담보 관리',
+        slbsD5: '리콜 처리',
+        slbsShort: '대차/대여/대용 관리',
+        ipmsTitle: '내부 포지션 관리',
+        ipmsDesc: '사내 계좌/잔고 통합 관리',
+        ipmsD1: '내부 계좌 관리',
+        ipmsD2: '잔고 관리',
+        ipmsD3: '포지션 추적',
+        ipmsD4: '결제 예정 관리',
+        ipmsD5: '내부 거래 조정',
+        ipmsShort: '내부 포지션 관리',
+        keyFeatures: '주요 기능',
+        contactUs: '상세 문의하기'
+      },
+      deployOptions: [
+        { title: 'SaaS', desc: '클라우드 기반 서비스', features: ['별도 인프라 구축 불필요', '빠른 도입 가능', '자동 업데이트 지원'] },
+        { title: '고객사 클라우드', desc: 'AWS · Azure · GCP', features: ['고객사 클라우드 환경 설치', '유연한 리소스 확장', '클라우드 보안 정책 적용'] },
+        { title: '온프레미스', desc: '자체 데이터센터 설치', features: ['완전한 데이터 통제', '내부망 운영 가능', '자체 보안 정책 적용'] }
+      ],
+      statsArray: [
+        { value: '실시간', label: '기준가 업데이트', desc: '운용역/펀드별 즉시 반영' },
+        { value: '멀티', label: '매니저 운용', desc: '매니저별 상계로 거래비용 감소' },
+        { value: '실시간', label: '공매도 체크', desc: '차입/대여/대용 반영 실시간 잔고관리' },
+        { value: 'Web', label: '어디서든 접속', desc: '모바일/PC 설치 불필요' }
+      ],
+      coreValues: {
+        title: '핵심 가치',
+        riskTitle: '위험 관리',
+        riskDesc: '실시간 기준가 기반 시장 위험 관리\n공매도 법적 처벌 방지',
+        costTitle: '비용 절감',
+        costDesc: 'Buy-side 주문 집행으로 거래 비용 최적화\n대차 비용 자동 최소화',
+        autoTitle: '업무 자동화',
+        autoDesc: '주문/대차/백오피스 자동화\n운용 지원 인력 생산성 극대화'
+      },
+      aboutHeading: '자산운용의 미래를\n함께 만들어갑니다',
+      aboutSubHeading: 'Orcinus는 자산운용사가 더 나은 투자 결정을 내릴 수 있도록\n기술로 혁신합니다',
+      missionText: '자산운용사의 복잡한 업무를 단순화하고, 실시간 데이터 기반의 의사결정을 지원하여 투자 성과를 극대화합니다.',
+      visionText: '대한민국을 넘어 글로벌 자산운용 기술의 표준이 되어, 금융 시장의 효율성과 투명성을 높입니다.',
+      valuesArray: [
+        { icon: '⚡', title: 'Speed', desc: '빠른 실행과 대응' },
+        { icon: '🔒', title: 'Trust', desc: '신뢰할 수 있는 시스템' },
+        { icon: '🔬', title: 'Innovation', desc: '끊임없는 기술 혁신' },
+        { icon: '🤝', title: 'Partnership', desc: '고객과 함께 성장' }
+      ],
+      historyArray: [
+        { year: '2026.4', title: 'Orcinus 설립 & Orca 런칭', desc: '금융 IT 전문가들이 모여 회사 설립, 통합 트레이딩 시스템 출시' }
+      ],
+      teamMembers: [
+        { role: 'CEO', name: '김태훈', expertise: '자산운용 20년' },
+        { role: 'CTO', name: '', expertise: '금융IT 15년' },
+        { role: 'CPO', name: '', expertise: '트레이딩 시스템 전문' }
+      ],
+      toggleCompany: '회사 소개',
+      toggleProduct: '제품 소개',
+      scrollToTop: '맨 위로 가기',
+      footerDesc: 'Orca - 실시간 통합 자산운용 플랫폼',
+      footerSystem: '시스템',
+      footerLending: '대차/ETF관리',
+      footerCompany: '회사',
+      footerAbout: '소개',
+      footerCareers: '채용',
+      footerContact: '문의',
       clientTypes: {
         asset: '자산운용사',
         invest: '일임업자',
@@ -409,6 +512,11 @@ export default function OrcinusLanding() {
         titleEnd: '?',
         subtitle: 'Real-time integrated trading management system for asset managers'
       },
+      featureCards: [
+        { icon: 'activity', title: 'Real-time P&L Tracking', desc: 'Same-day reflection of global assets, real-time NAV updates by manager and fund' },
+        { icon: 'layers', title: 'Multi-Manager Support', desc: 'P&L and position management by manager, automatic netting of opposite orders' },
+        { icon: 'database', title: 'Integrated Asset Management', desc: 'PMS, OMS, EMS unified in one platform for end-to-end management' },
+      ],
       modules: {
         badge: 'ORCA MODULES',
         title: 'System Architecture',
@@ -529,7 +637,8 @@ export default function OrcinusLanding() {
         onpremDesc: 'Client datacenter installation',
         onpremF1: 'Direct server installation',
         onpremF2: 'Complete data control',
-        onpremF3: 'Internal network operation'
+        onpremF3: 'Internal network operation',
+        desc: 'We recommend the optimal deployment method based on your environment and security policies'
       },
       aboutSection: {
         badge: 'ABOUT ORCINUS',
@@ -573,6 +682,103 @@ export default function OrcinusLanding() {
         bottomMsg: 'Everything in Financial IT'
       },
       slogan: 'The Power to Read the Flow of Asset Management',
+      diagram: {
+        realtimeData: 'Real-time Data',
+        realtimeBased: 'Based System',
+        portfolio: 'Portfolio',
+        orderMgmt: 'Order',
+        executionMgmt: 'Execution',
+        securitiesLending: 'Securities Lending'
+      },
+      moduleDetail: {
+        pmsTitle: 'Portfolio Management',
+        pmsDesc: 'Real-time NAV calculation and fund performance analysis',
+        pmsD1: 'Real-time NAV Management',
+        pmsD2: 'Multi-Manager Support',
+        pmsD3: 'Fund Closing/Performance',
+        pmsD4: 'Portfolio Rebalancing',
+        pmsD5: 'Benchmark Analysis',
+        omsTitle: 'Order Management',
+        omsDesc: 'Integrated management from order creation to execution',
+        omsD1: 'Order Netting',
+        omsD2: 'Risk Management',
+        omsD3: 'Order Constraint Prevention',
+        omsD4: 'Allocation Rule Automation',
+        omsD5: 'Compliance Check',
+        emsTitle: 'Execution Management',
+        emsDesc: 'Algorithmic trading and optimal execution',
+        emsD1: 'TWAP/VWAP Algorithm',
+        emsD2: 'Smart Order Routing',
+        emsD3: 'Transaction Cost Optimization',
+        emsD4: 'Real-time Execution Monitoring',
+        emsD5: 'TCA Analysis',
+        slbsTitle: 'Securities Lending',
+        slbsDesc: 'Lending/Borrowing/Collateral Management',
+        slbsD1: 'Lending/Borrowing Management',
+        slbsD2: 'Lending Hub Integration',
+        slbsD3: 'Process Automation',
+        slbsD4: 'Collateral Management',
+        slbsD5: 'Recall Processing',
+        slbsShort: 'Lending & Borrowing',
+        ipmsTitle: 'Internal Position Management',
+        ipmsDesc: 'Internal account/position management',
+        ipmsD1: 'Internal Account Management',
+        ipmsD2: 'Position Tracking',
+        ipmsD3: 'Settlement Management',
+        ipmsD4: 'Internal Trade Reconciliation',
+        ipmsD5: 'Balance Management',
+        ipmsShort: 'Position Management',
+        keyFeatures: 'KEY FEATURES',
+        contactUs: 'Contact Us'
+      },
+      deployOptions: [
+        { title: 'SaaS', desc: 'Cloud-based Service', features: ['No infrastructure needed', 'Quick deployment', 'Auto updates'] },
+        { title: 'Private Cloud', desc: 'AWS · Azure · GCP', features: ['Install on client cloud', 'Flexible resource scaling', 'Cloud security policies'] },
+        { title: 'On-Premise', desc: 'Self-hosted Datacenter', features: ['Complete data control', 'Internal network operation', 'Custom security policies'] }
+      ],
+      statsArray: [
+        { value: 'Real-time', label: 'NAV Updates', desc: 'Instant updates by manager/fund' },
+        { value: 'Multi', label: 'Manager Support', desc: 'Cost reduction via netting' },
+        { value: 'Real-time', label: 'Short Sell Check', desc: 'Real-time position with lending' },
+        { value: 'Web', label: 'Access Anywhere', desc: 'No installation required' }
+      ],
+      coreValues: {
+        title: 'Core Values',
+        riskTitle: 'Risk Management',
+        riskDesc: 'Real-time NAV-based risk management\nShort selling compliance',
+        costTitle: 'Cost Reduction',
+        costDesc: 'Optimize trading costs with buy-side execution\nAutomated lending cost minimization',
+        autoTitle: 'Automation',
+        autoDesc: 'Order/Lending/Back-office automation\nMaximize operational productivity'
+      },
+      aboutHeading: 'Building the Future\nof Asset Management',
+      aboutSubHeading: 'Orcinus innovates with technology to help\nasset managers make better investment decisions',
+      missionText: 'We simplify complex asset management operations and support real-time data-driven decisions to maximize investment performance.',
+      visionText: 'Become the global standard for asset management technology, improving market efficiency and transparency.',
+      valuesArray: [
+        { icon: '⚡', title: 'Speed', desc: 'Fast execution & response' },
+        { icon: '🔒', title: 'Trust', desc: 'Reliable systems' },
+        { icon: '🔬', title: 'Innovation', desc: 'Continuous tech advancement' },
+        { icon: '🤝', title: 'Partnership', desc: 'Growing with clients' }
+      ],
+      historyArray: [
+        { year: '2026.4', title: 'Orcinus Founded & Orca Launched', desc: 'Financial IT experts founded the company and launched integrated trading system' }
+      ],
+      teamMembers: [
+        { role: 'CEO', name: '김태훈', expertise: '20 Years in Asset Mgmt' },
+        { role: 'CTO', name: '', expertise: '15 Years in Financial IT' },
+        { role: 'CPO', name: '', expertise: 'Trading Systems Expert' }
+      ],
+      toggleCompany: 'Company',
+      toggleProduct: 'Product',
+      scrollToTop: 'Back to top',
+      footerDesc: 'Orca - Real-time Integrated Asset Management Platform',
+      footerSystem: 'System',
+      footerLending: 'Lending/ETF',
+      footerCompany: 'Company',
+      footerAbout: 'About',
+      footerCareers: 'Careers',
+      footerContact: 'Contact',
       clientTypes: {
         asset: 'Asset Managers',
         invest: 'Discretionary Managers',
@@ -670,15 +876,7 @@ export default function OrcinusLanding() {
     return () => observer.disconnect();
   }, []);
 
-  const features = lang === 'ko' ? [
-    { icon: "activity", title: "국내/해외 체결과 실시간 손익", desc: "해외 자산도 당일 실시간 반영, 운용역별/펀드별 기준가 실시간 업데이트" },
-    { icon: "layers", title: "멀티매니저 운용", desc: "매니저별 손익/잔고 관리, 반대방향 주문 자동상계 후 동시진행" },
-    { icon: "database", title: "자산운용사 통합시스템", desc: "PMS, OMS, EMS를 하나로 통합하여 운용 전 과정을 원스톱으로 관리" },
-  ] : [
-    { icon: "activity", title: "Real-time P&L Tracking", desc: "Same-day reflection of global assets, real-time NAV updates by manager and fund" },
-    { icon: "layers", title: "Multi-Manager Support", desc: "P&L and position management by manager, automatic netting of opposite orders" },
-    { icon: "database", title: "Integrated Asset Management", desc: "PMS, OMS, EMS unified in one platform for end-to-end management" },
-  ];
+  const features = txt.featureCards;
 
   const clients = [
     { icon: "building", title: txt.clientTypes.asset },
@@ -848,14 +1046,14 @@ export default function OrcinusLanding() {
               <button 
                 onClick={() => setShowLogo(true)}
                 className={`w-7 h-7 rounded-full text-xs font-medium transition-all duration-200 flex items-center justify-center ${showLogo ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}
-                title="회사 소개"
+                title={txt.toggleCompany}
               >
                 ✦
               </button>
               <button 
                 onClick={() => setShowLogo(false)}
                 className={`w-7 h-7 rounded-full text-xs font-medium transition-all duration-200 flex items-center justify-center ${!showLogo ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}
-                title="제품 소개"
+                title={txt.toggleProduct}
               >
                 🐋
               </button>
@@ -1239,8 +1437,8 @@ export default function OrcinusLanding() {
                 
                 {/* 중앙 텍스트 */}
                 <text x="200" y="175" textAnchor="middle" className="text-2xl font-black fill-slate-800">Orca</text>
-                <text x="200" y="205" textAnchor="middle" className="text-xs fill-cyan-600 font-semibold">{lang === 'ko' ? 'Real-time Data' : 'Real-time Data'}</text>
-                <text x="200" y="225" textAnchor="middle" className="text-xs fill-slate-500">{lang === 'ko' ? '실시간 데이터 기반' : 'Based System'}</text>
+                <text x="200" y="205" textAnchor="middle" className="text-xs fill-cyan-600 font-semibold">{txt.diagram.realtimeData}</text>
+                <text x="200" y="225" textAnchor="middle" className="text-xs fill-slate-500">{txt.diagram.realtimeBased}</text>
               </svg>
               
               {/* 4개 포인트 - 원 라인 위에 배치 */}
@@ -1249,7 +1447,7 @@ export default function OrcinusLanding() {
                 <div className="w-14 h-14 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-2">
                   <span className="text-white text-xs font-black">PMS</span>
                 </div>
-                <span className="text-xs font-semibold text-slate-700">{lang === 'ko' ? '포트폴리오' : 'Portfolio'}</span>
+                <span className="text-xs font-semibold text-slate-700">{txt.diagram.portfolio}</span>
               </div>
               
               {/* 우측 - OMS */}
@@ -1257,7 +1455,7 @@ export default function OrcinusLanding() {
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-2">
                   <span className="text-white text-xs font-black">OMS</span>
                 </div>
-                <span className="text-xs font-semibold text-slate-700">{lang === 'ko' ? '주문관리' : 'Order'}</span>
+                <span className="text-xs font-semibold text-slate-700">{txt.diagram.orderMgmt}</span>
               </div>
               
               {/* 하단 - EMS */}
@@ -1265,7 +1463,7 @@ export default function OrcinusLanding() {
                 <div className="w-14 h-14 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-2">
                   <span className="text-white text-xs font-black">EMS</span>
                 </div>
-                <span className="text-xs font-semibold text-slate-700">{lang === 'ko' ? '체결관리' : 'Execution'}</span>
+                <span className="text-xs font-semibold text-slate-700">{txt.diagram.executionMgmt}</span>
               </div>
               
               {/* 좌측 - SLBS */}
@@ -1273,7 +1471,7 @@ export default function OrcinusLanding() {
                 <div className="w-14 h-14 bg-gradient-to-br from-violet-400 to-violet-600 rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-2">
                   <span className="text-white text-xs font-black">SLBS</span>
                 </div>
-                <span className="text-xs font-semibold text-slate-700">{lang === 'ko' ? '대차/대여/대용' : 'Securities Lending'}</span>
+                <span className="text-xs font-semibold text-slate-700">{txt.diagram.securitiesLending}</span>
               </div>
             </div>
           </div>
@@ -1419,12 +1617,10 @@ export default function OrcinusLanding() {
                 <div 
                   onClick={() => setSelectedModule({
                     tag: "PMS",
-                    title: lang === 'ko' ? "포트폴리오 관리" : "Portfolio Management",
-                    desc: lang === 'ko' ? "실시간 기준가 산출 및 펀드 성과 분석" : "Real-time NAV calculation and fund performance analysis",
+                    title: txt.moduleDetail.pmsTitle,
+                    desc: txt.moduleDetail.pmsDesc,
                     color: "from-cyan-500 to-cyan-600",
-                    details: lang === 'ko' 
-                      ? ["실시간 기준가 관리", "멀티 매니저 지원", "펀드 마감/성과 분석", "포트폴리오 리밸런싱", "벤치마크 비교 분석"]
-                      : ["Real-time NAV Management", "Multi-Manager Support", "Fund Closing/Performance", "Portfolio Rebalancing", "Benchmark Analysis"]
+                    details: [txt.moduleDetail.pmsD1, txt.moduleDetail.pmsD2, txt.moduleDetail.pmsD3, txt.moduleDetail.pmsD4, txt.moduleDetail.pmsD5]
                   })}
                   className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-cyan-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all"
                 >
@@ -1446,12 +1642,10 @@ export default function OrcinusLanding() {
                 <div 
                   onClick={() => setSelectedModule({
                     tag: "OMS",
-                    title: lang === 'ko' ? "주문 관리" : "Order Management",
-                    desc: lang === 'ko' ? "주문 생성부터 체결까지 통합 관리" : "Integrated management from order creation to execution",
+                    title: txt.moduleDetail.omsTitle,
+                    desc: txt.moduleDetail.omsDesc,
                     color: "from-blue-500 to-blue-600",
-                    details: lang === 'ko'
-                      ? ["주문 상계 처리", "리스크 관리", "주문 제약 위반 방지", "배분 규칙 자동화", "컴플라이언스 체크"]
-                      : ["Order Netting", "Risk Management", "Order Constraint Prevention", "Allocation Rule Automation", "Compliance Check"]
+                    details: [txt.moduleDetail.omsD1, txt.moduleDetail.omsD2, txt.moduleDetail.omsD3, txt.moduleDetail.omsD4, txt.moduleDetail.omsD5]
                   })}
                   className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-blue-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all"
                 >
@@ -1473,12 +1667,10 @@ export default function OrcinusLanding() {
                 <div 
                   onClick={() => setSelectedModule({
                     tag: "EMS",
-                    title: lang === 'ko' ? "주문 집행" : "Execution Management",
-                    desc: lang === 'ko' ? "알고리즘 트레이딩 및 최적 체결" : "Algorithmic trading and optimal execution",
+                    title: txt.moduleDetail.emsTitle,
+                    desc: txt.moduleDetail.emsDesc,
                     color: "from-indigo-500 to-indigo-600",
-                    details: lang === 'ko'
-                      ? ["TWAP/VWAP 알고리즘", "Smart Order Routing", "거래 비용 최적화", "실시간 체결 모니터링", "TCA 분석"]
-                      : ["TWAP/VWAP Algorithm", "Smart Order Routing", "Transaction Cost Optimization", "Real-time Execution Monitoring", "TCA Analysis"]
+                    details: [txt.moduleDetail.emsD1, txt.moduleDetail.emsD2, txt.moduleDetail.emsD3, txt.moduleDetail.emsD4, txt.moduleDetail.emsD5]
                   })}
                   className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-indigo-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all"
                 >
@@ -1500,12 +1692,10 @@ export default function OrcinusLanding() {
                 <div 
                   onClick={() => setSelectedModule({
                     tag: "SLBS",
-                    title: lang === 'ko' ? "대차 관리" : "Securities Lending",
-                    desc: lang === 'ko' ? "대차/대여/대용 통합 관리" : "Lending/Borrowing/Collateral Management",
+                    title: txt.moduleDetail.slbsTitle,
+                    desc: txt.moduleDetail.slbsDesc,
                     color: "from-violet-500 to-violet-600",
-                    details: lang === 'ko'
-                      ? ["차입/대여/대용 관리", "대차 허브 연동", "대차 프로세스 자동화", "담보 관리", "리콜 처리"]
-                      : ["Lending/Borrowing Management", "Lending Hub Integration", "Process Automation", "Collateral Management", "Recall Processing"]
+                    details: [txt.moduleDetail.slbsD1, txt.moduleDetail.slbsD2, txt.moduleDetail.slbsD3, txt.moduleDetail.slbsD4, txt.moduleDetail.slbsD5]
                   })}
                   className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-violet-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all"
                 >
@@ -1515,7 +1705,7 @@ export default function OrcinusLanding() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-bold text-slate-800">Securities Lending</h3>
-                      <p className="text-slate-500 text-sm">{lang === 'ko' ? '대차/대여/대용 관리' : 'Lending & Borrowing'}</p>
+                      <p className="text-slate-500 text-sm">{txt.moduleDetail.slbsShort}</p>
                     </div>
                     <span className="text-violet-500 text-xl">→</span>
                   </div>
@@ -1527,12 +1717,10 @@ export default function OrcinusLanding() {
                 <div 
                   onClick={() => setSelectedModule({
                     tag: "IPMS",
-                    title: lang === 'ko' ? "내부 포지션 관리" : "Internal Position Management",
-                    desc: lang === 'ko' ? "사내 계좌/잔고 통합 관리" : "Internal account/position management",
+                    title: txt.moduleDetail.ipmsTitle,
+                    desc: txt.moduleDetail.ipmsDesc,
                     color: "from-slate-500 to-slate-600",
-                    details: lang === 'ko'
-                      ? ["내부 계좌 관리", "잔고 관리", "포지션 추적", "결제 예정 관리", "내부 거래 조정"]
-                      : ["Internal Account Management", "Position Tracking", "Settlement Management", "Internal Trade Reconciliation", "Balance Management"]
+                    details: [txt.moduleDetail.ipmsD1, txt.moduleDetail.ipmsD2, txt.moduleDetail.ipmsD3, txt.moduleDetail.ipmsD4, txt.moduleDetail.ipmsD5]
                   })}
                   className="w-full max-w-md bg-white rounded-2xl shadow-xl border-2 border-slate-400 p-6 relative z-10 cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all"
                 >
@@ -1542,7 +1730,7 @@ export default function OrcinusLanding() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-bold text-slate-800">Internal Position</h3>
-                      <p className="text-slate-500 text-sm">{lang === 'ko' ? '내부 포지션 관리' : 'Position Management'}</p>
+                      <p className="text-slate-500 text-sm">{txt.moduleDetail.ipmsShort}</p>
                     </div>
                     <span className="text-slate-500 text-xl">→</span>
                   </div>
@@ -1948,21 +2136,21 @@ export default function OrcinusLanding() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-800">Passive ETF</h3>
-                  <p className="text-blue-600 text-sm font-medium">{lang === 'ko' ? '인덱스 추종' : 'Index Tracking'}</p>
+                  <p className="text-blue-600 text-sm font-medium">{txt.etf.passiveType}</p>
                 </div>
               </div>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <span className="text-blue-500 mt-1">✓</span>
-                  <span className="text-slate-600">{lang === 'ko' ? '벤치마크 추적 오차 최소화' : 'Minimize benchmark tracking error'}</span>
+                  <span className="text-slate-600">{txt.etf.passiveF1}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-blue-500 mt-1">✓</span>
-                  <span className="text-slate-600">{lang === 'ko' ? '리밸런싱 자동화' : 'Automated rebalancing'}</span>
+                  <span className="text-slate-600">{txt.etf.passiveF2}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-blue-500 mt-1">✓</span>
-                  <span className="text-slate-600">{lang === 'ko' ? 'PDF 자동 생성 및 전송' : 'Auto PDF generation & delivery'}</span>
+                  <span className="text-slate-600">{txt.etf.passiveF3}</span>
                 </li>
               </ul>
             </div>
@@ -1978,21 +2166,21 @@ export default function OrcinusLanding() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-800">Active ETF</h3>
-                  <p className="text-purple-600 text-sm font-medium">{lang === 'ko' ? '초과 수익 추구' : 'Alpha Generation'}</p>
+                  <p className="text-purple-600 text-sm font-medium">{txt.etf.activeType}</p>
                 </div>
               </div>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <span className="text-purple-500 mt-1">✓</span>
-                  <span className="text-slate-600">{lang === 'ko' ? '실시간 PDF 전송 (AP 연동)' : 'Real-time PDF delivery (AP integration)'}</span>
+                  <span className="text-slate-600">{txt.etf.activeF1}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-purple-500 mt-1">✓</span>
-                  <span className="text-slate-600">{lang === 'ko' ? '설정/환매 실시간 처리' : 'Real-time creation/redemption'}</span>
+                  <span className="text-slate-600">{txt.etf.activeF2}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-purple-500 mt-1">✓</span>
-                  <span className="text-slate-600">{lang === 'ko' ? '대여 리콜 자동 관리' : 'Automated lending recall'}</span>
+                  <span className="text-slate-600">{txt.etf.activeF3}</span>
                 </li>
               </ul>
             </div>
@@ -2006,8 +2194,8 @@ export default function OrcinusLanding() {
                   <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <h4 className="font-bold text-slate-800 mb-1">{lang === 'ko' ? 'PDF 자동화' : 'PDF Automation'}</h4>
-              <p className="text-slate-500 text-xs">{lang === 'ko' ? 'Portfolio Deposit File\n자동 생성 및 전송' : 'Portfolio Deposit File\nAuto generation & delivery'}</p>
+              <h4 className="font-bold text-slate-800 mb-1">{txt.etf.pdf}</h4>
+              <p className="text-slate-500 text-xs">{txt.etf.pdfDesc}</p>
             </div>
             
             <div className="bg-white rounded-2xl p-5 shadow-lg border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all">
@@ -2016,8 +2204,8 @@ export default function OrcinusLanding() {
                   <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <h4 className="font-bold text-slate-800 mb-1">{lang === 'ko' ? 'iNAV 실시간' : 'Real-time iNAV'}</h4>
-              <p className="text-slate-500 text-xs">{lang === 'ko' ? '장중 순자산가치\n실시간 계산' : 'Intraday NAV\nReal-time calculation'}</p>
+              <h4 className="font-bold text-slate-800 mb-1">{txt.etf.inav}</h4>
+              <p className="text-slate-500 text-xs">{txt.etf.inavDesc}</p>
             </div>
             
             <div className="bg-white rounded-2xl p-5 shadow-lg border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all">
@@ -2026,8 +2214,8 @@ export default function OrcinusLanding() {
                   <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <h4 className="font-bold text-slate-800 mb-1">{lang === 'ko' ? '설정/환매' : 'C&R'}</h4>
-              <p className="text-slate-500 text-xs">{lang === 'ko' ? 'Creation & Redemption\n자동 처리' : 'Creation & Redemption\nAutomated processing'}</p>
+              <h4 className="font-bold text-slate-800 mb-1">{txt.etf.cr}</h4>
+              <p className="text-slate-500 text-xs">{txt.etf.crDesc}</p>
             </div>
             
             <div className="bg-white rounded-2xl p-5 shadow-lg border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all">
@@ -2036,8 +2224,8 @@ export default function OrcinusLanding() {
                   <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <h4 className="font-bold text-slate-800 mb-1">{lang === 'ko' ? 'AP 연동' : 'AP Integration'}</h4>
-              <p className="text-slate-500 text-xs">{lang === 'ko' ? '지정참가회사\n실시간 데이터 교환' : 'Authorized Participants\nReal-time data exchange'}</p>
+              <h4 className="font-bold text-slate-800 mb-1">{txt.etf.ap}</h4>
+              <p className="text-slate-500 text-xs">{txt.etf.apDesc}</p>
             </div>
           </div>
           
@@ -2075,8 +2263,8 @@ export default function OrcinusLanding() {
           {/* 하단 강조 */}
           <div className="mt-8 text-center scroll-fade-in">
             <div className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-2xl shadow-lg">
-              <p className="text-lg font-bold">{lang === 'ko' ? 'ETF 운용의 모든 것, Orca 하나로' : 'Everything for ETF Operations, All in Orca'}</p>
-              <p className="text-purple-100 text-sm mt-1">{lang === 'ko' ? 'PDF 관리부터 NAV 계산까지 자동화' : 'Automated from PDF management to NAV calculation'}</p>
+              <p className="text-lg font-bold">{txt.etf.bottom}</p>
+              <p className="text-purple-100 text-sm mt-1">{txt.etf.bottomDesc}</p>
             </div>
           </div>
         </div>
@@ -2114,7 +2302,7 @@ export default function OrcinusLanding() {
             
             {/* 기능 리스트 */}
             <div className="space-y-3">
-              <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">{lang === 'ko' ? '주요 기능' : 'KEY FEATURES'}</h4>
+              <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">{txt.moduleDetail.keyFeatures}</h4>
               <ul className="space-y-2">
                 {activeModule.details.map((item, j) => (
                   <li key={j} className="flex items-center gap-3 text-slate-700">
@@ -2127,7 +2315,7 @@ export default function OrcinusLanding() {
             
             {/* 문의 버튼 */}
             <button className={`mt-8 w-full py-3 rounded-xl bg-gradient-to-r ${activeModule.color} text-white font-semibold hover:opacity-90 transition-opacity`}>
-              {lang === 'ko' ? '상세 문의하기' : 'Contact Us'}
+              {txt.moduleDetail.contactUs}
             </button>
           </div>
         </div>
@@ -2235,51 +2423,11 @@ export default function OrcinusLanding() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-6">
-            {(lang === 'ko' ? [
-              { 
-                icon: "cloud",
-                title: "SaaS", 
-                desc: "클라우드 기반 서비스",
-                color: "from-cyan-500 to-blue-600",
-                features: ["별도 인프라 구축 불필요", "빠른 도입 가능", "자동 업데이트 지원"]
-              },
-              { 
-                icon: "server",
-                title: "고객사 클라우드", 
-                desc: "AWS · Azure · GCP",
-                color: "from-blue-500 to-indigo-600",
-                features: ["고객사 클라우드 환경 설치", "유연한 리소스 확장", "클라우드 보안 정책 적용"]
-              },
-              { 
-                icon: "database",
-                title: "온프레미스", 
-                desc: "자체 데이터센터 설치",
-                color: "from-indigo-500 to-violet-600",
-                features: ["완전한 데이터 통제", "내부망 운영 가능", "자체 보안 정책 적용"]
-              },
-            ] : [
-              { 
-                icon: "cloud",
-                title: "SaaS", 
-                desc: "Cloud-based Service",
-                color: "from-cyan-500 to-blue-600",
-                features: ["No infrastructure needed", "Quick deployment", "Auto updates"]
-              },
-              { 
-                icon: "server",
-                title: "Private Cloud", 
-                desc: "AWS · Azure · GCP",
-                color: "from-blue-500 to-indigo-600",
-                features: ["Install on client cloud", "Flexible resource scaling", "Cloud security policies"]
-              },
-              { 
-                icon: "database",
-                title: "On-Premise", 
-                desc: "Self-hosted Datacenter",
-                color: "from-indigo-500 to-violet-600",
-                features: ["Complete data control", "Internal network operation", "Custom security policies"]
-              },
-            ]).map((option, i) => (
+            {txt.deployOptions.map((opt, idx) => ({
+              ...opt,
+              icon: ["cloud", "server", "database"][idx],
+              color: ["from-cyan-500 to-blue-600", "from-blue-500 to-indigo-600", "from-indigo-500 to-violet-600"][idx]
+            })).map((option, i) => (
               <div key={i} className="hover-lift bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl text-center cursor-pointer group hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 relative overflow-hidden transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${option.color} flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-105 group-hover:shadow-xl transition-all duration-200`}>
@@ -2324,17 +2472,7 @@ export default function OrcinusLanding() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {(lang === 'ko' ? [
-              { value: "실시간", label: "기준가 업데이트", desc: "운용역/펀드별 즉시 반영" },
-              { value: "멀티", label: "매니저 운용", desc: "매니저별 상계로 거래비용 감소" },
-              { value: "실시간", label: "공매도 체크", desc: "차입/대여/대용 반영 실시간 잔고관리" },
-              { value: "Web", label: "어디서든 접속", desc: "모바일/PC 설치 불필요" },
-            ] : [
-              { value: "Real-time", label: "NAV Updates", desc: "Instant updates by manager/fund" },
-              { value: "Multi", label: "Manager Support", desc: "Cost reduction via netting" },
-              { value: "Real-time", label: "Short Sell Check", desc: "Real-time position with lending" },
-              { value: "Web", label: "Access Anywhere", desc: "No installation required" },
-            ]).map((stat, i) => (
+            {txt.statsArray.map((stat, i) => (
               <div key={i} className="group bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:scale-105 hover:-translate-y-3 transition-all duration-300 cursor-pointer hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
                 <div className="text-3xl font-black text-[#0F172A] mb-1" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
@@ -2347,28 +2485,28 @@ export default function OrcinusLanding() {
           </div>
           
           <div className="mt-12 bg-gradient-to-r from-slate-50 to-cyan-50 rounded-2xl p-8 border border-slate-200">
-            <h3 className="text-xl font-bold text-[#0F172A] mb-4 text-center">{lang === 'ko' ? '핵심 가치' : 'Core Values'}</h3>
+            <h3 className="text-xl font-bold text-[#0F172A] mb-4 text-center">{txt.coreValues.title}</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center group cursor-pointer">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mx-auto mb-3 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-200">
                   <Icon name="shield" className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="font-bold text-slate-800 mb-1">{lang === 'ko' ? '위험 관리' : 'Risk Management'}</h4>
-                <p className="text-slate-600 text-sm">{lang === 'ko' ? '실시간 기준가 기반 시장 위험 관리\n공매도 법적 처벌 방지' : 'Real-time NAV-based risk management\nShort selling compliance'}</p>
+                <h4 className="font-bold text-slate-800 mb-1">{txt.coreValues.riskTitle}</h4>
+                <p className="text-slate-600 text-sm">{txt.coreValues.riskDesc}</p>
               </div>
               <div className="text-center group cursor-pointer">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mx-auto mb-3 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-blue-500/30 transition-all duration-200">
                   <Icon name="dollar" className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="font-bold text-slate-800 mb-1">{lang === 'ko' ? '비용 절감' : 'Cost Reduction'}</h4>
-                <p className="text-slate-600 text-sm">{lang === 'ko' ? 'Buy-side 주문 집행으로 거래 비용 최적화\n대차 비용 자동 최소화' : 'Optimize trading costs with buy-side execution\nAutomated lending cost minimization'}</p>
+                <h4 className="font-bold text-slate-800 mb-1">{txt.coreValues.costTitle}</h4>
+                <p className="text-slate-600 text-sm">{txt.coreValues.costDesc}</p>
               </div>
               <div className="text-center group cursor-pointer">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center mx-auto mb-3 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-indigo-500/30 transition-all duration-200">
                   <Icon name="zap" className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="font-bold text-slate-800 mb-1">{lang === 'ko' ? '업무 자동화' : 'Automation'}</h4>
-                <p className="text-slate-600 text-sm">{lang === 'ko' ? '주문/대차/백오피스 자동화\n운용 지원 인력 생산성 극대화' : 'Order/Lending/Back-office automation\nMaximize operational productivity'}</p>
+                <h4 className="font-bold text-slate-800 mb-1">{txt.coreValues.autoTitle}</h4>
+                <p className="text-slate-600 text-sm">{txt.coreValues.autoDesc}</p>
               </div>
             </div>
           </div>
@@ -2388,10 +2526,10 @@ export default function OrcinusLanding() {
           <div className="text-center mb-20 scroll-fade-in">
             <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-500/20 text-cyan-400 text-sm font-semibold mb-6">ABOUT ORCINUS</span>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              {lang === 'ko' ? '자산운용의 미래를\n함께 만들어갑니다' : 'Building the Future\nof Asset Management'}
+              {txt.aboutHeading}
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              {lang === 'ko' ? 'Orcinus는 자산운용사가 더 나은 투자 결정을 내릴 수 있도록\n기술로 혁신합니다' : 'Orcinus innovates with technology to help\nasset managers make better investment decisions'}
+              {txt.aboutSubHeading}
             </p>
           </div>
           
@@ -2403,7 +2541,7 @@ export default function OrcinusLanding() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">Mission</h3>
               <p className="text-slate-300 leading-relaxed">
-                {lang === 'ko' ? '자산운용사의 복잡한 업무를 단순화하고, 실시간 데이터 기반의 의사결정을 지원하여 투자 성과를 극대화합니다.' : 'We simplify complex asset management operations and support real-time data-driven decisions to maximize investment performance.'}
+                {txt.missionText}
               </p>
             </div>
             <div className="scroll-slide-right bg-white/5 backdrop-blur rounded-3xl p-8 border border-white/10 hover:border-cyan-500/30 transition-colors">
@@ -2412,7 +2550,7 @@ export default function OrcinusLanding() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">Vision</h3>
               <p className="text-slate-300 leading-relaxed">
-                {lang === 'ko' ? '대한민국을 넘어 글로벌 자산운용 기술의 표준이 되어, 금융 시장의 효율성과 투명성을 높입니다.' : 'Become the global standard for asset management technology, improving market efficiency and transparency.'}
+                {txt.visionText}
               </p>
             </div>
           </div>
@@ -2421,17 +2559,7 @@ export default function OrcinusLanding() {
           <div className="mb-20 scroll-fade-in">
             <h3 className="text-xl font-bold text-white mb-8 text-center">Core Values</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {(lang === 'ko' ? [
-                { icon: "⚡", title: "Speed", desc: "빠른 실행과 대응" },
-                { icon: "🔒", title: "Trust", desc: "신뢰할 수 있는 시스템" },
-                { icon: "🔬", title: "Innovation", desc: "끊임없는 기술 혁신" },
-                { icon: "🤝", title: "Partnership", desc: "고객과 함께 성장" },
-              ] : [
-                { icon: "⚡", title: "Speed", desc: "Fast execution & response" },
-                { icon: "🔒", title: "Trust", desc: "Reliable systems" },
-                { icon: "🔬", title: "Innovation", desc: "Continuous tech advancement" },
-                { icon: "🤝", title: "Partnership", desc: "Growing with clients" },
-              ]).map((value, i) => (
+              {txt.valuesArray.map((value, i) => (
                 <div key={i} className={`scroll-scale delay-${i + 1} bg-white/5 rounded-2xl p-6 text-center border border-white/10 hover:bg-white/10 transition-colors`}>
                   <span className="text-3xl mb-3 block">{value.icon}</span>
                   <h4 className="text-white font-bold mb-1">{value.title}</h4>
@@ -2449,11 +2577,7 @@ export default function OrcinusLanding() {
               <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-blue-500 to-indigo-500 hidden md:block"></div>
               
               <div className="space-y-8">
-                {(lang === 'ko' ? [
-                  { year: "2026.4", title: "Orcinus 설립 & Orca 런칭", desc: "금융 IT 전문가들이 모여 회사 설립, 통합 트레이딩 시스템 출시" },
-                ] : [
-                  { year: "2026.4", title: "Orcinus Founded & Orca Launched", desc: "Financial IT experts founded the company and launched integrated trading system" },
-                ]).map((item, i) => (
+                {txt.historyArray.map((item, i) => (
                   <div key={i} className={`flex items-center gap-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                     <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
                       <span className="text-cyan-400 font-bold text-lg">{item.year}</span>
@@ -2475,11 +2599,7 @@ export default function OrcinusLanding() {
               {txt.aboutSection.teamDesc}
             </p>
             <div className="flex justify-center gap-6 flex-wrap">
-              {[
-                { role: "CEO", name: "김태훈", expertise: lang === 'ko' ? "자산운용 20년" : "20 years in Asset Mgmt" },
-                { role: "CTO", name: "", expertise: lang === 'ko' ? "금융IT 15년" : "15 years in Financial IT" },
-                { role: "CPO", name: "", expertise: lang === 'ko' ? "트레이딩 시스템 전문" : "Trading Systems Expert" },
-              ].map((member, i) => (
+              {txt.teamMembers.map((member, i) => (
                 <div key={i} className="bg-white/5 rounded-2xl p-6 border border-white/10 min-w-[150px]">
                   <div className="w-16 h-16 bg-gradient-to-br from-slate-600 to-slate-700 rounded-full mx-auto mb-4 flex items-center justify-center">
                     <span className="text-2xl">👤</span>
@@ -2524,7 +2644,7 @@ export default function OrcinusLanding() {
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-cyan-500 hover:bg-cyan-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center hover:scale-110"
-          aria-label={lang === 'ko' ? '맨 위로 가기' : 'Back to top'}
+          aria-label={txt.scrollToTop}
         >
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path d="M18 15l-6-6-6 6"/>
@@ -2539,26 +2659,26 @@ export default function OrcinusLanding() {
             <div>
               <OrcinusLogo size="small" />
               <p className="text-slate-500 mt-3 text-sm">
-                {lang === 'ko' ? 'Orca - 실시간 통합 자산운용 플랫폼' : 'Orca - Real-time Integrated Asset Management Platform'}
+                {txt.footerDesc}
               </p>
             </div>
             <div className="grid grid-cols-3 gap-10 text-sm">
               <div>
-                <h4 className="text-slate-900 font-bold mb-3">{lang === 'ko' ? '시스템' : 'System'}</h4>
+                <h4 className="text-slate-900 font-bold mb-3">{txt.footerSystem}</h4>
                 <ul className="space-y-2 text-slate-500">
                   <li><a href="#" className="hover:text-cyan-600 transition-colors">PMS/OMS/EMS</a></li>
-                  <li><a href="#" className="hover:text-cyan-600 transition-colors">{lang === 'ko' ? '대차/ETF관리' : 'Lending/ETF'}</a></li>
+                  <li><a href="#" className="hover:text-cyan-600 transition-colors">{txt.footerLending}</a></li>
                 </ul>
               </div>
               <div>
-                <h4 className="text-slate-900 font-bold mb-3">{lang === 'ko' ? '회사' : 'Company'}</h4>
+                <h4 className="text-slate-900 font-bold mb-3">{txt.footerCompany}</h4>
                 <ul className="space-y-2 text-slate-500">
-                  <li><a href="#" className="hover:text-cyan-600 transition-colors">{lang === 'ko' ? '소개' : 'About'}</a></li>
-                  <li><a href="#" className="hover:text-cyan-600 transition-colors">{lang === 'ko' ? '채용' : 'Careers'}</a></li>
+                  <li><a href="#" className="hover:text-cyan-600 transition-colors">{txt.footerAbout}</a></li>
+                  <li><a href="#" className="hover:text-cyan-600 transition-colors">{txt.footerCareers}</a></li>
                 </ul>
               </div>
               <div>
-                <h4 className="text-slate-900 font-bold mb-3">{lang === 'ko' ? '문의' : 'Contact'}</h4>
+                <h4 className="text-slate-900 font-bold mb-3">{txt.footerContact}</h4>
                 <ul className="space-y-2 text-slate-500">
                   <li>contact@orcaorcinus.com</li>
                 </ul>
