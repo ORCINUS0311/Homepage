@@ -132,7 +132,7 @@ export default function OrcinusLanding() {
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [demoForm, setDemoForm] = useState({ name: '', company: '', phone: '', email: '', message: '' });
   const [demoStatus, setDemoStatus] = useState('idle');
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwgquVhLfBEaIjWW6RxU2D6jZe3uOtwBcSusnB7hERUV_MGmB7f1wMDyvCyk7zL1sh3qw/exec';
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwd3gHzCr--uq0fNYoY7NbechO134_0HK4N4PlTAbLJ5sZVncE9aTMxuMqPzOTr2mdSlA/exec';
 
   // 관리자 Google 로그인
   const GOOGLE_CLIENT_ID = '638764108484-njiob019mkiru7162897ha2abtaa5ddm.apps.googleusercontent.com';
@@ -1326,9 +1326,6 @@ export default function OrcinusLanding() {
                 <span className="relative">{txt.hero.cta1}</span>
                 <Icon name="arrow" className="relative w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </button>
-              <button className="group relative bg-white/80 backdrop-blur px-7 py-3.5 rounded-xl text-base font-semibold text-slate-700 hover:bg-white hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-cyan-600 active:scale-100 transition-all duration-200 shadow-md border border-slate-200 hover:border-cyan-400">
-                <span className="relative">{txt.hero.cta2}</span>
-              </button>
             </div>
           </div>
           
@@ -2030,9 +2027,6 @@ export default function OrcinusLanding() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <button onClick={() => setShowDemoModal(true)} className="group relative bg-gradient-to-r from-cyan-400 to-cyan-500 text-black px-8 py-4 rounded-xl text-lg font-bold hover:from-cyan-300 hover:to-cyan-400 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/40 hover:-translate-y-1 active:scale-100 transition-all duration-200 shadow-md">
                 <span className="relative">{txt.hero.cta1}</span>
-              </button>
-              <button className="group relative bg-white px-8 py-4 rounded-xl text-lg font-semibold text-slate-700 hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-cyan-600 active:scale-100 transition-all duration-200 shadow-md border border-slate-200 hover:border-cyan-400">
-                <span className="relative">{txt.hero.cta2}</span>
               </button>
             </div>
           </div>
