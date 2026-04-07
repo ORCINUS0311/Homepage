@@ -380,7 +380,7 @@ export default function OrcinusLanding() {
         titleCol: '제목',
         dateColGeneral: '날짜',
         noPost: '등록된 게시글이 없습니다.',
-        fetchError: '데이터를 불러오는 중 오류가 발생했습니다.\ndev@orcaorcinus.com으로 문의해주세요.'
+        fetchError: '데이터를 불러오는 중 오류가 발생했습니다.\nsupport@orcaorcinus.com으로 문의해주세요.'
       }
     },
     en: {
@@ -571,7 +571,7 @@ export default function OrcinusLanding() {
         titleCol: 'Title',
         dateColGeneral: 'Date',
         noPost: 'No posts available.',
-        fetchError: 'An error occurred while loading data.\nPlease contact dev@orcaorcinus.com.'
+        fetchError: 'An error occurred while loading data.\nPlease contact support@orcaorcinus.com.'
       }
     }
   };
@@ -2063,7 +2063,7 @@ export default function OrcinusLanding() {
               <div>
                 <h4 className="text-slate-900 font-bold mb-3">{txt.footer.contactTitle}</h4>
                 <ul className="space-y-2 text-slate-500">
-                  <li>dev@orcaorcinus.com</li>
+                  <li>support@orcaorcinus.com</li>
                 </ul>
               </div>
             </div>
