@@ -5,17 +5,17 @@ const OrcinusLogo = ({ dark = false, size = "default" }) => {
   const scale = size === "small" ? 0.6 : size === "large" ? 1.2 : 1;
   const width = 200 * scale;
   const height = 60 * scale;
-  
+
   return (
     <svg width={width} height={height} viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id={`finGrad-${dark}-${size}`} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor={dark ? "#4FC3F7" : "#1A2B4C"}/>
-          <stop offset="100%" stopColor={dark ? "#81D4FA" : "#2E4A6F"}/>
+          <stop offset="0%" stopColor={dark ? "#4FC3F7" : "#1A2B4C"} />
+          <stop offset="100%" stopColor={dark ? "#81D4FA" : "#2E4A6F"} />
         </linearGradient>
       </defs>
-      <path d="M20 95 Q25 40 50 15 Q55 12 58 15 Q70 45 75 95 Z" fill={`url(#finGrad-${dark}-${size})`}/>
-      <path d="M22 85 Q40 75 55 85 Q65 90 73 85" stroke={dark ? "#FFFFFF" : "#4FC3F7"} strokeWidth="3" fill="none" strokeLinecap="round"/>
+      <path d="M20 95 Q25 40 50 15 Q55 12 58 15 Q70 45 75 95 Z" fill={`url(#finGrad-${dark}-${size})`} />
+      <path d="M22 85 Q40 75 55 85 Q65 90 73 85" stroke={dark ? "#FFFFFF" : "#4FC3F7"} strokeWidth="3" fill="none" strokeLinecap="round" />
       <text x="95" y="72" fontFamily="'Georgia', serif" fontSize="48" fontWeight="700" fill={dark ? "#FFFFFF" : "#1A2B4C"} letterSpacing="2">ORCINUS</text>
     </svg>
   );
@@ -57,22 +57,22 @@ const FloatingParticles = () => {
 // Icon Component
 const Icon = ({ name, className = "" }) => {
   const icons = {
-    check: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M20 6L9 17l-5-5"/></svg>,
-    shield: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
-    zap: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
-    layers: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>,
-    dollar: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>,
-    arrow: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>,
-    menu: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>,
-    x: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>,
-    target: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>,
-    building: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>,
-    briefcase: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>,
-    pieChart: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>,
-    activity: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>,
-    cloud: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>,
-    server: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>,
-    database: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+    check: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M20 6L9 17l-5-5" /></svg>,
+    shield: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>,
+    zap: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>,
+    layers: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg>,
+    dollar: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>,
+    arrow: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>,
+    menu: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>,
+    x: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>,
+    target: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>,
+    building: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2" /><path d="M9 22v-4h6v4" /><path d="M8 6h.01" /><path d="M16 6h.01" /><path d="M12 6h.01" /><path d="M12 10h.01" /><path d="M12 14h.01" /><path d="M16 10h.01" /><path d="M16 14h.01" /><path d="M8 10h.01" /><path d="M8 14h.01" /></svg>,
+    briefcase: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></svg>,
+    pieChart: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83" /><path d="M22 12A10 10 0 0 0 12 2v10z" /></svg>,
+    activity: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>,
+    cloud: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" /></svg>,
+    server: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2" /><rect x="2" y="14" width="20" height="8" rx="2" ry="2" /><line x1="6" y1="6" x2="6.01" y2="6" /><line x1="6" y1="18" x2="6.01" y2="18" /></svg>,
+    database: <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" /><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" /></svg>
   };
   return icons[name] || null;
 };
@@ -82,23 +82,23 @@ const OrcaFinIllustration = ({ className = "" }) => (
   <svg className={className} viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="finGradientHero" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#1E3A5F"/>
-        <stop offset="50%" stopColor="#0F172A"/>
-        <stop offset="100%" stopColor="#1E3A5F"/>
+        <stop offset="0%" stopColor="#1E3A5F" />
+        <stop offset="50%" stopColor="#0F172A" />
+        <stop offset="100%" stopColor="#1E3A5F" />
       </linearGradient>
       <linearGradient id="glowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#4FC3F7" stopOpacity="0.6"/>
-        <stop offset="100%" stopColor="#4FC3F7" stopOpacity="0"/>
+        <stop offset="0%" stopColor="#4FC3F7" stopOpacity="0.6" />
+        <stop offset="100%" stopColor="#4FC3F7" stopOpacity="0" />
       </linearGradient>
       <filter id="glow">
-        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        <feGaussianBlur stdDeviation="8" result="coloredBlur" />
+        <feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>
       </filter>
     </defs>
     <ellipse cx="200" cy="450" rx="150" ry="30" fill="url(#glowGradient)" opacity="0.5">
-      <animate attributeName="rx" values="150;160;150" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="rx" values="150;160;150" dur="3s" repeatCount="indefinite" />
     </ellipse>
-    <path d="M120 450 Q140 250 200 80 Q210 60 220 80 Q280 250 300 450 Z" fill="url(#finGradientHero)"/>
+    <path d="M120 450 Q140 250 200 80 Q210 60 220 80 Q280 250 300 450 Z" fill="url(#finGradientHero)" />
     {/* 아래쪽 물결 */}
     <path d="M80 430 Q140 410 200 430 Q260 450 320 430" stroke="#4FC3F7" strokeWidth="3" fill="none" strokeLinecap="round" filter="url(#glow)">
       <animate attributeName="d" dur="4s" repeatCount="indefinite" values="
@@ -108,12 +108,12 @@ const OrcaFinIllustration = ({ className = "" }) => (
       "/>
     </path>
     <circle cx="150" cy="380" r="4" fill="#4FC3F7" opacity="0.4">
-      <animate attributeName="cy" values="380;320;260" dur="4s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.4;0.2;0" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="380;320;260" dur="4s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.4;0.2;0" dur="4s" repeatCount="indefinite" />
     </circle>
     <circle cx="250" cy="400" r="3" fill="#4FC3F7" opacity="0.3">
-      <animate attributeName="cy" values="400;340;280" dur="5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.3;0.15;0" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="400;340;280" dur="5s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.3;0.15;0" dur="5s" repeatCount="indefinite" />
     </circle>
   </svg>
 );
@@ -163,12 +163,12 @@ export default function OrcinusLanding() {
     document.head.appendChild(script);
     return () => document.head.removeChild(script);
   }, []);
-  
+
   // 스크롤 애니메이션 훅
   const useScrollAnimation = () => {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
-    
+
     useEffect(() => {
       const observer = new IntersectionObserver(
         ([entry]) => {
@@ -178,14 +178,14 @@ export default function OrcinusLanding() {
         },
         { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
       );
-      
+
       if (ref.current) {
         observer.observe(ref.current);
       }
-      
+
       return () => observer.disconnect();
     }, []);
-    
+
     return [ref, isVisible];
   };
   const [introFading, setIntroFading] = useState(false);
@@ -575,9 +575,9 @@ export default function OrcinusLanding() {
       }
     }
   };
-  
+
   const txt = t[lang];
-  
+
   const [countUp, setCountUp] = useState({ realtime: false, multi: false, check: false });
 
   // 인트로 타이머 (3~4초 후 자동 전환)
@@ -585,11 +585,11 @@ export default function OrcinusLanding() {
     const fadeTimer = setTimeout(() => {
       setIntroFading(true);
     }, 3500);
-    
+
     const hideTimer = setTimeout(() => {
       setShowIntro(false);
     }, 4000);
-    
+
     return () => {
       clearTimeout(fadeTimer);
       clearTimeout(hideTimer);
@@ -598,11 +598,11 @@ export default function OrcinusLanding() {
 
   // 카운트업 애니메이션을 위한 ref
   const statsRef = React.useRef(null);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
-      
+
       // Stats 섹션 카운트업 트리거
       if (statsRef.current) {
         const rect = statsRef.current.getBoundingClientRect();
@@ -649,11 +649,11 @@ export default function OrcinusLanding() {
       },
       { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
     );
-    
+
     document.querySelectorAll('.scroll-fade-in, .scroll-slide-left, .scroll-slide-right, .scroll-scale').forEach((el) => {
       observer.observe(el);
     });
-    
+
     return () => observer.disconnect();
   }, []);
 
@@ -1006,17 +1006,17 @@ export default function OrcinusLanding() {
           {/* 로고/돌고래 토글 */}
           <div className="flex items-center gap-3">
             <button onClick={() => setCurrentPage('home')} className="hover:opacity-80 transition-opacity">
-            {showLogo ? (
-              <OrcinusLogo size="small" />
-            ) : (
-              <div className="flex items-center gap-2">
-                <img src="/orca-hero.png" alt="Orca" className="w-8 h-8 object-contain" />
-                <span className="font-bold text-slate-800">Orca</span>
-              </div>
-            )}
+              {showLogo ? (
+                <OrcinusLogo size="small" />
+              ) : (
+                <div className="flex items-center gap-2">
+                  <img src="/orca-hero.png" alt="Orca" className="w-8 h-8 object-contain" />
+                  <span className="font-bold text-slate-800">Orca</span>
+                </div>
+              )}
             </button>
             {/* 토글 버튼 */}
-            <button 
+            <button
               onClick={() => setShowLogo(!showLogo)}
               className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
               title={showLogo ? txt.logoToggle.toOrca : txt.logoToggle.toLogo}
@@ -1030,7 +1030,7 @@ export default function OrcinusLanding() {
             <a href="#about" onClick={() => setCurrentPage('home')} className="text-slate-700 hover:text-cyan-500 text-sm font-medium transition-all duration-200 hover:scale-105">{txt.nav.about}</a>
             <a href="#contact" onClick={() => setCurrentPage('home')} className="text-slate-700 hover:text-cyan-500 text-sm font-medium transition-all duration-200 hover:scale-105">{txt.nav.contact}</a>
             <button onClick={() => setCurrentPage('disclosure')} className="text-slate-700 hover:text-cyan-500 text-sm font-medium transition-all duration-200 hover:scale-105">{txt.nav.disclosure}</button>
-            
+
             {/* 언어 선택 */}
             <div className="flex items-center gap-1 text-sm border border-slate-200 rounded-full px-1 py-0.5">
               <button
@@ -1039,14 +1039,14 @@ export default function OrcinusLanding() {
               >
                 {txt.langLabel}
               </button>
-              <button 
+              <button
                 onClick={() => setLang('en')}
                 className={`px-3 py-1 rounded-full transition-all duration-200 ${lang === 'en' ? 'bg-cyan-500 text-white font-medium' : 'text-slate-500 hover:text-slate-700'}`}
               >
                 EN
               </button>
             </div>
-            
+
             <button onClick={() => setShowDemoModal(true)} className="bg-gradient-to-r from-cyan-400 to-cyan-500 text-black px-6 py-2.5 rounded-full text-sm font-semibold hover:from-cyan-300 hover:to-cyan-400 hover:scale-105 hover:shadow-md hover:shadow-cyan-400/30 hover:-translate-y-0.5 transition-all duration-200">
               {txt.nav.demo}
             </button>
@@ -1055,7 +1055,7 @@ export default function OrcinusLanding() {
             <Icon name={mobileMenuOpen ? "x" : "menu"} className="w-6 h-6 text-slate-700" />
           </button>
         </div>
-        
+
         {mobileMenuOpen && (
           <div className="md:hidden bg-white px-6 py-4 space-y-4 border-t border-slate-100">
             <a href="#features" onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); }} className="block text-slate-700">{txt.nav.features}</a>
@@ -1063,7 +1063,7 @@ export default function OrcinusLanding() {
             <a href="#about" onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); }} className="block text-slate-700">{txt.nav.about}</a>
             <a href="#contact" onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); }} className="block text-slate-700">{txt.nav.contact}</a>
             <button onClick={() => { setCurrentPage('disclosure'); setMobileMenuOpen(false); }} className="block text-slate-700 text-left">{txt.nav.disclosure}</button>
-            
+
             {/* 모바일 언어 선택 */}
             <div className="flex items-center gap-2 py-2">
               <button
@@ -1072,14 +1072,14 @@ export default function OrcinusLanding() {
               >
                 {txt.langLabel}
               </button>
-              <button 
+              <button
                 onClick={() => setLang('en')}
                 className={`px-4 py-2 rounded-full text-sm transition-all ${lang === 'en' ? 'bg-cyan-500 text-white font-medium' : 'bg-slate-100 text-slate-600'}`}
               >
                 English
               </button>
             </div>
-            
+
             <button onClick={() => { setShowDemoModal(true); setMobileMenuOpen(false); }} className="w-full bg-gradient-to-r from-cyan-400 to-cyan-500 text-black px-5 py-2.5 rounded-full text-sm font-medium hover:from-cyan-300 hover:to-cyan-400 hover:scale-105 hover:shadow-md transition-all duration-200">
               {txt.nav.demo}
             </button>
@@ -1089,259 +1089,258 @@ export default function OrcinusLanding() {
 
       {/* 공시 페이지 */}
       {currentPage === 'disclosure' ? (
-      <div className="min-h-screen bg-slate-50 pt-20" style={{fontFamily:"'Noto Sans KR', sans-serif"}}>
-        {/* 헤더 배너 */}
-        <div className="bg-gradient-to-br from-slate-900 to-slate-800 py-16 px-6 text-center relative overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="absolute rounded-full bg-cyan-400"
-                style={{ width: 180+i*70, height: 180+i*70, left:`${5+i*18}%`, top:'-50%', opacity:0.3 }} />
-            ))}
-          </div>
-          <div className="relative z-10">
-            <span className="inline-block text-cyan-400 text-xs font-bold tracking-widest uppercase border border-cyan-400/40 rounded-full px-4 py-1.5 mb-4">DISCLOSURE</span>
-            <h1 className="text-3xl md:text-4xl font-black text-white mb-2">{txt.disclosure.title}</h1>
-            <p className="text-slate-400 text-sm">{txt.disclosure.desc}</p>
-          </div>
-          {/* 관리자 로그인/로그아웃 버튼 */}
-          <div className="absolute top-4 right-6 z-20">
-            {adminUser ? (
-              <div className="flex items-center gap-2">
-                <img src={adminUser.picture} alt="" className="w-7 h-7 rounded-full border-2 border-cyan-400" />
-                <span className="text-white text-xs font-medium hidden sm:block">{adminUser.name}</span>
-                <button onClick={() => setAdminUser(null)}
-                  className="text-xs text-slate-400 hover:text-white border border-slate-600 rounded-full px-3 py-1 transition-colors">
-                  {txt.admin.logout}
-                </button>
-              </div>
-            ) : (
-              <button onClick={() => setShowAdminLogin(true)}
-                className="text-xs text-slate-400 hover:text-cyan-400 border border-slate-600 hover:border-cyan-400/50 rounded-full px-4 py-1.5 transition-all">
-                {txt.admin.login}
-              </button>
-            )}
-          </div>
-        </div>
-
-        <div className="max-w-4xl mx-auto px-4 py-10">
-          {/* 탭 */}
-          <div className="flex gap-0 mb-8 border-b border-slate-200 justify-between items-end">
-            <div className="flex">
-              {[
-                { key: 'notice', label: txt.disclosure.notice, icon: '📢' },
-                { key: 'general', label: txt.disclosure.general, icon: '📄' },
-                ...(adminUser ? [{ key: 'demo', label: txt.disclosure.demoTab, icon: '🔒' }] : []),
-              ].map(tab => (
-                <button key={tab.key}
-                  onClick={() => { setDisclosureTab(tab.key); setSelectedPost(null); }}
-                  className={`px-7 py-3 text-sm font-semibold transition-all duration-200 border-b-2 -mb-[2px] ${
-                    disclosureTab === tab.key
-                      ? 'border-cyan-500 text-cyan-600 bg-cyan-50/50'
-                      : 'border-transparent text-slate-500 hover:text-slate-700'
-                  }`}
-                >
-                  {tab.icon} {tab.label}
-                </button>
+        <div className="min-h-screen bg-slate-50 pt-20" style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
+          {/* 헤더 배너 */}
+          <div className="bg-gradient-to-br from-slate-900 to-slate-800 py-16 px-6 text-center relative overflow-hidden">
+            <div className="absolute inset-0 opacity-10">
+              {[...Array(5)].map((_, i) => (
+                <div key={i} className="absolute rounded-full bg-cyan-400"
+                  style={{ width: 180 + i * 70, height: 180 + i * 70, left: `${5 + i * 18}%`, top: '-50%', opacity: 0.3 }} />
               ))}
+            </div>
+            <div className="relative z-10">
+              <span className="inline-block text-cyan-400 text-xs font-bold tracking-widest uppercase border border-cyan-400/40 rounded-full px-4 py-1.5 mb-4">DISCLOSURE</span>
+              <h1 className="text-3xl md:text-4xl font-black text-white mb-2">{txt.disclosure.title}</h1>
+              <p className="text-slate-400 text-sm">{txt.disclosure.desc}</p>
+            </div>
+            {/* 관리자 로그인/로그아웃 버튼 */}
+            <div className="absolute top-4 right-6 z-20">
+              {adminUser ? (
+                <div className="flex items-center gap-2">
+                  <img src={adminUser.picture} alt="" className="w-7 h-7 rounded-full border-2 border-cyan-400" />
+                  <span className="text-white text-xs font-medium hidden sm:block">{adminUser.name}</span>
+                  <button onClick={() => setAdminUser(null)}
+                    className="text-xs text-slate-400 hover:text-white border border-slate-600 rounded-full px-3 py-1 transition-colors">
+                    {txt.admin.logout}
+                  </button>
+                </div>
+              ) : (
+                <button onClick={() => setShowAdminLogin(true)}
+                  className="text-xs text-slate-400 hover:text-cyan-400 border border-slate-600 hover:border-cyan-400/50 rounded-full px-4 py-1.5 transition-all">
+                  {txt.admin.login}
+                </button>
+              )}
             </div>
           </div>
 
-          {/* 데모신청 탭 (관리자 전용) */}
-          {disclosureTab === 'demo' ? (
-            demoListLoading ? (
+          <div className="max-w-4xl mx-auto px-4 py-10">
+            {/* 탭 */}
+            <div className="flex gap-0 mb-8 border-b border-slate-200 justify-between items-end">
+              <div className="flex">
+                {[
+                  { key: 'notice', label: txt.disclosure.notice, icon: '📢' },
+                  { key: 'general', label: txt.disclosure.general, icon: '📄' },
+                  ...(adminUser ? [{ key: 'demo', label: txt.disclosure.demoTab, icon: '🔒' }] : []),
+                ].map(tab => (
+                  <button key={tab.key}
+                    onClick={() => { setDisclosureTab(tab.key); setSelectedPost(null); }}
+                    className={`px-7 py-3 text-sm font-semibold transition-all duration-200 border-b-2 -mb-[2px] ${disclosureTab === tab.key
+                        ? 'border-cyan-500 text-cyan-600 bg-cyan-50/50'
+                        : 'border-transparent text-slate-500 hover:text-slate-700'
+                      }`}
+                  >
+                    {tab.icon} {tab.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* 데모신청 탭 (관리자 전용) */}
+            {disclosureTab === 'demo' ? (
+              demoListLoading ? (
+                <div className="text-center py-24 text-slate-400">
+                  <div className="inline-block w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin mb-4" />
+                  <p className="text-sm">{txt.disclosure.loading}</p>
+                </div>
+              ) : demoList.length === 0 ? (
+                <div className="text-center py-24 text-slate-400">
+                  <p className="text-4xl mb-4">📭</p>
+                  <p className="text-sm">{txt.disclosure.noDemo}</p>
+                </div>
+              ) : (
+                <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                  <div className="bg-slate-800 px-6 py-3 flex items-center gap-2">
+                    <span className="text-cyan-400 text-xs font-bold">🔒 {txt.disclosure.adminOnly}</span>
+                    <span className="text-slate-400 text-xs ml-auto">{txt.disclosure.total} {demoList.length}{txt.disclosure.unit ? txt.disclosure.unit : ''}</span>
+                  </div>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="bg-slate-50 border-b border-slate-100">
+                          <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400 w-10">No.</th>
+                          <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400">{txt.disclosure.nameCol}</th>
+                          <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400">{txt.disclosure.companyCol}</th>
+                          <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400">{txt.disclosure.phoneCol}</th>
+                          <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400">{txt.disclosure.emailCol}</th>
+                          <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400 w-32">{txt.disclosure.dateCol}</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-50">
+                        {demoList.map((item, i) => (
+                          <tr key={item.id} className="hover:bg-cyan-50/40 transition-colors">
+                            <td className="px-4 py-3 text-slate-400">{demoList.length - i}</td>
+                            <td className="px-4 py-3 font-medium text-slate-800">{item.name}</td>
+                            <td className="px-4 py-3 text-slate-600">{item.company}</td>
+                            <td className="px-4 py-3 text-slate-600">{item.phone}</td>
+                            <td className="px-4 py-3 text-slate-600">{item.email}</td>
+                            <td className="px-4 py-3 text-slate-400 text-xs">{item.date}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )
+            ) : selectedPost ? (
+              <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
+                <button onClick={() => setSelectedPost(null)}
+                  className="flex items-center gap-1 text-slate-500 hover:text-cyan-600 text-sm mb-6 transition-colors">
+                  {txt.disclosure.backToList}
+                </button>
+                {selectedPost.important && (
+                  <span className="inline-block bg-red-50 text-red-500 text-xs font-bold px-2 py-0.5 rounded mb-3">{txt.disclosure.important}</span>
+                )}
+                <h2 className="text-xl font-bold text-slate-900 mb-2">{selectedPost.title}</h2>
+                <p className="text-xs text-slate-400 mb-6 pb-6 border-b border-slate-100">{selectedPost.date}</p>
+                <div className="text-slate-700 text-sm leading-relaxed whitespace-pre-wrap">{selectedPost.content}</div>
+              </div>
+            ) : disclosureLoading ? (
               <div className="text-center py-24 text-slate-400">
                 <div className="inline-block w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin mb-4" />
                 <p className="text-sm">{txt.disclosure.loading}</p>
               </div>
-            ) : demoList.length === 0 ? (
+            ) : disclosureError ? (
               <div className="text-center py-24 text-slate-400">
-                <p className="text-4xl mb-4">📭</p>
-                <p className="text-sm">{txt.disclosure.noDemo}</p>
+                <p className="text-4xl mb-4">⚠️</p>
+                <p className="text-sm whitespace-pre-wrap">{disclosureError}</p>
+              </div>
+            ) : disclosurePosts.length === 0 ? (
+              <div className="text-center py-24 text-slate-400">
+                <p className="text-4xl mb-4">🐋</p>
+                <p className="text-sm">{txt.disclosure.noPost}</p>
               </div>
             ) : (
               <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-                <div className="bg-slate-800 px-6 py-3 flex items-center gap-2">
-                  <span className="text-cyan-400 text-xs font-bold">🔒 {txt.disclosure.adminOnly}</span>
-                  <span className="text-slate-400 text-xs ml-auto">{txt.disclosure.total} {demoList.length}{txt.disclosure.unit ? txt.disclosure.unit : ''}</span>
-                </div>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="bg-slate-50 border-b border-slate-100">
-                        <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400 w-10">No.</th>
-                        <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400">{txt.disclosure.nameCol}</th>
-                        <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400">{txt.disclosure.companyCol}</th>
-                        <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400">{txt.disclosure.phoneCol}</th>
-                        <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400">{txt.disclosure.emailCol}</th>
-                        <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400 w-32">{txt.disclosure.dateCol}</th>
+                <table className="w-full">
+                  <thead>
+                    <tr className="bg-slate-50 border-b border-slate-100">
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-slate-400 w-14">No.</th>
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-slate-400">{txt.disclosure.titleCol}</th>
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-slate-400 w-28">{txt.disclosure.dateColGeneral}</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-50">
+                    {disclosurePosts.map((post, i) => (
+                      <tr key={post.id} onClick={() => setSelectedPost(post)}
+                        className="hover:bg-cyan-50/60 cursor-pointer transition-colors">
+                        <td className="px-6 py-4 text-sm text-slate-400">{disclosurePosts.length - i}</td>
+                        <td className="px-6 py-4">
+                          <div className="flex items-center gap-2">
+                            {post.important && <span className="bg-red-50 text-red-500 text-xs font-bold px-1.5 py-0.5 rounded">{txt.disclosure.important}</span>}
+                            <span className="text-sm font-medium text-slate-800 hover:text-cyan-600 transition-colors">{post.title}</span>
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 text-sm text-slate-400">{post.date}</td>
                       </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-50">
-                      {demoList.map((item, i) => (
-                        <tr key={item.id} className="hover:bg-cyan-50/40 transition-colors">
-                          <td className="px-4 py-3 text-slate-400">{demoList.length - i}</td>
-                          <td className="px-4 py-3 font-medium text-slate-800">{item.name}</td>
-                          <td className="px-4 py-3 text-slate-600">{item.company}</td>
-                          <td className="px-4 py-3 text-slate-600">{item.phone}</td>
-                          <td className="px-4 py-3 text-slate-600">{item.email}</td>
-                          <td className="px-4 py-3 text-slate-400 text-xs">{item.date}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        </div>
+      ) : (
+        <>
+
+          {/* Hero Section - 풀스크린 */}
+          <section className="relative min-h-0 lg:min-h-screen flex items-center overflow-hidden pb-8 lg:pb-0">
+            {/* 인트로 동영상 */}
+            {showIntro && (
+              <div
+                className={`absolute inset-0 z-20 bg-black flex items-center justify-center transition-opacity duration-500 ${introFading ? 'opacity-0' : 'opacity-100'}`}
+              >
+                <video
+                  autoPlay
+                  muted
+                  playsInline
+                  className="w-[85%] sm:w-[70%] lg:w-[45%] h-auto object-contain"
+                >
+                  <source src="/OrcaSwim.mp4" type="video/mp4" />
+                </video>
+
+                {/* 스킵 버튼 */}
+                <button
+                  onClick={() => {
+                    setIntroFading(true);
+                    setTimeout(() => setShowIntro(false), 300);
+                  }}
+                  className="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 text-white/70 hover:text-white text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2 border border-white/30 rounded-full hover:bg-white/10 transition-all z-30"
+                >
+                  Skip
+                </button>
+              </div>
+            )}
+
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-cyan-50/40 to-blue-50/30" />
+
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute top-20 left-10 w-80 h-80 bg-cyan-200/40 rounded-full blur-3xl animate-pulse" />
+              <div className="absolute top-40 right-10 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+              <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-indigo-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+            </div>
+
+            <FloatingParticles />
+
+            <div className="relative max-w-6xl mx-auto px-6 pt-16 lg:pt-28 pb-4 lg:pb-16 lg:grid lg:grid-cols-2 gap-4 lg:gap-12 items-center">
+              <div className="z-10">
+                <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full text-sm font-medium mb-4 lg:mb-6 shadow-sm border border-slate-200">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                  </span>
+                  <span className="text-slate-700">{txt.hero.badge}</span>
+                </div>
+
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#0F172A] leading-[1.15] mb-4 lg:mb-6" style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
+                  {txt.hero.title1}<br />
+                  <span className="gradient-text">{txt.hero.title2}</span>
+                </h1>
+
+                <p className="text-lg text-slate-600 mb-4 lg:mb-6 leading-relaxed max-w-md">
+                  <span className="font-semibold text-slate-800">{txt.hero.subtitle}</span><br />
+                  {txt.hero.desc}
+                </p>
+
+                {/* 모바일: 돌고래 이미지 (설명과 버튼 사이) */}
+                <div className="lg:hidden flex justify-center items-center my-4">
+                  <img
+                    src="/orca-hero.png"
+                    alt="Orca"
+                    className="drop-shadow-2xl w-48 sm:w-56"
+                  />
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button onClick={() => setShowDemoModal(true)} className="group relative bg-gradient-to-r from-cyan-400 to-cyan-500 text-black px-7 py-3.5 rounded-xl text-base font-bold hover:from-cyan-300 hover:to-cyan-400 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/40 hover:-translate-y-1 active:scale-100 transition-all duration-200 shadow-md flex items-center justify-center gap-2">
+                    <span className="relative">{txt.hero.cta1}</span>
+                    <Icon name="arrow" className="relative w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                  </button>
                 </div>
               </div>
-            )
-          ) : selectedPost ? (
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
-              <button onClick={() => setSelectedPost(null)}
-                className="flex items-center gap-1 text-slate-500 hover:text-cyan-600 text-sm mb-6 transition-colors">
-                {txt.disclosure.backToList}
-              </button>
-              {selectedPost.important && (
-                <span className="inline-block bg-red-50 text-red-500 text-xs font-bold px-2 py-0.5 rounded mb-3">{txt.disclosure.important}</span>
-              )}
-              <h2 className="text-xl font-bold text-slate-900 mb-2">{selectedPost.title}</h2>
-              <p className="text-xs text-slate-400 mb-6 pb-6 border-b border-slate-100">{selectedPost.date}</p>
-              <div className="text-slate-700 text-sm leading-relaxed whitespace-pre-wrap">{selectedPost.content}</div>
-            </div>
-          ) : disclosureLoading ? (
-            <div className="text-center py-24 text-slate-400">
-              <div className="inline-block w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin mb-4" />
-              <p className="text-sm">{txt.disclosure.loading}</p>
-            </div>
-          ) : disclosureError ? (
-            <div className="text-center py-24 text-slate-400">
-              <p className="text-4xl mb-4">⚠️</p>
-              <p className="text-sm whitespace-pre-wrap">{disclosureError}</p>
-            </div>
-          ) : disclosurePosts.length === 0 ? (
-            <div className="text-center py-24 text-slate-400">
-              <p className="text-4xl mb-4">🐋</p>
-              <p className="text-sm">{txt.disclosure.noPost}</p>
-            </div>
-          ) : (
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-              <table className="w-full">
-                <thead>
-                  <tr className="bg-slate-50 border-b border-slate-100">
-                    <th className="text-left px-6 py-3 text-xs font-semibold text-slate-400 w-14">No.</th>
-                    <th className="text-left px-6 py-3 text-xs font-semibold text-slate-400">{txt.disclosure.titleCol}</th>
-                    <th className="text-left px-6 py-3 text-xs font-semibold text-slate-400 w-28">{txt.disclosure.dateColGeneral}</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-50">
-                  {disclosurePosts.map((post, i) => (
-                    <tr key={post.id} onClick={() => setSelectedPost(post)}
-                      className="hover:bg-cyan-50/60 cursor-pointer transition-colors">
-                      <td className="px-6 py-4 text-sm text-slate-400">{disclosurePosts.length - i}</td>
-                      <td className="px-6 py-4">
-                        <div className="flex items-center gap-2">
-                          {post.important && <span className="bg-red-50 text-red-500 text-xs font-bold px-1.5 py-0.5 rounded">{txt.disclosure.important}</span>}
-                          <span className="text-sm font-medium text-slate-800 hover:text-cyan-600 transition-colors">{post.title}</span>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 text-sm text-slate-400">{post.date}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </div>
-      </div>
-      ) : (
-      <>
 
-      {/* Hero Section - 풀스크린 */}
-      <section className="relative min-h-0 lg:min-h-screen flex items-center overflow-hidden pb-8 lg:pb-0">
-        {/* 인트로 동영상 */}
-        {showIntro && (
-          <div 
-            className={`absolute inset-0 z-20 bg-black flex items-center justify-center transition-opacity duration-500 ${introFading ? 'opacity-0' : 'opacity-100'}`}
-          >
-            <video 
-              autoPlay 
-              muted 
-              playsInline
-              className="w-[85%] sm:w-[70%] lg:w-[45%] h-auto object-contain"
-            >
-              <source src="/OrcaSwim.mp4" type="video/mp4" />
-            </video>
-            
-            {/* 스킵 버튼 */}
-            <button 
-              onClick={() => {
-                setIntroFading(true);
-                setTimeout(() => setShowIntro(false), 300);
-              }}
-              className="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 text-white/70 hover:text-white text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2 border border-white/30 rounded-full hover:bg-white/10 transition-all z-30"
-            >
-              Skip
-            </button>
-          </div>
-        )}
+              {/* 히어로 이미지 - 데스크탑만 */}
+              <div className="relative hidden lg:flex items-center justify-center min-h-[400px]">
+                <div className="absolute w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] bg-gradient-to-br from-cyan-300/20 to-blue-400/20 rounded-full blur-3xl" />
 
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-cyan-50/40 to-blue-50/30"/>
-        
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-80 h-80 bg-cyan-200/40 rounded-full blur-3xl animate-pulse"/>
-          <div className="absolute top-40 right-10 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}/>
-          <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-indigo-200/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}/>
-        </div>
-        
-        <FloatingParticles />
+                {/* 데스크탑: 지느러미 SVG만 보이기 (스크롤 전환 비활성화) */}
+                <div className="absolute inset-0 hidden lg:flex justify-center items-center">
+                  <OrcaFinIllustration className="w-full max-w-sm relative z-10" />
+                </div>
 
-        <div className="relative max-w-6xl mx-auto px-6 pt-16 lg:pt-28 pb-4 lg:pb-16 lg:grid lg:grid-cols-2 gap-4 lg:gap-12 items-center">
-          <div className="z-10">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full text-sm font-medium mb-4 lg:mb-6 shadow-sm border border-slate-200">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-              </span>
-              <span className="text-slate-700">{txt.hero.badge}</span>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#0F172A] leading-[1.15] mb-4 lg:mb-6" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              {txt.hero.title1}<br/>
-              <span className="gradient-text">{txt.hero.title2}</span>
-            </h1>
-            
-            <p className="text-lg text-slate-600 mb-4 lg:mb-6 leading-relaxed max-w-md">
-              <span className="font-semibold text-slate-800">{txt.hero.subtitle}</span><br/>
-              {txt.hero.desc}
-            </p>
-            
-            {/* 모바일: 돌고래 이미지 (설명과 버튼 사이) */}
-            <div className="lg:hidden flex justify-center items-center my-4">
-              <img 
-                src="/orca-hero.png" 
-                alt="Orca" 
-                className="drop-shadow-2xl w-48 sm:w-56"
-              />
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-3">
-              <button onClick={() => setShowDemoModal(true)} className="group relative bg-gradient-to-r from-cyan-400 to-cyan-500 text-black px-7 py-3.5 rounded-xl text-base font-bold hover:from-cyan-300 hover:to-cyan-400 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/40 hover:-translate-y-1 active:scale-100 transition-all duration-200 shadow-md flex items-center justify-center gap-2">
-                <span className="relative">{txt.hero.cta1}</span>
-                <Icon name="arrow" className="relative w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-              </button>
-            </div>
-          </div>
-          
-          {/* 히어로 이미지 - 데스크탑만 */}
-          <div className="relative hidden lg:flex items-center justify-center min-h-[400px]">
-            <div className="absolute w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] bg-gradient-to-br from-cyan-300/20 to-blue-400/20 rounded-full blur-3xl"/>
-            
-            {/* 데스크탑: 지느러미 SVG만 보이기 (스크롤 전환 비활성화) */}
-            <div className="absolute inset-0 hidden lg:flex justify-center items-center">
-              <OrcaFinIllustration className="w-full max-w-sm relative z-10" />
-            </div>
-            
-            {/* === 스크롤 전환 효과 (주석 처리됨) ===
+                {/* === 스크롤 전환 효과 (주석 처리됨) ===
             
             {/* 데스크탑: 지느러미 SVG (스크롤 전) */}
-            {/*
+                {/*
             <div 
               className="absolute inset-0 hidden lg:flex justify-center items-center transition-all duration-700 ease-out"
               style={{ 
@@ -1352,9 +1351,9 @@ export default function OrcinusLanding() {
               <OrcaFinIllustration className="w-full max-w-sm relative z-10" />
             </div>
             */}
-            
-            {/* 데스크탑: 범고래 이미지 (스크롤 후) */}
-            {/*
+
+                {/* 데스크탑: 범고래 이미지 (스크롤 후) */}
+                {/*
             <div 
               className="absolute inset-0 hidden lg:flex justify-center items-center transition-all duration-700 ease-out"
               style={{ 
@@ -1420,125 +1419,125 @@ export default function OrcinusLanding() {
               </div>
             </div>
             */}
-            {/* === 스크롤 전환 효과 끝 === */}
-          </div>
-        </div>
-        
-        {/* 스크롤 힌트 - 데스크탑만 */}
-        <div 
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 transition-opacity duration-500"
-          style={{ opacity: scrollY < 50 ? 1 : 0 }}
-        >
-          <span className="text-slate-400 text-xs font-medium">{txt.hero.scroll}</span>
-          <div className="w-6 h-10 rounded-full border-2 border-slate-300 flex justify-center pt-2">
-            <div className="w-1.5 h-3 bg-cyan-400 rounded-full animate-bounce"></div>
-          </div>
-        </div>
-      </section>
+                {/* === 스크롤 전환 효과 끝 === */}
+              </div>
+            </div>
 
-      {/* 파도 구분선 */}
-      <section className="relative h-24 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
-        <svg className="absolute bottom-0 w-full h-24" viewBox="0 0 1440 100" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.3"/>
-              <stop offset="100%" stopColor="#0891b2" stopOpacity="0.1"/>
-            </linearGradient>
-            <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.2"/>
-              <stop offset="100%" stopColor="#0e7490" stopOpacity="0.05"/>
-            </linearGradient>
-          </defs>
-          {/* 뒤쪽 파도 */}
-          <path fill="url(#waveGrad2)">
-            <animate 
-              attributeName="d" 
-              dur="8s" 
-              repeatCount="indefinite"
-              values="M0,60 C360,100 720,20 1080,60 C1260,80 1380,40 1440,50 L1440,100 L0,100 Z;
+            {/* 스크롤 힌트 - 데스크탑만 */}
+            <div
+              className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 transition-opacity duration-500"
+              style={{ opacity: scrollY < 50 ? 1 : 0 }}
+            >
+              <span className="text-slate-400 text-xs font-medium">{txt.hero.scroll}</span>
+              <div className="w-6 h-10 rounded-full border-2 border-slate-300 flex justify-center pt-2">
+                <div className="w-1.5 h-3 bg-cyan-400 rounded-full animate-bounce"></div>
+              </div>
+            </div>
+          </section>
+
+          {/* 파도 구분선 */}
+          <section className="relative h-24 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+            <svg className="absolute bottom-0 w-full h-24" viewBox="0 0 1440 100" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="#0891b2" stopOpacity="0.1" />
+                </linearGradient>
+                <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.2" />
+                  <stop offset="100%" stopColor="#0e7490" stopOpacity="0.05" />
+                </linearGradient>
+              </defs>
+              {/* 뒤쪽 파도 */}
+              <path fill="url(#waveGrad2)">
+                <animate
+                  attributeName="d"
+                  dur="8s"
+                  repeatCount="indefinite"
+                  values="M0,60 C360,100 720,20 1080,60 C1260,80 1380,40 1440,50 L1440,100 L0,100 Z;
                       M0,50 C360,20 720,80 1080,40 C1260,20 1380,60 1440,50 L1440,100 L0,100 Z;
                       M0,60 C360,100 720,20 1080,60 C1260,80 1380,40 1440,50 L1440,100 L0,100 Z"
-            />
-          </path>
-          {/* 앞쪽 파도 */}
-          <path fill="url(#waveGrad1)">
-            <animate 
-              attributeName="d" 
-              dur="6s" 
-              repeatCount="indefinite"
-              values="M0,70 C240,40 480,90 720,60 C960,30 1200,80 1440,60 L1440,100 L0,100 Z;
+                />
+              </path>
+              {/* 앞쪽 파도 */}
+              <path fill="url(#waveGrad1)">
+                <animate
+                  attributeName="d"
+                  dur="6s"
+                  repeatCount="indefinite"
+                  values="M0,70 C240,40 480,90 720,60 C960,30 1200,80 1440,60 L1440,100 L0,100 Z;
                       M0,60 C240,90 480,40 720,70 C960,100 1200,50 1440,70 L1440,100 L0,100 Z;
                       M0,70 C240,40 480,90 720,60 C960,30 1200,80 1440,60 L1440,100 L0,100 Z"
-            />
-          </path>
-        </svg>
-      </section>
+                />
+              </path>
+            </svg>
+          </section>
 
 
-      {/* Client + Stats Section */}
-      <section ref={statsRef} className="relative py-16 px-6 bg-white border-y border-slate-100">
-        <div className="max-w-6xl mx-auto">
-          {/* 고객 대상 타이틀 */}
-          <div className="text-center mb-10">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 text-sm font-semibold mb-4">{txt.clients.badge}</span>
-            <h2 className="text-2xl md:text-3xl font-black text-[#0F172A] mb-3" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              {txt.clients.title}
-            </h2>
-            <p className="text-slate-500 text-sm max-w-md mx-auto">
-              {txt.clients.subtitle}
-            </p>
-          </div>
-          
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {clients.map((client, i) => (
-              <div key={i} className="group bg-slate-50 rounded-2xl px-5 py-3 flex items-center gap-3 shadow-sm hover:shadow-xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 border border-slate-100 hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
-                  <Icon name={client.icon} className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-slate-800 font-semibold group-hover:text-cyan-700 transition-colors">{client.title}</span>
-              </div>
-            ))}
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {[
-              { value: txt.stats.realtime, label: txt.stats.realtimeLabel, icon: "⚡", color: "from-cyan-400 to-cyan-600" },
-              { value: txt.stats.multi, label: txt.stats.multiLabel, icon: "👥", color: "from-blue-400 to-blue-600" },
-              { value: txt.stats.check, label: txt.stats.checkLabel, icon: "✓", color: "from-indigo-400 to-indigo-600" },
-              { value: txt.stats.integrated, label: txt.stats.integratedLabel, icon: "🔗", color: "from-violet-400 to-violet-600" },
-            ].map((stat, i) => (
-              <div 
-                key={i} 
-                className="flex flex-col items-center"
-              >
-                {/* 원형 카드 - 튀어오르는 애니메이션 */}
-                <div 
-                  className={`stat-circle relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full bg-gradient-to-br ${stat.color} flex flex-col items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300 ${countUp.realtime ? 'animate-bounce-in' : 'opacity-0 scale-50'}`}
-                  style={{animationDelay: `${i * 150}ms`}}
-                >
-                  {/* 아이콘 */}
-                  <span className="text-3xl sm:text-4xl mb-1">{stat.icon}</span>
-                  {/* 값 */}
-                  <span className="text-white text-xl sm:text-2xl font-black" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
-                    {stat.value}
-                  </span>
-                  
-                  {/* 링 효과 */}
-                  <div className="absolute inset-0 rounded-full border-4 border-white/20 animate-ping-slow"></div>
-                </div>
-                
-                {/* 라벨 */}
-                <p 
-                  className={`mt-4 text-slate-700 font-semibold text-sm sm:text-base ${countUp.realtime ? 'animate-fade-up' : 'opacity-0'}`}
-                  style={{animationDelay: `${i * 150 + 300}ms`}}
-                >
-                  {stat.label}
+          {/* Client + Stats Section */}
+          <section ref={statsRef} className="relative py-16 px-6 bg-white border-y border-slate-100">
+            <div className="max-w-6xl mx-auto">
+              {/* 고객 대상 타이틀 */}
+              <div className="text-center mb-10">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 text-sm font-semibold mb-4">{txt.clients.badge}</span>
+                <h2 className="text-2xl md:text-3xl font-black text-[#0F172A] mb-3" style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
+                  {txt.clients.title}
+                </h2>
+                <p className="text-slate-500 text-sm max-w-md mx-auto">
+                  {txt.clients.subtitle}
                 </p>
               </div>
-            ))}
-          </div>
-          
-          <style>{`
+
+              <div className="flex flex-wrap justify-center gap-3 mb-12">
+                {clients.map((client, i) => (
+                  <div key={i} className="group bg-slate-50 rounded-2xl px-5 py-3 flex items-center gap-3 shadow-sm hover:shadow-xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 border border-slate-100 hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
+                      <Icon name={client.icon} className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="text-slate-800 font-semibold group-hover:text-cyan-700 transition-colors">{client.title}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                {[
+                  { value: txt.stats.realtime, label: txt.stats.realtimeLabel, icon: "⚡", color: "from-cyan-400 to-cyan-600" },
+                  { value: txt.stats.multi, label: txt.stats.multiLabel, icon: "👥", color: "from-blue-400 to-blue-600" },
+                  { value: txt.stats.check, label: txt.stats.checkLabel, icon: "✓", color: "from-indigo-400 to-indigo-600" },
+                  { value: txt.stats.integrated, label: txt.stats.integratedLabel, icon: "🔗", color: "from-violet-400 to-violet-600" },
+                ].map((stat, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col items-center"
+                  >
+                    {/* 원형 카드 - 튀어오르는 애니메이션 */}
+                    <div
+                      className={`stat-circle relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full bg-gradient-to-br ${stat.color} flex flex-col items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300 ${countUp.realtime ? 'animate-bounce-in' : 'opacity-0 scale-50'}`}
+                      style={{ animationDelay: `${i * 150}ms` }}
+                    >
+                      {/* 아이콘 */}
+                      <span className="text-3xl sm:text-4xl mb-1">{stat.icon}</span>
+                      {/* 값 */}
+                      <span className="text-white text-xl sm:text-2xl font-black" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                        {stat.value}
+                      </span>
+
+                      {/* 링 효과 */}
+                      <div className="absolute inset-0 rounded-full border-4 border-white/20 animate-ping-slow"></div>
+                    </div>
+
+                    {/* 라벨 */}
+                    <p
+                      className={`mt-4 text-slate-700 font-semibold text-sm sm:text-base ${countUp.realtime ? 'animate-fade-up' : 'opacity-0'}`}
+                      style={{ animationDelay: `${i * 150 + 300}ms` }}
+                    >
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <style>{`
             @keyframes bounceIn {
               0% {
                 opacity: 0;
@@ -1590,89 +1589,89 @@ export default function OrcinusLanding() {
               animation: pingSlow 2s ease-in-out infinite;
             }
           `}</style>
-        </div>
-      </section>
+            </div>
+          </section>
 
-      {/* 슬로건 섹션 - 선 위주 파도 애니메이션 */}
-      <section className="relative py-16 px-6 bg-white overflow-hidden">
-        {/* 배경 파도 라인 애니메이션 */}
-        <div className="absolute inset-0 overflow-hidden">
-          <svg className="absolute top-1/2 -translate-y-1/2 w-full h-48" viewBox="0 0 1440 200" preserveAspectRatio="none">
-            {/* 파도 라인 1 */}
-            <path 
-              fill="none" 
-              stroke="#22d3ee" 
-              strokeWidth="2" 
-              strokeOpacity="0.4"
-            >
-              <animate 
-                attributeName="d" 
-                dur="6s" 
-                repeatCount="indefinite"
-                values="M-100,100 C200,150 400,50 700,100 C1000,150 1200,50 1540,100;
+          {/* 슬로건 섹션 - 선 위주 파도 애니메이션 */}
+          <section className="relative py-16 px-6 bg-white overflow-hidden">
+            {/* 배경 파도 라인 애니메이션 */}
+            <div className="absolute inset-0 overflow-hidden">
+              <svg className="absolute top-1/2 -translate-y-1/2 w-full h-48" viewBox="0 0 1440 200" preserveAspectRatio="none">
+                {/* 파도 라인 1 */}
+                <path
+                  fill="none"
+                  stroke="#22d3ee"
+                  strokeWidth="2"
+                  strokeOpacity="0.4"
+                >
+                  <animate
+                    attributeName="d"
+                    dur="6s"
+                    repeatCount="indefinite"
+                    values="M-100,100 C200,150 400,50 700,100 C1000,150 1200,50 1540,100;
                         M-100,100 C200,50 400,150 700,100 C1000,50 1200,150 1540,100;
                         M-100,100 C200,150 400,50 700,100 C1000,150 1200,50 1540,100"
-              />
-            </path>
-            {/* 파도 라인 2 */}
-            <path 
-              fill="none" 
-              stroke="#06b6d4" 
-              strokeWidth="1.5" 
-              strokeOpacity="0.3"
-            >
-              <animate 
-                attributeName="d" 
-                dur="8s" 
-                repeatCount="indefinite"
-                values="M-100,110 C300,60 500,140 800,90 C1100,40 1300,130 1540,80;
+                  />
+                </path>
+                {/* 파도 라인 2 */}
+                <path
+                  fill="none"
+                  stroke="#06b6d4"
+                  strokeWidth="1.5"
+                  strokeOpacity="0.3"
+                >
+                  <animate
+                    attributeName="d"
+                    dur="8s"
+                    repeatCount="indefinite"
+                    values="M-100,110 C300,60 500,140 800,90 C1100,40 1300,130 1540,80;
                         M-100,90 C300,140 500,60 800,110 C1100,160 1300,70 1540,120;
                         M-100,110 C300,60 500,140 800,90 C1100,40 1300,130 1540,80"
-              />
-            </path>
-            {/* 파도 라인 3 */}
-            <path 
-              fill="none" 
-              stroke="#0891b2" 
-              strokeWidth="1" 
-              strokeOpacity="0.2"
-            >
-              <animate 
-                attributeName="d" 
-                dur="10s" 
-                repeatCount="indefinite"
-                values="M-100,120 C250,170 450,70 750,120 C1050,170 1250,70 1540,110;
+                  />
+                </path>
+                {/* 파도 라인 3 */}
+                <path
+                  fill="none"
+                  stroke="#0891b2"
+                  strokeWidth="1"
+                  strokeOpacity="0.2"
+                >
+                  <animate
+                    attributeName="d"
+                    dur="10s"
+                    repeatCount="indefinite"
+                    values="M-100,120 C250,170 450,70 750,120 C1050,170 1250,70 1540,110;
                         M-100,80 C250,30 450,130 750,80 C1050,30 1250,130 1540,90;
                         M-100,120 C250,170 450,70 750,120 C1050,170 1250,70 1540,110"
-              />
-            </path>
-          </svg>
-        </div>
-        
-        <div className="relative max-w-4xl mx-auto text-center">
-          {/* 메인 슬로건 */}
-          <div className="space-y-2 mb-6">
-            <p className="text-slate-400 text-sm tracking-widest slogan-line-1">CRAFTED BY</p>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-800 slogan-line-2" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
-              <span className="text-cyan-500">Orcinus</span>
-            </h2>
-            <div className="flex items-center justify-center gap-4 slogan-line-3">
-              <div className="h-px w-16 bg-gradient-to-r from-transparent to-cyan-400"></div>
-              <span className="text-slate-400 text-lg">×</span>
-              <div className="h-px w-16 bg-gradient-to-l from-transparent to-cyan-400"></div>
+                  />
+                </path>
+              </svg>
             </div>
-            <h2 className="text-4xl md:text-6xl font-black slogan-line-4" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
-              <span className="gradient-text">Orca</span>
-            </h2>
-          </div>
-          
-          {/* 서브 텍스트 */}
-          <p className="text-slate-500 text-sm md:text-base slogan-sub">
-            {txt.slogan}
-          </p>
-        </div>
-        
-        <style>{`
+
+            <div className="relative max-w-4xl mx-auto text-center">
+              {/* 메인 슬로건 */}
+              <div className="space-y-2 mb-6">
+                <p className="text-slate-400 text-sm tracking-widest slogan-line-1">CRAFTED BY</p>
+                <h2 className="text-3xl md:text-5xl font-black text-slate-800 slogan-line-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                  <span className="text-cyan-500">Orcinus</span>
+                </h2>
+                <div className="flex items-center justify-center gap-4 slogan-line-3">
+                  <div className="h-px w-16 bg-gradient-to-r from-transparent to-cyan-400"></div>
+                  <span className="text-slate-400 text-lg">×</span>
+                  <div className="h-px w-16 bg-gradient-to-l from-transparent to-cyan-400"></div>
+                </div>
+                <h2 className="text-4xl md:text-6xl font-black slogan-line-4" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                  <span className="gradient-text">Orca</span>
+                </h2>
+              </div>
+
+              {/* 서브 텍스트 */}
+              <p className="text-slate-500 text-sm md:text-base slogan-sub">
+                {txt.slogan}
+              </p>
+            </div>
+
+            <style>{`
           .slogan-line-1 {
             opacity: 0;
             animation: sloganSlideIn 0.6s ease-out 0.2s forwards;
@@ -1704,377 +1703,378 @@ export default function OrcinusLanding() {
             }
           }
         `}</style>
-      </section>
+          </section>
 
-      {/* Features Section */}
-      <section id="features" className="relative py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14 scroll-fade-in">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-sm font-semibold mb-4">WHY ORCA</span>
-            <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              {txt.features.title} <span className="gradient-text">Orca</span>{txt.features.titleEnd}
-            </h2>
-            <p className="text-slate-600 text-base max-w-lg mx-auto">
-              {txt.features.subtitle}
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-5">
-            {features.map((feature, i) => (
-              <div key={i} className={`scroll-fade-in delay-${(i % 4) + 1} hover-lift bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 group relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-4 shadow-md group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-200">
-                  <Icon name={feature.icon} className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-[#0F172A] mb-2">{feature.title}</h3>
-                <p className="text-slate-600">{feature.desc}</p>
+          {/* Features Section */}
+          <section id="features" className="relative py-20 px-6 bg-white">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-14 scroll-fade-in">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-sm font-semibold mb-4">WHY ORCA</span>
+                <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
+                  {txt.features.title} <span className="gradient-text">Orca</span>{txt.features.titleEnd}
+                </h2>
+                <p className="text-slate-600 text-base max-w-lg mx-auto">
+                  {txt.features.subtitle}
+                </p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
+              <div className="grid md:grid-cols-2 gap-5">
+                {features.map((feature, i) => (
+                  <div key={i} className={`scroll-fade-in delay-${(i % 4) + 1} hover-lift bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 group relative overflow-hidden`}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-4 shadow-md group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-200">
+                      <Icon name={feature.icon} className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-[#0F172A] mb-2">{feature.title}</h3>
+                    <p className="text-slate-600">{feature.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
 
 
-      {/* Services Section - 시스템 구성 */}
-      <section id="services" className="relative py-20 px-6 bg-slate-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14 scroll-fade-in">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 text-sm font-semibold mb-4">ORCA MODULES</span>
-            <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              {txt.modules.title}
-            </h2>
-            <p className="text-slate-600 text-base max-w-lg mx-auto">
-              {txt.modules.subtitle}
-            </p>
-          </div>
-          
-          {/* 7개 모듈 카드 - 간결한 디자인 */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {[
-              { id: "pms", tag: "PMS", color: "from-cyan-500 to-cyan-600" },
-              { id: "oms", tag: "OMS", color: "from-blue-500 to-blue-600" },
-              { id: "ems", tag: "EMS", color: "from-indigo-500 to-indigo-600" },
-              { id: "slbs", tag: "SLBS", color: "from-violet-500 to-violet-600" },
-              { id: "etfs", tag: "ETFS", color: "from-purple-500 to-purple-600" },
-              { id: "ipms", tag: "IPMS", color: "from-slate-600 to-slate-700" },
-              { id: "mds", tag: "MDS", color: "from-emerald-500 to-emerald-600" },
-            ].map((m, i) => {
-              const moduleText = txt.modules.items[i];
-              const module = { ...m, title: moduleText.title, desc: moduleText.desc, details: moduleText.details };
-              return module;
-            }).map((module, i) => (
-              <div 
-                key={i} 
-                onClick={() => setActiveModule(module)}
-                className={`scroll-scale delay-${(i % 4) + 1} group bg-white rounded-2xl p-5 shadow-sm border border-slate-200 hover:shadow-xl hover:border-transparent hover:-translate-y-2 cursor-pointer relative overflow-hidden transition-all duration-300`}
+          {/* Services Section - 시스템 구성 */}
+          <section id="services" className="relative py-20 px-6 bg-slate-50">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-14 scroll-fade-in">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 text-sm font-semibold mb-4">ORCA MODULES</span>
+                <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
+                  {txt.modules.title}
+                </h2>
+                <p className="text-slate-600 text-base max-w-lg mx-auto">
+                  {txt.modules.subtitle}
+                </p>
+              </div>
+
+              {/* 7개 모듈 카드 - 간결한 디자인 */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {[
+                  { id: "pms", tag: "PMS", color: "from-cyan-500 to-cyan-600" },
+                  { id: "oms", tag: "OMS", color: "from-blue-500 to-blue-600" },
+                  { id: "ems", tag: "EMS", color: "from-indigo-500 to-indigo-600" },
+                  { id: "slbs", tag: "SLBS", color: "from-violet-500 to-violet-600" },
+                  { id: "etfs", tag: "ETFS", color: "from-purple-500 to-purple-600" },
+                  { id: "ipms", tag: "IPMS", color: "from-slate-600 to-slate-700" },
+                  { id: "mds", tag: "MDS", color: "from-emerald-500 to-emerald-600" },
+                ].map((m, i) => {
+                  const moduleText = txt.modules.items[i];
+                  const module = { ...m, title: moduleText.title, desc: moduleText.desc, details: moduleText.details };
+                  return module;
+                }).map((module, i) => (
+                  <div
+                    key={i}
+                    onClick={() => setActiveModule(module)}
+                    className={`scroll-scale delay-${(i % 4) + 1} group bg-white rounded-2xl p-5 shadow-sm border border-slate-200 hover:shadow-xl hover:border-transparent hover:-translate-y-2 cursor-pointer relative overflow-hidden transition-all duration-300`}
+                  >
+                    {/* 상단 컬러 바 */}
+                    <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${module.color} group-hover:h-1.5 transition-all duration-300`} />
+
+                    {/* 태그 */}
+                    <span className={`inline-block text-xs font-black bg-gradient-to-r ${module.color} bg-clip-text text-transparent mb-2`}>
+                      {module.tag}
+                    </span>
+
+                    {/* 타이틀 */}
+                    <h3 className="text-base font-bold text-[#0F172A] mb-2 group-hover:text-cyan-600 transition-colors">
+                      {module.title}
+                    </h3>
+
+                    {/* 한 줄 설명 */}
+                    <p className="text-slate-500 text-sm line-clamp-2">{module.desc}</p>
+
+                    {/* 더보기 아이콘 */}
+                    <div className="absolute bottom-4 right-4 w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-cyan-100 transition-colors">
+                      <span className="text-slate-400 group-hover:text-cyan-600 text-sm">→</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* 모듈 상세 모달 */}
+          {activeModule && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+              onClick={() => setActiveModule(null)}
+            >
+              <div
+                className="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl relative overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
               >
                 {/* 상단 컬러 바 */}
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${module.color} group-hover:h-1.5 transition-all duration-300`}/>
-                
-                {/* 태그 */}
-                <span className={`inline-block text-xs font-black bg-gradient-to-r ${module.color} bg-clip-text text-transparent mb-2`}>
-                  {module.tag}
-                </span>
-                
-                {/* 타이틀 */}
-                <h3 className="text-base font-bold text-[#0F172A] mb-2 group-hover:text-cyan-600 transition-colors">
-                  {module.title}
-                </h3>
-                
-                {/* 한 줄 설명 */}
-                <p className="text-slate-500 text-sm line-clamp-2">{module.desc}</p>
-                
-                {/* 더보기 아이콘 */}
-                <div className="absolute bottom-4 right-4 w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-cyan-100 transition-colors">
-                  <span className="text-slate-400 group-hover:text-cyan-600 text-sm">→</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+                <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${activeModule.color}`} />
 
-      {/* 모듈 상세 모달 */}
-      {activeModule && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
-          onClick={() => setActiveModule(null)}
-        >
-          <div 
-            className="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl relative overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* 상단 컬러 바 */}
-            <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${activeModule.color}`}/>
-            
-            {/* 닫기 버튼 */}
-            <button 
-              onClick={() => setActiveModule(null)}
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
-            >
-              <span className="text-slate-500">✕</span>
-            </button>
-            
-            {/* 헤더 */}
-            <div className="mb-6">
-              <span className={`inline-block text-sm font-black bg-gradient-to-r ${activeModule.color} bg-clip-text text-transparent mb-2`}>
-                {activeModule.tag}
-              </span>
-              <h3 className="text-2xl font-bold text-[#0F172A]">{activeModule.title}</h3>
-              <p className="text-slate-500 mt-2">{activeModule.desc}</p>
-            </div>
-            
-            {/* 기능 리스트 */}
-            <div className="space-y-3">
-              <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">{txt.modules.keyFeatures}</h4>
-              <ul className="space-y-2">
-                {activeModule.details.map((item, j) => (
-                  <li key={j} className="flex items-center gap-3 text-slate-700">
-                    <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${activeModule.color}`}></span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            {/* 문의 버튼 */}
+                {/* 닫기 버튼 */}
+                <button
+                  onClick={() => setActiveModule(null)}
+                  className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
+                >
+                  <span className="text-slate-500">✕</span>
+                </button>
+
+                {/* 헤더 */}
+                <div className="mb-6">
+                  <span className={`inline-block text-sm font-black bg-gradient-to-r ${activeModule.color} bg-clip-text text-transparent mb-2`}>
+                    {activeModule.tag}
+                  </span>
+                  <h3 className="text-2xl font-bold text-[#0F172A]">{activeModule.title}</h3>
+                  <p className="text-slate-500 mt-2">{activeModule.desc}</p>
+                </div>
+
+                {/* 기능 리스트 */}
+                <div className="space-y-3">
+                  <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">{txt.modules.keyFeatures}</h4>
+                  <ul className="space-y-2">
+                    {activeModule.details.map((item, j) => (
+                      <li key={j} className="flex items-center gap-3 text-slate-700">
+                        <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${activeModule.color}`}></span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* 문의 버튼 
             <button className={`mt-8 w-full py-3 rounded-xl bg-gradient-to-r ${activeModule.color} text-white font-semibold hover:opacity-90 transition-opacity`}>
               {txt.modules.inquire}
             </button>
-          </div>
-        </div>
-      )}
-
-
-      {/* 서비스 운영 방식 섹션 */}
-      <section className="relative py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-sm font-semibold mb-4">DEPLOYMENT</span>
-            <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              {txt.deploy.title}
-            </h2>
-            <p className="text-slate-600 text-base max-w-lg mx-auto">
-              {txt.deploy.subtitleLong}
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { icon: "cloud", color: "from-cyan-500 to-blue-600" },
-              { icon: "server", color: "from-blue-500 to-indigo-600" },
-              { icon: "database", color: "from-indigo-500 to-violet-600" },
-            ].map((opt, i) => {
-              const deployText = txt.deploy.options[i];
-              return { ...opt, title: deployText.title, desc: deployText.desc, features: deployText.features };
-            }).map((option, i) => (
-              <div key={i} className="hover-lift bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl text-center group hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 relative overflow-hidden transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${option.color} flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-105 group-hover:shadow-xl transition-all duration-200`}>
-                  <Icon name={option.icon} className="w-8 h-8 text-white" />
-                </div>
-                
-                <h3 className="text-xl font-bold text-[#0F172A] mb-1">{option.title}</h3>
-                <p className="text-cyan-600 font-medium text-sm mb-4">{option.desc}</p>
-                
-                <ul className="space-y-2">
-                  {option.features.map((feature, j) => (
-                    <li key={j} className="flex items-center justify-center gap-2 text-slate-600 text-sm">
-                      <Icon name="check" className="w-4 h-4 text-cyan-500 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+            */}
               </div>
-            ))}
-          </div>
-          
-          <div className="mt-10 text-center">
-            <p className="text-slate-500 text-sm">
-              {txt.deploy.footnote}
-            </p>
-          </div>
-        </div>
-      </section>
+            </div>
+          )}
 
-      {/* About Section - 회사 소개 */}
-      <section className="relative py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-sm font-semibold mb-4">ABOUT ORCINUS</span>
-            <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              {txt.about.sectionTitle}
-            </h2>
-            <p className="text-slate-600 text-base max-w-2xl mx-auto">
-              {txt.about.sectionDesc1}<br/>
-              {txt.about.sectionDesc2}
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {txt.about.stats.map((stat, i) => (
-              <div key={i} className="group bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:scale-105 hover:-translate-y-3 transition-all duration-300 hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
-                <div className="text-3xl font-black text-[#0F172A] mb-1" style={{fontFamily: "'Space Grotesk', sans-serif"}}>
-                  {stat.value}
-                </div>
-                <div className="text-cyan-600 font-semibold mb-2">{stat.label}</div>
-                <div className="text-slate-500 text-sm">{stat.desc}</div>
+
+          {/* 서비스 운영 방식 섹션 */}
+          <section className="relative py-20 px-6 bg-white">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-14">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-sm font-semibold mb-4">DEPLOYMENT</span>
+                <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
+                  {txt.deploy.title}
+                </h2>
+                <p className="text-slate-600 text-base max-w-lg mx-auto">
+                  {txt.deploy.subtitleLong}
+                </p>
               </div>
-            ))}
-          </div>
-          
-          <div className="mt-12 bg-gradient-to-r from-slate-50 to-cyan-50 rounded-2xl p-8 border border-slate-200">
-            <h3 className="text-xl font-bold text-[#0F172A] mb-4 text-center">{txt.about.coreValues}</h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { icon: "shield", color: "from-cyan-500 to-blue-600", shadowColor: "group-hover:shadow-cyan-500/30" },
-                { icon: "dollar", color: "from-blue-500 to-indigo-600", shadowColor: "group-hover:shadow-blue-500/30" },
-                { icon: "zap", color: "from-indigo-500 to-violet-600", shadowColor: "group-hover:shadow-indigo-500/30" },
-              ].map((item, i) => (
-                <div key={i} className="text-center group">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto mb-3 group-hover:scale-105 group-hover:shadow-lg ${item.shadowColor} transition-all duration-200`}>
-                    <Icon name={item.icon} className="w-6 h-6 text-white" />
+
+              <div className="grid md:grid-cols-3 gap-6">
+                {[
+                  { icon: "cloud", color: "from-cyan-500 to-blue-600" },
+                  { icon: "server", color: "from-blue-500 to-indigo-600" },
+                  { icon: "database", color: "from-indigo-500 to-violet-600" },
+                ].map((opt, i) => {
+                  const deployText = txt.deploy.options[i];
+                  return { ...opt, title: deployText.title, desc: deployText.desc, features: deployText.features };
+                }).map((option, i) => (
+                  <div key={i} className="hover-lift bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-cyan-400 hover:shadow-2xl text-center group hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 relative overflow-hidden transition-all duration-300">
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${option.color} flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-105 group-hover:shadow-xl transition-all duration-200`}>
+                      <Icon name={option.icon} className="w-8 h-8 text-white" />
+                    </div>
+
+                    <h3 className="text-xl font-bold text-[#0F172A] mb-1">{option.title}</h3>
+                    <p className="text-cyan-600 font-medium text-sm mb-4">{option.desc}</p>
+
+                    <ul className="space-y-2">
+                      {option.features.map((feature, j) => (
+                        <li key={j} className="flex items-center justify-center gap-2 text-slate-600 text-sm">
+                          <Icon name="check" className="w-4 h-4 text-cyan-500 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <h4 className="font-bold text-slate-800 mb-1">{txt.about.coreValueItems[i].title}</h4>
-                  <p className="text-slate-600 text-sm">{txt.about.coreValueItems[i].desc.split('\n').map((line, j) => <React.Fragment key={j}>{j > 0 && <br/>}{line}</React.Fragment>)}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 회사 소개 섹션 - 토스/카카오 스타일 */}
-      <section id="about" className="relative py-24 px-6 bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden">
-        {/* 배경 장식 */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="relative max-w-5xl mx-auto">
-          {/* 헤더 */}
-          <div className="text-center mb-20 scroll-fade-in">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-500/20 text-cyan-400 text-sm font-semibold mb-6">ABOUT ORCINUS</span>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              {txt.about.aboutTitle.split('\n').map((line, i) => <React.Fragment key={i}>{i > 0 && <br/>}{line}</React.Fragment>)}
-            </h2>
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              {txt.about.aboutDesc1}<br className="hidden md:block"/>
-              {txt.about.aboutDesc2}
-            </p>
-          </div>
-          
-          {/* 미션 & 비전 */}
-          <div className="grid md:grid-cols-2 gap-8 mb-20">
-            <div className="scroll-slide-left bg-white/5 backdrop-blur rounded-3xl p-8 border border-white/10 hover:border-cyan-500/30 transition-colors">
-              <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-6">
-                <span className="text-2xl">🎯</span>
+                ))}
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Mission</h3>
-              <p className="text-slate-300 leading-relaxed">
-                {txt.about.missionDesc}
-              </p>
-            </div>
-            <div className="scroll-slide-right bg-white/5 backdrop-blur rounded-3xl p-8 border border-white/10 hover:border-cyan-500/30 transition-colors">
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
-                <span className="text-2xl">🔭</span>
+
+              <div className="mt-10 text-center">
+                <p className="text-slate-500 text-sm">
+                  {txt.deploy.footnote}
+                </p>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Vision</h3>
-              <p className="text-slate-300 leading-relaxed">
-                {txt.about.visionDesc}
-              </p>
             </div>
-          </div>
-          
-          {/* 핵심 가치 - 가로 스크롤 */}
-          <div className="mb-20 scroll-fade-in">
-            <h3 className="text-xl font-bold text-white mb-8 text-center">Core Values</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[
-                { icon: "⚡", title: "Speed" },
-                { icon: "🔒", title: "Trust" },
-                { icon: "🔬", title: "Innovation" },
-                { icon: "🤝", title: "Partnership" },
-              ].map((value, i) => ({ ...value, desc: txt.about.coreValuesList[i].desc })).map((value, i) => (
-                <div key={i} className={`scroll-scale delay-${i + 1} bg-white/5 rounded-2xl p-6 text-center border border-white/10 hover:bg-white/10 transition-colors`}>
-                  <span className="text-3xl mb-3 block">{value.icon}</span>
-                  <h4 className="text-white font-bold mb-1">{value.title}</h4>
-                  <p className="text-slate-400 text-sm">{value.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          
+          </section>
 
-        </div>
-      </section>
+          {/* About Section - 회사 소개 */}
+          <section className="relative py-20 px-6 bg-white">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-14">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-sm font-semibold mb-4">ABOUT ORCINUS</span>
+                <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
+                  {txt.about.sectionTitle}
+                </h2>
+                <p className="text-slate-600 text-base max-w-2xl mx-auto">
+                  {txt.about.sectionDesc1}<br />
+                  {txt.about.sectionDesc2}
+                </p>
+              </div>
 
-      {/* CTA Section */}
-      <section id="contact" className="relative py-20 px-6 bg-slate-50">
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-gradient-to-br from-white to-cyan-50 rounded-3xl p-10 shadow-lg text-center relative overflow-hidden border border-slate-200">
-            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500"/>
-            
-            <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{fontFamily: "'Noto Sans KR', sans-serif"}}>
-              {txt.cta.title}
-            </h2>
-            <p className="text-slate-600 text-lg mb-8 max-w-md mx-auto">
-              {txt.cta.subtitle}
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button onClick={() => setShowDemoModal(true)} className="group relative bg-gradient-to-r from-cyan-400 to-cyan-500 text-black px-8 py-4 rounded-xl text-lg font-bold hover:from-cyan-300 hover:to-cyan-400 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/40 hover:-translate-y-1 active:scale-100 transition-all duration-200 shadow-md">
-                <span className="relative">{txt.hero.cta1}</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                {txt.about.stats.map((stat, i) => (
+                  <div key={i} className="group bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:border-cyan-400 hover:shadow-2xl hover:scale-105 hover:-translate-y-3 transition-all duration-300 hover:bg-gradient-to-br hover:from-white hover:to-cyan-50 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/10 transition-all duration-500"></div>
+                    <div className="text-3xl font-black text-[#0F172A] mb-1" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                      {stat.value}
+                    </div>
+                    <div className="text-cyan-600 font-semibold mb-2">{stat.label}</div>
+                    <div className="text-slate-500 text-sm">{stat.desc}</div>
+                  </div>
+                ))}
+              </div>
 
-      {/* Footer */}
-      <footer className="py-10 px-6 border-t border-slate-200 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
-            <div>
-              <OrcinusLogo size="small" />
-              <p className="text-slate-500 mt-3 text-sm">
-                {txt.footer.tagline}
-              </p>
-            </div>
-            <div className="grid grid-cols-3 gap-10 text-sm">
-              <div>
-                <h4 className="text-slate-900 font-bold mb-3">{txt.footer.system}</h4>
-                <ul className="space-y-2 text-slate-500">
-                  {txt.footer.systemLinks.map((link, i) => (
-                    <li key={i}><a href="#" className="hover:text-cyan-600 transition-colors">{link}</a></li>
+              <div className="mt-12 bg-gradient-to-r from-slate-50 to-cyan-50 rounded-2xl p-8 border border-slate-200">
+                <h3 className="text-xl font-bold text-[#0F172A] mb-4 text-center">{txt.about.coreValues}</h3>
+                <div className="grid md:grid-cols-3 gap-6">
+                  {[
+                    { icon: "shield", color: "from-cyan-500 to-blue-600", shadowColor: "group-hover:shadow-cyan-500/30" },
+                    { icon: "dollar", color: "from-blue-500 to-indigo-600", shadowColor: "group-hover:shadow-blue-500/30" },
+                    { icon: "zap", color: "from-indigo-500 to-violet-600", shadowColor: "group-hover:shadow-indigo-500/30" },
+                  ].map((item, i) => (
+                    <div key={i} className="text-center group">
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto mb-3 group-hover:scale-105 group-hover:shadow-lg ${item.shadowColor} transition-all duration-200`}>
+                        <Icon name={item.icon} className="w-6 h-6 text-white" />
+                      </div>
+                      <h4 className="font-bold text-slate-800 mb-1">{txt.about.coreValueItems[i].title}</h4>
+                      <p className="text-slate-600 text-sm">{txt.about.coreValueItems[i].desc.split('\n').map((line, j) => <React.Fragment key={j}>{j > 0 && <br />}{line}</React.Fragment>)}</p>
+                    </div>
                   ))}
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-slate-900 font-bold mb-3">{txt.footer.companyTitle}</h4>
-                <ul className="space-y-2 text-slate-500">
-                  {txt.footer.companyLinks.map((link, i) => (
-                    <li key={i}><a href="#" className="hover:text-cyan-600 transition-colors">{link}</a></li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-slate-900 font-bold mb-3">{txt.footer.contactTitle}</h4>
-                <ul className="space-y-2 text-slate-500">
-                  <li>support@orcaorcinus.com</li>
-                </ul>
+                </div>
               </div>
             </div>
-          </div>
-          
-          <div className="border-t border-slate-200 pt-6 text-center text-slate-400 text-sm">
-            © 2026 Orcinus. All rights reserved.
-          </div>
-        </div>
-      </footer>
-      </>
+          </section>
+
+          {/* 회사 소개 섹션 - 토스/카카오 스타일 */}
+          <section id="about" className="relative py-24 px-6 bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden">
+            {/* 배경 장식 */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+            </div>
+
+            <div className="relative max-w-5xl mx-auto">
+              {/* 헤더 */}
+              <div className="text-center mb-20 scroll-fade-in">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-500/20 text-cyan-400 text-sm font-semibold mb-6">ABOUT ORCINUS</span>
+                <h2 className="text-4xl md:text-5xl font-black text-white mb-6" style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
+                  {txt.about.aboutTitle.split('\n').map((line, i) => <React.Fragment key={i}>{i > 0 && <br />}{line}</React.Fragment>)}
+                </h2>
+                <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+                  {txt.about.aboutDesc1}<br className="hidden md:block" />
+                  {txt.about.aboutDesc2}
+                </p>
+              </div>
+
+              {/* 미션 & 비전 */}
+              <div className="grid md:grid-cols-2 gap-8 mb-20">
+                <div className="scroll-slide-left bg-white/5 backdrop-blur rounded-3xl p-8 border border-white/10 hover:border-cyan-500/30 transition-colors">
+                  <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-6">
+                    <span className="text-2xl">🎯</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">Mission</h3>
+                  <p className="text-slate-300 leading-relaxed">
+                    {txt.about.missionDesc}
+                  </p>
+                </div>
+                <div className="scroll-slide-right bg-white/5 backdrop-blur rounded-3xl p-8 border border-white/10 hover:border-cyan-500/30 transition-colors">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                    <span className="text-2xl">🔭</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">Vision</h3>
+                  <p className="text-slate-300 leading-relaxed">
+                    {txt.about.visionDesc}
+                  </p>
+                </div>
+              </div>
+
+              {/* 핵심 가치 - 가로 스크롤 */}
+              <div className="mb-20 scroll-fade-in">
+                <h3 className="text-xl font-bold text-white mb-8 text-center">Core Values</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {[
+                    { icon: "⚡", title: "Speed" },
+                    { icon: "🔒", title: "Trust" },
+                    { icon: "🔬", title: "Innovation" },
+                    { icon: "🤝", title: "Partnership" },
+                  ].map((value, i) => ({ ...value, desc: txt.about.coreValuesList[i].desc })).map((value, i) => (
+                    <div key={i} className={`scroll-scale delay-${i + 1} bg-white/5 rounded-2xl p-6 text-center border border-white/10 hover:bg-white/10 transition-colors`}>
+                      <span className="text-3xl mb-3 block">{value.icon}</span>
+                      <h4 className="text-white font-bold mb-1">{value.title}</h4>
+                      <p className="text-slate-400 text-sm">{value.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+
+            </div>
+          </section>
+
+          {/* CTA Section */}
+          <section id="contact" className="relative py-20 px-6 bg-slate-50">
+            <div className="max-w-3xl mx-auto">
+              <div className="bg-gradient-to-br from-white to-cyan-50 rounded-3xl p-10 shadow-lg text-center relative overflow-hidden border border-slate-200">
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500" />
+
+                <h2 className="text-3xl md:text-4xl font-black text-[#0F172A] mb-4" style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
+                  {txt.cta.title}
+                </h2>
+                <p className="text-slate-600 text-lg mb-8 max-w-md mx-auto">
+                  {txt.cta.subtitle}
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <button onClick={() => setShowDemoModal(true)} className="group relative bg-gradient-to-r from-cyan-400 to-cyan-500 text-black px-8 py-4 rounded-xl text-lg font-bold hover:from-cyan-300 hover:to-cyan-400 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/40 hover:-translate-y-1 active:scale-100 transition-all duration-200 shadow-md">
+                    <span className="relative">{txt.hero.cta1}</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="py-10 px-6 border-t border-slate-200 bg-white">
+            <div className="max-w-6xl mx-auto">
+              <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
+                <div>
+                  <OrcinusLogo size="small" />
+                  <p className="text-slate-500 mt-3 text-sm">
+                    {txt.footer.tagline}
+                  </p>
+                </div>
+                <div className="grid grid-cols-3 gap-10 text-sm">
+                  <div>
+                    <h4 className="text-slate-900 font-bold mb-3">{txt.footer.system}</h4>
+                    <ul className="space-y-2 text-slate-500">
+                      {txt.footer.systemLinks.map((link, i) => (
+                        <li key={i}><a href="#" className="hover:text-cyan-600 transition-colors">{link}</a></li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-slate-900 font-bold mb-3">{txt.footer.companyTitle}</h4>
+                    <ul className="space-y-2 text-slate-500">
+                      {txt.footer.companyLinks.map((link, i) => (
+                        <li key={i}><a href="#" className="hover:text-cyan-600 transition-colors">{link}</a></li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-slate-900 font-bold mb-3">{txt.footer.contactTitle}</h4>
+                    <ul className="space-y-2 text-slate-500">
+                      <li>support@orcaorcinus.com</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-t border-slate-200 pt-6 text-center text-slate-400 text-sm">
+                © 2026 Orcinus. All rights reserved.
+              </div>
+            </div>
+          </footer>
+        </>
       )}
     </div>
   );
