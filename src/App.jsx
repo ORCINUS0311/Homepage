@@ -132,7 +132,6 @@ export default function OrcinusLanding() {
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [demoForm, setDemoForm] = useState({ name: '', company: '', phone: '', email: '', message: '' });
   const [demoStatus, setDemoStatus] = useState('idle');
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwd3gHzCr--uq0fNYoY7NbechO134_0HK4N4PlTAbLJ5sZVncE9aTMxuMqPzOTr2mdSlA/exec';
 
   // 관리자 Google 로그인
   const GOOGLE_CLIENT_ID = '638764108484-njiob019mkiru7162897ha2abtaa5ddm.apps.googleusercontent.com';
@@ -754,8 +753,9 @@ export default function OrcinusLanding() {
     if (!demoForm.name || !demoForm.company || !demoForm.email) return;
     setDemoStatus('loading');
     try {
-      await fetch(APPS_SCRIPT_URL, {
+      await fetch('/api/demo', {
         method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(demoForm),
       });
       setDemoStatus('success');
